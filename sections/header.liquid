@@ -6,7 +6,7 @@
 
     <!-- ======== MENU DESKTOP ======== -->
     {% if section.settings.menu != blank %}
-      <nav class="lg:flex items-center space-x-8 uppercase text-sm font-semibold tracking-wide text-gray-800">
+      <nav class="hidden lg:flex items-center space-x-8 uppercase text-sm font-semibold tracking-wide text-gray-800">
         {% for link in linklists[section.settings.menu].links %}
           {% if link.links != blank %}
             <div x-data="{ open: false }" class="relative">
