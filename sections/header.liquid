@@ -6,7 +6,7 @@
 
     <!-- ======== MENU DESKTOP ======== -->
     {% if section.settings.menu != blank %}
-      <nav class="hidden md:flex items-center space-x-8 uppercase text-sm font-semibold tracking-wide text-gray-800">
+      <nav class="hidden lg:flex items-center space-x-8 uppercase text-sm font-semibold tracking-wide text-gray-800">
         {% for link in linklists[section.settings.menu].links %}
           {% if link.links != blank %}
             <div x-data="{ open: false }" class="relative">
@@ -54,7 +54,7 @@
     </div>
 
     <!-- ======== BOUTONS À DROITE ======== -->
-    <div class="hidden md:flex items-center space-x-4">
+    <div class="hidden lg:flex items-center space-x-4">
       <a href="{{ routes.cart_url }}" class="text-sm font-semibold uppercase bg-gray-900 text-white px-4 py-2 rounded-lg hover:bg-gray-700 transition">
         Purchase
       </a>
@@ -69,7 +69,7 @@
     <!-- ======== BOUTON BURGER (MOBILE) ======== -->
     <button
       @click="mobileMenuOpen = true"
-      class="md:hidden inline-flex items-center justify-center p-2 rounded-md text-gray-800 hover:bg-gray-100 focus:outline-none"
+      class="lg:hidden inline-flex items-center justify-center p-2 rounded-md text-gray-800 hover:bg-gray-100 focus:outline-none"
     >
       <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
         viewBox="0 0 24 24" stroke="currentColor">
