@@ -6,40 +6,22 @@
 
     <!-- ======== MENU DESKTOP ======== -->
     {% if section.settings.menu != blank %}
-      <nav class="hidden lg:flex items-center space-x-8 uppercase text-sm font-semibold tracking-wide text-gray-800">
-        {% for link in linklists[section.settings.header-menu].links %}
-          {% if link.links != blank %}
-            <div x-data="{ open: false }" class="relative">
-              <button
-                @click="open = !open"
-                class="hover:text-gray-500 focus:outline-none flex items-center"
-              >
-                {{ link.title }}
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1 transition-transform duration-200" :class="open ? 'rotate-180' : ''" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-                </svg>
-              </button>
-
-              <div
-                x-show="open"
-                @click.away="open = false"
-                x-transition
-                class="absolute left-0 mt-3 bg-white border border-gray-200 rounded-lg shadow-lg py-2 w-48"
-              >
-                {% for child_link in link.links %}
-                  <a href="{{ child_link.url }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
-                    {{ child_link.title }}
-                  </a>
-                {% endfor %}
-              </div>
-            </div>
-          {% else %}
-            <a href="{{ link.url }}" class="hover:text-gray-500">
-              {{ link.title }}
-            </a>
-          {% endif %}
-        {% endfor %}
-      </nav>
+      <!-- Menu vertical -->
+<nav id="vertical-menu">
+  {% for block in section.blocks %}
+    {% if block.type == 'vertical_menu' %}
+      {% if block.settings.menu != blank %}
+        <ul class="hidden lg:flex flex-col lg:flex-row gap-6 uppercase text-sm font-semibold tracking-wide">
+          {% for link in linklists[block.settings.menu].links %}
+            <li>
+              <a href="{{ link.url }}" class="hover:text-gray-500">{{ link.title }}</a>
+            </li>
+          {% endfor %}
+        </ul>
+      {% endif %}
+    {% endif %}
+  {% endfor %}
+</nav>
     {% endif %}
 
     <!-- ======== LOGO CENTRÉ ======== -->
