@@ -22,6 +22,10 @@
   class="utility-bar color-{{ section.settings.color_scheme }} gradient{% if section.settings.show_line_separator and section.blocks.size > 0 %} utility-bar--bottom-border{% elsif section.settings.show_line_separator and section.settings.show_social and social_icons%} utility-bar--bottom-border-social-only{% endif %}{% if section.settings.enable_country_selector or section.settings.enable_language_selector %} header-localization{% endif %}"
   {{ block.shopify_attributes }}
 >
+  <div class="bg-blue-500 text-white text-center py-8 rounded-lg shadow-lg">
+  <h1 class="text-4xl font-bold mb-2">🎉 Tailwind fonctionne !</h1>
+  <p class="text-lg opacity-90">Si tu vois ce bloc bleu, c’est gagné 🚀</p>
+</div>
   <div class="page-width utility-bar__grid{% if announcement_bar and language_country_selector or section.settings.show_social and social_icons %} utility-bar__grid--3-col{% elsif language_country_selector or section.settings.show_social and social_icons %} utility-bar__grid--2-col{% endif %}">
     {%- if section.settings.show_social and social_icons -%}
       {%- render 'social-icons' -%}
