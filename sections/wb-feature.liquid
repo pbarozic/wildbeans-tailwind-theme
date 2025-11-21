@@ -17,7 +17,7 @@
   <div class="w-full md:flex-1 flex items-center px-4 md:px-8 py-8 md:py-16">
     <div class="w-full max-w-2xl mx-auto">
       <div class="rte">
-        {{ section.settings.text }}
+        {{ section.settings.text_html }}
       </div>
     </div>
   </div>
@@ -37,14 +37,14 @@
     {
       "type": "text",
       "id": "image_alt",
-      "label": "Texte alternatif de l'image"
+      "label": "description image : personnes malvoyantes et référencement"
     },
     {
-      "type": "richtext",
-      "id": "text",
-      "label": "Texte HTML",
-      "default": "<p>Insérez votre texte ici.</p>"
-    }
+  "type": "textarea",
+  "id": "text_html",
+  "label": "HTML personnalisé",
+  "default": "<h2>Titre</h2>\n<p>Texte ici…</p>"
+}
   ],
   "presets": [
     {
