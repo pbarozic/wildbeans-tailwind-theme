@@ -1,21 +1,21 @@
-<section class="w-full min-h-screen flex flex-col md:flex-row items-stretch">
+<section class="w-full min-h-screen flex flex-col lg:flex-row lg:justify-start lg:items-start items-stretch">
 
   <!-- IMAGE -->
-  <div class="w-full md:w-1/2 flex justify-center items-center px-4 md:px-8 py-8 md:py-16">
+  <div class="w-full lg:w-1/3 flex justify-center lg:justify-start items-center">
     {% if section.settings.image != blank %}
-      <div class="w-full max-w-xl aspect-[4/5]">
+      <div class="w-full max-w-xl md:max-w-2xl lg:max-w-3xl aspect-[4/5] lg:aspect-[3/4]">
         <img
-          src="{{ section.settings.image | image_url: width: 1600 }}"
+          src="{{ section.settings.image | image_url: width: 2000 }}"
           alt="{{ section.settings.image_alt | escape }}"
-          class="w-full h-full object-contain"
+          class="w-full object-contain"
         >
       </div>
     {% endif %}
   </div>
 
   <!-- TEXTE -->
-  <div class="w-full md:flex-1 flex items-center px-4 md:px-8 py-8 md:py-16">
-    <div class="w-full max-w-2xl mx-auto">
+  <div class="w-full lg:w-2/3 lg:flex-1 flex justify-start items-start">
+    <div class="w-full">
       <div class="rte">
         {{ section.settings.text_html }}
       </div>
@@ -40,11 +40,11 @@
       "label": "description image : personnes malvoyantes et référencement"
     },
     {
-  "type": "textarea",
-  "id": "text_html",
-  "label": "HTML personnalisé",
-  "default": "<h2>Titre</h2>\n<p>Texte ici…</p>"
-}
+      "type": "textarea",
+      "id": "text_html",
+      "label": "HTML personnalisé",
+      "default": "<h2>Titre</h2>\n<p>Texte ici…</p>"
+    }
   ],
   "presets": [
     {

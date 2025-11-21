@@ -1,18 +1,18 @@
-<header class="fixed top-0 z-50 w-screen bg-white text-black py-8 flex flex-row pointer-events-none transition-opacity duration-500">
+<header class="fixed top-0 z-50 w-screen bg-white text-black py-8 flex flex-row transition-opacity duration-500">
   <nav class="flex w-1/2 flex-col items-start space-y-2 pl-2">
     {% for link in linklists.main-menu.links %}
       <div class="w-full">
-        <div class="flex items-center justify-between w-full">
+        <div class="flex items-center justify-between w-1/4">
           <a 
             href="{{ link.url }}" 
-            class="text-lg font-medium hover:text-yellow-400 transition-colors duration-200"
+            class="text-3XL font-medium hover:text-yellow-400 transition-colors duration-200"
           >
             {{ link.title }}
           </a>
 
           {% if link.links.size > 0 %}
             <button 
-              class="toggle-submenu text-lg font-bold px-2 focus:outline-none"
+              class="toggle-submenu text-3XL font-bold px-2 focus:outline-none"
               aria-label="Afficher le sous-menu"
             >
               ▾
@@ -25,7 +25,7 @@
             {% for sublink in link.links %}
               <a 
                 href="{{ sublink.url }}" 
-                class="text-base hover:text-yellow-400 transition-colors duration-200"
+                class="text-3XL hover:text-yellow-400 transition-colors duration-200"
               >
                 {{ sublink.title }}
               </a>
@@ -50,26 +50,3 @@
   </script>
 
   
-</header>
-<script>
-  document.addEventListener("DOMContentLoaded", () => {
-    const header = document.querySelector("header");
-    const hero = document.querySelector("#hero-group");
-
-    function toggleHeader() {
-      const heroBottom = hero.offsetHeight; 
-      if (window.scrollY >= heroBottom) {
-        header.classList.remove("opacity-0", "pointer-events-none");
-        header.classList.add("opacity-100");
-      } else {
-        header.classList.add("opacity-0", "pointer-events-none");
-        header.classList.remove("opacity-100");
-      }
-    }
-
-    // Initial state
-    toggleHeader();
-
-    window.addEventListener("scroll", toggleHeader);
-  });
-</script>
