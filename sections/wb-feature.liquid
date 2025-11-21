@@ -17,23 +17,7 @@
   <div class="w-full md:flex-1 flex items-center px-4 md:px-8 py-8 md:py-16">
     <div class="w-full max-w-2xl mx-auto">
       <div class="rte">
-        {% if section.settings.kicker != blank %}
-          <p class="text-xs md:text-sm font-semibold tracking-[0.25em] mb-3 uppercase">
-            {{ section.settings.kicker }}
-          </p>
-        {% endif %}
-
-        {% if section.settings.title != blank %}
-          <h2 class="text-2xl md:text-3xl lg:text-4xl font-bold mb-4 leading-tight">
-            {{ section.settings.title }}
-          </h2>
-        {% endif %}
-
-        {% if section.settings.text != blank %}
-          <div class="text-base md:text-lg leading-relaxed space-y-4">
-            {{ section.settings.text }}
-          </div>
-        {% endif %}
+        {{ section.settings.text }}
       </div>
     </div>
   </div>
@@ -56,22 +40,10 @@
       "label": "Texte alternatif de l'image"
     },
     {
-      "type": "text",
-      "id": "kicker",
-      "label": "Petit titre (kicker)",
-      "default": "Petit titre"
-    },
-    {
-      "type": "text",
-      "id": "title",
-      "label": "Titre principal",
-      "default": "TITRE"
-    },
-    {
       "type": "richtext",
       "id": "text",
-      "label": "Texte",
-      "default": "<p>Texte de description ici.</p>"
+      "label": "Texte HTML",
+      "default": "<p>Insérez votre texte ici.</p>"
     }
   ],
   "presets": [
