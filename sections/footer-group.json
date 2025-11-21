@@ -11,6 +11,16 @@
   "name": "t:sections.footer.name",
   "type": "footer",
   "sections": {
+    "wb_footer_XbyTcQ": {
+      "type": "wb-footer",
+      "name": "WB - Footer Logo + CTA",
+      "settings": {
+        "image": "shopify://shop_images/251015_LOGO-WILDBEANS_BLK_redimensionne.png",
+        "image_alt": "Logo Wild Beans",
+        "button_label": "PRÉPAREZ VOTRE ÉVÉNEMENT",
+        "button_url": "shopify://collections/frontpage"
+      }
+    },
     "footer": {
       "type": "footer",
       "blocks": {
@@ -59,6 +69,7 @@
     }
   },
   "order": [
+    "wb_footer_XbyTcQ",
     "footer"
   ]
 }
