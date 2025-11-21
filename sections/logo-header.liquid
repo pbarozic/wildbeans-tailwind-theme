@@ -1,0 +1,49 @@
+<section class="w-full flex flex-col justify-start overflow-x-hidden snap-start">
+
+  <!-- LOGO -->
+  <div class="lg:h-screen sm:h-1/2 flex flex-col justify-end">
+
+        <img 
+        src="{{ '251015_LOGO-WILDBEANS_BLK_crope.png' | file_url }}" 
+        alt="WILD BEANS"
+        class="w-full object-contain" 
+      />
+
+  </div>
+
+  <!-- VIDEO -->
+<div class="h-screen w-full">
+    <video
+      autoplay
+      muted
+      loop
+      playsinline
+      preload="auto"
+    class="w-full h-full object-cover"
+    >
+      <source src="{{ 'V01.mp4' | file_url }}" type="video/mp4" />
+      Votre navigateur ne supporte pas la lecture de vidéo.
+    </video>
+  </div>
+
+</section>
+
+<style>
+@keyframes scrollPulse {
+  0%, 100% { opacity: 0.6; }
+  50% { opacity: 1; }
+}
+</style>
+
+{% schema %}
+{
+  "name": "Logo header",
+  "tag": "section",
+  "settings": [],
+  "presets": [
+    {
+      "name": "Logo header"
+    }
+  ]
+}
+{% endschema %}

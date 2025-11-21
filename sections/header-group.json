@@ -7,6 +7,7 @@
  * made to this file may be overwritten.
  * ------------------------------------------------------------
  */
+
 {
   "name": "t:sections.header.name",
   "type": "header",
@@ -15,7 +16,6 @@
       "type": "custom-liquid",
       "name": "Logo-header",
       "settings": {
-        "custom_liquid": "<section class=\"w-full flex flex-col overflow-x-hidden snap-start\">\n\n  <!-- LOGO -->\n  <div class=\"flex flex-col justify-end items-center h-screen w-full relative overflow-hidden\">\n\n    <div class=\"hero-logo w-full max-w-full\">\n      <img \n        src=\"{{ '251015_LOGO-WILDBEANS_BLK_crope.png' | file_url }}\" \n        alt=\"WILD BEANS\"\n        class=\"w-full h-auto object-contain\"\n      />\n    </div>\n  </div>\n\n  <!--  VIDEO -->\n  <div id=\"video-section\" class=\"relative w-full h-screen overflow-hidden\">\n    <video autoplay muted loop playsinline preload=\"auto\" class=\"absolute top-1/2 left-1/2 w-full h-screen object-cover -translate-x-1/2 -translate-y-1/2\">\n      <source src=\"{{ 'V01.mp4' | file_url }}\" type=\"video/mp4\" />\n      Votre navigateur ne supporte pas la lecture de vidéo.\n    </video>\n  </div>\n\n</section>\n\n<style>\n@keyframes scrollPulse {\n  0%, 100% { opacity: 0.6; }\n  50% { opacity: 1; }\n}\n</style>",
         "color_scheme": "",
         "padding_top": 0,
         "padding_bottom": 0
