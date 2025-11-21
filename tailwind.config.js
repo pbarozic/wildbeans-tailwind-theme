@@ -1,26 +1,29 @@
+/** @type {import('tailwindcss').Config} */
 module.exports = {
-  prefix: 'twcss-',
+  // 🔍 On dit à Tailwind de scanner les fichiers Liquid (utile plus tard si tu veux activer le purge)
   content: [
-    './layout/*.liquid',
-    './templates/*.liquid',
-    './templates/customers/*.liquid',
-    './sections/*.liquid',
-    './snippets/*.liquid',
+    "./layout/**/*.liquid",
+    "./templates/**/*.liquid",
+    "./sections/**/*.liquid",
+    "./snippets/**/*.liquid",
+    "./assets/**/*.js",
   ],
+
+  // 🛟 Safelist = garde toutes les classes, même celles qu'il ne trouve pas
+  safelist: [
+    { pattern: /.*/ }, // garde absolument toutes les classes possibles
+  ],
+
+  // 🎨 Ton thème Tailwind (tu pourras personnaliser ici)
   theme: {
-    screens: {
-      sm: '320px',
-      md: '750px',
-      lg: '990px',
-      xlg: '1440px',
-      x2lg: '1920px',
-      pageMaxWidth: '1440px',
-    },
     extend: {
-      fontFamily: {
-        heading: 'var(--font-heading-family)',
+      colors: {
+        // exemple de custom couleur
+        brand: "#ff6600",
       },
     },
   },
+
+  // 🧩 Plugins (vide pour l’instant)
   plugins: [],
-};
+}

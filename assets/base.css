@@ -1,3 +1,7 @@
+body {
+  font-family: 'Fragment Mono', monospace !important;
+}
+
 :root {
   --alpha-button-background: 1;
   --alpha-button-border: 1;
@@ -3680,4 +3684,9 @@ details-disclosure > details {
   100% {
     transform: translateX(100%) scaleX(0);
   }
+}
+
+.color-scheme-1.isolate.gradient {
+  overflow: visible !important;
+  isolation: auto !important;
 }
