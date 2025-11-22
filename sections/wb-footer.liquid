@@ -15,10 +15,10 @@ class="fixed bottom-0 left-0 right-0 z-40 bg-transparent wb-footer">
     </div>
 
     {%- comment -%} BOUTON DROITE {%- endcomment -%}
-    <div class="w-2/3 flex items-end justify-end pr-6 mb-6">
+    <div id="footer-cta" class="w-2/3 flex items-end justify-end pr-6 mb-6 footer-cta">
       {% if section.settings.button_label != blank %}
        <a
-  href="{{ section.settings.button_link | default: routes.contact_url }}"
+  href="{{ section.settings.button_link | default: '/pages/contact' }}"
   class="btn-wave inline-flex items-center justify-center px-6 py-2 border border-black rounded-md text-3xl tracking-[0.08em] uppercase font-semibold bg-black text-white transition-colors duration-300"
 >
   <span class="btn-wave-content inline-flex items-center gap-2">
@@ -31,6 +31,106 @@ class="fixed bottom-0 left-0 right-0 z-40 bg-transparent wb-footer">
 
   </div>
 </div>
+<style>
+  /* bouton caché par défaut */
+  .footer-cta {
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 300ms ease;
+  }
+
+  /* visible quand on ajoute la classe */
+  .footer-cta--visible {
+    opacity: 1;
+    pointer-events: auto;
+  }
+</style>
+
+{% if template.name == 'index' %}
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const footerCta = document.getElementById('footer-cta');
+      if (!footerCta) return;
+
+      const zones = document.querySelectorAll('.barista-button');
+      if (!zones.length) return;
+
+      // 1. **Initialisation de l'état de suivi**
+      // On utilise un Map pour stocker l'état (true/false) de chaque zone observée
+      const visibleZones = new Map();
+      zones.forEach((zone, index) => {
+          // On donne un ID unique si l'élément n'en a pas
+          zone.dataset.observerId = `zone-${index}`; 
+          visibleZones.set(zone.dataset.observerId, false);
+      });
+
+      const observer = new IntersectionObserver((entries) => {
+        let isAnyVisible = false;
+
+        // 2. **Mise à jour de l'état de suivi**
+        entries.forEach(entry => {
+          const zoneId = entry.target.dataset.observerId;
+          
+          if (entry.isIntersecting) {
+            // La zone entre dans la vue
+            visibleZones.set(zoneId, true);
+          } else {
+            // La zone sort de la vue
+            visibleZones.set(zoneId, false);
+          }
+        });
+        
+        // 3. **Vérification de l'état global**
+        // On vérifie si n'importe quelle valeur dans la Map est 'true'
+        for (const isVisible of visibleZones.values()) {
+            if (isVisible) {
+                isAnyVisible = true;
+                break;
+            }
+        }
+        
+        // 4. **Application de la classe**
+        if (isAnyVisible) {
+          footerCta.classList.add('footer-cta--visible');
+        } else {
+          footerCta.classList.remove('footer-cta--visible');
+        }
+
+      }, {
+        // threshold: 0.3
+        // Utiliser 'rootMargin' est souvent plus stable pour ce type d'effet
+        // Il étend la zone de vision (root) de 0 pixels dans les 4 directions
+        rootMargin: '0px', 
+        threshold: 0.01 // Déclenchement dès qu'un pixel est visible
+      });
+
+      // **Déclenchement de l'observation**
+      zones.forEach(zone => observer.observe(zone));
+      
+      // 5. **Correction de l'état initial (au chargement)**
+      // On déclenche l'observateur manuellement une fois au début pour définir l'état initial correct
+      // (Optionnel mais recommandé pour les Intersection Observers)
+      observer.takeRecords().forEach(entry => {
+        const zoneId = entry.target.dataset.observerId;
+        if (entry.isIntersecting) {
+            visibleZones.set(zoneId, true);
+        }
+      });
+      // Et on applique la classe après la vérification initiale
+      let initialVisible = false;
+      for (const isVisible of visibleZones.values()) {
+          if (isVisible) {
+              initialVisible = true;
+              break;
+          }
+      }
+      if (initialVisible) {
+        footerCta.classList.add('footer-cta--visible');
+      }
+
+    });
+  </script>
+{% endif %}
 
 {% schema %}
 {

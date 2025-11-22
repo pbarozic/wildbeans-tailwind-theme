@@ -1,84 +1,94 @@
+{%- liquid
+  assign collection = section.settings.collection
+-%}
+
 <section
-  id="wb-featured-products-{{ section.id }}"
-  class="w-screen h-screen snap-start pt-[380px] flex flex-col justify-start overflow-hidden reveal reveal-scale"
+  id="coffee"
+  class="w-full pt-80 min-h-screen flex flex-col items-stretch reveal reveal-scale snap-start no-barista-button"
 >
-  <div class="w-full max-w-7xl mx-auto flex flex-col px-4">
-    {%- comment -%} TITRE {%- endcomment -%}
-    {% if section.settings.title != blank %}
-      <h2 class="text-3xl md:text-4xl font-semibold">
-        {{ section.settings.title }}
-      </h2>
-    {% endif %}
+  <div class="px-6 flex flex-col items-start gap-8 h-full">
 
-    {%- comment -%} SLIDER PRODUITS {%- endcomment -%}
-    {% if section.settings.collection != blank %}
-      <div class="mt-8 flex-1">
+    {%- comment -%} TITRE + DESCRIPTION {%- endcomment -%}
+    <div class="max-w-4xl">
+      {% if section.settings.title != blank %}
+        <h2 class="text-4xl font-semibold leading-tight">
+          {{ section.settings.title }}
+        </h2>
+      {% endif %}
+
+      {% if section.settings.description != blank %}
+        <div class="mt-4 text-base leading-relaxed rte">
+          {{ section.settings.description }}
+        </div>
+      {% endif %}
+    </div>
+
+    {%- comment -%} SLIDER HORIZONTAL PRODUITS {%- endcomment -%}
+    {% if collection != blank and collection.products_count > 0 %}
+      <div class="flex items-center">
         <div
-          class="
-            flex flex-col md:flex-row
-            gap-8
-            md:overflow-x-auto
-            md:scroll-smooth
-            md:snap-x md:snap-mandatory
-            pb-8
-          "
+          class="w-full flex justify-between overflow-x-auto md:snap-x md:snap-mandatory no-scrollbar pb-6"
         >
-          {% for product in section.settings.collection.products limit: section.settings.products_to_show %}
-            <article
-              class="
-                flex flex-col items-start
-                w-full md:min-w-[260px] lg:min-w-[320px]
-                md:flex-shrink-0
-                md:snap-start
-              "
-            >
-              {%- comment -%} IMAGE PRODUIT {%- endcomment -%}
-              {% if product.featured_image %}
-                <div class="w-full aspect-[4/5] overflow-hidden mb-4">
-                  <img
-                    src="{{ product.featured_image | image_url: width: 800 }}"
-                    alt="{{ product.featured_image.alt | default: product.title | escape }}"
-                    class="w-full h-full object-cover"
-                    loading="lazy"
-                  >
-                </div>
-              {% endif %}
-
-              {%- comment -%} TITRE + PRIX {%- endcomment -%}
-              <div class="space-y-2">
-                <h3 class="text-xl font-medium">
-                  <a href="{{ product.url }}" class="link-wave">
-                    {{ product.title }}
-                  </a>
-                </h3>
-
-                <p class="text-base">
-                  {{ product.price | money }}
-                </p>
-              </div>
-            </article>
+          {% for product in collection.products limit: section.settings.products_to_show %}
+            {% render 'wb-card-product', card_product: product %}
           {% endfor %}
         </div>
       </div>
     {% else %}
-      <p class="mt-8 text-sm">
-        Aucune collection sélectionnée dans la section.
+      <p class="mt-8 text-sm opacity-70">
+        Aucun produit à afficher dans cette sélection pour le moment.
       </p>
     {% endif %}
+
+    {%- comment -%} BOUTON "VOIR TOUT" OPTIONNEL {%- endcomment -%}
+    {% if section.settings.show_view_all and collection != blank %}
+      <div class="mt-2">
+        <a
+          href="{{ collection.url }}"
+          class="btn-wave inline-flex items-center text-xs tracking-[0.25em] uppercase font-semibold"
+        >
+          <span class="btn-wave-content inline-flex items-center gap-2">
+            <span>{{ section.settings.view_all_label | default: 'VOIR TOUTE LA COLLECTION' }}</span>
+            <span class="inline-block text-sm">↗</span>
+          </span>
+        </a>
+      </div>
+    {% endif %}
+
   </div>
 </section>
 
+<style>
+  /* cacher la scrollbar horizontale mais garder le scroll */
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+</style>
+
 {% schema %}
 {
-  "name": "WB product list",
+  "name": "WB - Featured products",
   "tag": "section",
   "class": "section",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
   "settings": [
     {
       "type": "inline_richtext",
       "id": "title",
       "label": "Titre",
-      "default": "Our coffee selection"
+      "default": "OUR COFFEE SELECTION"
+    },
+    {
+      "type": "richtext",
+      "id": "description",
+      "label": "Description",
+      "default": "<p>Une sélection de cafés Wild Beans pour vos moments les plus précieux.</p>"
     },
     {
       "type": "collection",
@@ -92,12 +102,24 @@
       "max": 12,
       "step": 1,
       "default": 4,
-      "label": "Nombre de produits à afficher"
+      "label": "Nombre de produits affichés"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_view_all",
+      "label": "Afficher le lien “Voir tout”",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "view_all_label",
+      "label": "Texte du lien “Voir tout”",
+      "default": "VOIR TOUTE LA COLLECTION"
     }
   ],
   "presets": [
     {
-      "name": "WB - Featured Products Simple"
+      "name": "WB - Featured products"
     }
   ]
 }
