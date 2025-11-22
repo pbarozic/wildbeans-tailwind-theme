@@ -1,0 +1,104 @@
+<section
+  id="wb-featured-products-{{ section.id }}"
+  class="w-screen h-screen snap-start pt-[380px] flex flex-col justify-start overflow-hidden reveal reveal-scale"
+>
+  <div class="w-full max-w-7xl mx-auto flex flex-col px-4">
+    {%- comment -%} TITRE {%- endcomment -%}
+    {% if section.settings.title != blank %}
+      <h2 class="text-3xl md:text-4xl font-semibold">
+        {{ section.settings.title }}
+      </h2>
+    {% endif %}
+
+    {%- comment -%} SLIDER PRODUITS {%- endcomment -%}
+    {% if section.settings.collection != blank %}
+      <div class="mt-8 flex-1">
+        <div
+          class="
+            flex flex-col md:flex-row
+            gap-8
+            md:overflow-x-auto
+            md:scroll-smooth
+            md:snap-x md:snap-mandatory
+            pb-8
+          "
+        >
+          {% for product in section.settings.collection.products limit: section.settings.products_to_show %}
+            <article
+              class="
+                flex flex-col items-start
+                w-full md:min-w-[260px] lg:min-w-[320px]
+                md:flex-shrink-0
+                md:snap-start
+              "
+            >
+              {%- comment -%} IMAGE PRODUIT {%- endcomment -%}
+              {% if product.featured_image %}
+                <div class="w-full aspect-[4/5] overflow-hidden mb-4">
+                  <img
+                    src="{{ product.featured_image | image_url: width: 800 }}"
+                    alt="{{ product.featured_image.alt | default: product.title | escape }}"
+                    class="w-full h-full object-cover"
+                    loading="lazy"
+                  >
+                </div>
+              {% endif %}
+
+              {%- comment -%} TITRE + PRIX {%- endcomment -%}
+              <div class="space-y-2">
+                <h3 class="text-xl font-medium">
+                  <a href="{{ product.url }}" class="link-wave">
+                    {{ product.title }}
+                  </a>
+                </h3>
+
+                <p class="text-base">
+                  {{ product.price | money }}
+                </p>
+              </div>
+            </article>
+          {% endfor %}
+        </div>
+      </div>
+    {% else %}
+      <p class="mt-8 text-sm">
+        Aucune collection sélectionnée dans la section.
+      </p>
+    {% endif %}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "WB product list",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "inline_richtext",
+      "id": "title",
+      "label": "Titre",
+      "default": "Our coffee selection"
+    },
+    {
+      "type": "collection",
+      "id": "collection",
+      "label": "Collection"
+    },
+    {
+      "type": "range",
+      "id": "products_to_show",
+      "min": 1,
+      "max": 12,
+      "step": 1,
+      "default": 4,
+      "label": "Nombre de produits à afficher"
+    }
+  ],
+  "presets": [
+    {
+      "name": "WB - Featured Products Simple"
+    }
+  ]
+}
+{% endschema %}
