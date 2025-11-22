@@ -3753,3 +3753,19 @@ details-disclosure>details {
 .btn-wave:hover .btn-wave-content {
   transform: translateX(3px);
 }
+
+/* Forcer l’affichage horizontal du slider desktop Dawn */
+.collection .slider--desktop {
+  display: flex !important;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  overflow-y: visible;
+  scroll-snap-type: x mandatory;
+  gap: 2rem; /* optionnel, espace entre les cartes */
+}
+
+/* Chaque produit = un “slide” horizontal */
+.collection .slider--desktop .slider__slide {
+  flex: 0 0 auto;
+  scroll-snap-align: start;
+}

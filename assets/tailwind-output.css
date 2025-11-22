@@ -637,6 +637,11 @@ video {
   margin: 0px;
 }
 
+.mx-auto {
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .mb-4 {
   margin-bottom: 1rem;
 }
@@ -651,6 +656,14 @@ video {
 
 .mt-2 {
   margin-top: 0.5rem;
+}
+
+.mt-\[380px\] {
+  margin-top: 380px;
+}
+
+.mt-8 {
+  margin-top: 2rem;
 }
 
 .block {
@@ -745,12 +758,24 @@ video {
   width: 100%;
 }
 
+.w-screen {
+  width: 100vw;
+}
+
 .max-w-4xl {
   max-width: 56rem;
 }
 
 .max-w-xl {
   max-width: 36rem;
+}
+
+.max-w-7xl {
+  max-width: 80rem;
+}
+
+.flex-1 {
+  flex: 1 1 0%;
 }
 
 .resize {
@@ -811,6 +836,10 @@ video {
 
 .gap-4 {
   gap: 1rem;
+}
+
+.gap-8 {
+  gap: 2rem;
 }
 
 .space-y-2 > :not([hidden]) ~ :not([hidden]) {
@@ -911,6 +940,18 @@ video {
   padding-top: 380px;
 }
 
+.pt-32 {
+  padding-top: 8rem;
+}
+
+.pt-64 {
+  padding-top: 16rem;
+}
+
+.pb-8 {
+  padding-bottom: 2rem;
+}
+
 .text-3xl {
   font-size: 1.875rem;
   line-height: 2.25rem;
@@ -919,6 +960,21 @@ video {
 .text-xl {
   font-size: 1.25rem;
   line-height: 1.75rem;
+}
+
+.text-5xl {
+  font-size: 3rem;
+  line-height: 1;
+}
+
+.text-base {
+  font-size: 1rem;
+  line-height: 1.5rem;
+}
+
+.text-sm {
+  font-size: 0.875rem;
+  line-height: 1.25rem;
 }
 
 .font-bold {
@@ -1014,8 +1070,45 @@ video {
 }
 
 @media (min-width: 768px) {
+  .md\:min-w-\[260px\] {
+    min-width: 260px;
+  }
+
   .md\:max-w-2xl {
     max-width: 42rem;
+  }
+
+  .md\:flex-shrink-0 {
+    flex-shrink: 0;
+  }
+
+  .md\:snap-x {
+    scroll-snap-type: x var(--tw-scroll-snap-strictness);
+  }
+
+  .md\:snap-mandatory {
+    --tw-scroll-snap-strictness: mandatory;
+  }
+
+  .md\:snap-start {
+    scroll-snap-align: start;
+  }
+
+  .md\:flex-row {
+    flex-direction: row;
+  }
+
+  .md\:overflow-x-auto {
+    overflow-x: auto;
+  }
+
+  .md\:scroll-smooth {
+    scroll-behavior: smooth;
+  }
+
+  .md\:text-4xl {
+    font-size: 2.25rem;
+    line-height: 2.5rem;
   }
 }
 
@@ -1030,6 +1123,10 @@ video {
 
   .lg\:w-2\/3 {
     width: 66.666667%;
+  }
+
+  .lg\:min-w-\[320px\] {
+    min-width: 320px;
   }
 
   .lg\:max-w-3xl {
