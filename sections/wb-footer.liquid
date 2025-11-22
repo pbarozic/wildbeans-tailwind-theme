@@ -1,34 +1,38 @@
-<div class="fixed bottom-0 left-0 w-screen z-40">
-  <div class="mx-auto max-w-7xl flex items-end justify-between px-4 md:px-8 py-4 pointer-events-none">
+<div class="fixed bottom-0 left-0 right-0 z-40 bg-transparent wb-footer">
+  <div class="flex flex-row justify-between">
 
     {%- comment -%} LOGO GAUCHE {%- endcomment -%}
-    <div class="pointer-events-auto">
+    <div class="w-1/3 flex items-center">
       {% if section.settings.image != blank %}
-        <img 
+        <img
           src="{{ section.settings.image | image_url: width: 800 }}"
           alt="{{ section.settings.image_alt | escape }}"
-          class="w-24 md:w-32 lg:w-40"
+          class="w-full object-contain"
         >
       {% endif %}
     </div>
 
     {%- comment -%} BOUTON DROITE {%- endcomment -%}
-    {% if section.settings.button_label != blank and section.settings.button_url != blank %}
-      <div class="pointer-events-auto hidden sm:flex">
-        <a
-          href="{{ section.settings.button_url }}"
-          class="inline-flex items-center justify-center px-6 md:px-8 py-2 md:py-3 border border-black text-[0.65rem] md:text-xs lg:text-sm font-semibold tracking-[0.25em] uppercase bg-white text-black rounded-full hover:bg-black hover:text-white transition-colors duration-300"
-        >
-          {{ section.settings.button_label }}
-        </a>
-      </div>
-    {% endif %}
+    <div class="w-2/3 flex items-center justify-end pr-6">
+      {% if section.settings.button_label != blank %}
+       <a
+  href="{{ section.settings.button_link | default: routes.contact_url }}"
+  class="btn-wave inline-flex items-center justify-center px-6 py-2 border border-black rounded-md text-3xl tracking-[0.08em] uppercase font-semibold bg-black text-white transition-colors duration-300"
+>
+  <span class="btn-wave-content inline-flex items-center gap-2">
+    <span>{{ section.settings.button_label }}</span>
+    <span class="inline-block text-3xl">↗</span>
+  </span>
+</a>
+      {% endif %}
+    </div>
+
   </div>
 </div>
 
 {% schema %}
 {
-  "name": "WB - Footer Logo + CTA",
+  "name": "WB - Footer Simple",
   "tag": "section",
   "settings": [
     {
@@ -39,24 +43,24 @@
     {
       "type": "text",
       "id": "image_alt",
-      "label": "Description de l'image (accessibilité & SEO)",
-      "default": "Logo Wild Beans"
+      "label": "Texte alternatif",
+      "default": "Logo"
     },
     {
       "type": "text",
       "id": "button_label",
       "label": "Texte du bouton",
-      "default": "PRÉPAREZ VOTRE ÉVÉNEMENT"
+      "default": "RÉSERVER UN BARISTA"
     },
     {
       "type": "url",
-      "id": "button_url",
+      "id": "button_link",
       "label": "Lien du bouton"
     }
   ],
   "presets": [
     {
-      "name": "WB - Footer Logo + CTA"
+      "name": "WB - Footer Simple"
     }
   ]
 }

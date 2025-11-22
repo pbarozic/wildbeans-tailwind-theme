@@ -3690,3 +3690,26 @@ details-disclosure > details {
   overflow: visible !important;
   isolation: auto !important;
 }
+
+.btn-wave-content {
+  transition: transform 0.4s ease;
+}
+
+.btn-wave:hover .btn-wave-content {
+  animation: wb-wave 0.6s ease-out;
+}
+
+@keyframes wb-wave {
+  0% {
+    transform: translateY(0);
+  }
+  30% {
+    transform: translateY(-2px);
+  }
+  60% {
+    transform: translateY(1px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
