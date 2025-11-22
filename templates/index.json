@@ -42,6 +42,7 @@
     },
     "featured_collection": {
       "type": "featured-collection",
+      "disabled": true,
       "settings": {
         "title": "OUR COFFE SELECTION",
         "heading_size": "h2",
