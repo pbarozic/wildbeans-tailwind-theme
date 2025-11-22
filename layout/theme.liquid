@@ -369,5 +369,85 @@
     {%- if settings.cart_type == 'drawer' -%}
       <script src='{{ 'cart-drawer.js' | asset_url }}' defer='defer'></script>
     {%- endif -%}
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+
+    const reveals = document.querySelectorAll(".reveal");
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            // L’élément entre dans le viewport → animation ON
+            entry.target.classList.add("reveal--visible");
+          } else {
+            // L’élément sort du viewport → animation OFF
+            entry.target.classList.remove("reveal--visible");
+          }
+        });
+      },
+      {
+        threshold: 0.2,
+        rootMargin: "0px 0px -10% 0px"
+      }
+    );
+
+    reveals.forEach(el => observer.observe(el));
+  });
+</script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const header = document.getElementById("site-header");
+    const heroLogo = document.querySelector(".js-hero-logo");
+
+    const footer = document.getElementById("site-footer");
+    const heroSection = document.querySelector(".js-hero-section");
+
+    // HEADER : apparaît après le gros logo
+    if (header && heroLogo && "IntersectionObserver" in window) {
+      const headerObserver = new IntersectionObserver(
+        (entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              // Le gros logo est visible → header caché
+              header.classList.add("header-hidden");
+              header.classList.remove("header-visible");
+            } else {
+              // On a passé le gros logo → header visible
+              header.classList.remove("header-hidden");
+              header.classList.add("header-visible");
+            }
+          });
+        },
+        { threshold: 0.3 }
+      );
+
+      headerObserver.observe(heroLogo);
+    }
+
+    // FOOTER : apparaît seulement quand on est sous TOUTE la section logo+vidéo
+    if (footer && heroSection && "IntersectionObserver" in window) {
+      const footerObserver = new IntersectionObserver(
+        (entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              // La section hero (logo + vidéo) est encore à l'écran → footer caché
+              footer.classList.add("footer-hidden");
+              footer.classList.remove("footer-visible");
+            } else {
+              // On a scrollé sous toute la section hero → footer visible
+              footer.classList.remove("footer-hidden");
+              footer.classList.add("footer-visible");
+            }
+          });
+        },
+        { threshold: 0.1 }
+      );
+
+      footerObserver.observe(heroSection);
+    }
+  });
+</script>
   </body>
 </html>

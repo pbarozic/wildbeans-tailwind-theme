@@ -1,4 +1,6 @@
-<div class="fixed bottom-0 left-0 right-0 z-40 bg-transparent wb-footer">
+<div 
+id="site-footer"
+class="fixed bottom-0 left-0 right-0 z-40 bg-transparent wb-footer">
   <div class="flex flex-row justify-between">
 
     {%- comment -%} LOGO GAUCHE {%- endcomment -%}
@@ -13,7 +15,7 @@
     </div>
 
     {%- comment -%} BOUTON DROITE {%- endcomment -%}
-    <div class="w-2/3 flex items-center justify-end pr-6">
+    <div class="w-2/3 flex items-end justify-end pr-6 mb-6">
       {% if section.settings.button_label != blank %}
        <a
   href="{{ section.settings.button_link | default: routes.contact_url }}"

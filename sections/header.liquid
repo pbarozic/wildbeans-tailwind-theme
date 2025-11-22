@@ -1,4 +1,6 @@
-<header class="fixed top-0 inset-x-0 z-50 bg-white text-black py-6 transition-opacity duration-500">
+<header 
+id="site-header"
+class="fixed top-0 inset-x-0 z-50 bg-transparent text-black py-6 transition-opacity duration-500 header-hidden">
   <div class="flex flex-row justify-between items-start px-4">
     
     {%- comment -%} NAV GAUCHE {%- endcomment -%}
@@ -8,7 +10,7 @@
           <div class="flex items-center justify-between w-1/4">
             <a 
               href="{{ link.url }}" 
-              class="text-3xl font-medium hover:text-yellow-400 transition-colors duration-200"
+              class="text-3xl font-medium link-wave"
             >
               {{ link.title }}
             </a>
@@ -28,7 +30,7 @@
               {% for sublink in link.links %}
                 <a 
                   href="{{ sublink.url }}" 
-                  class="text-3xl hover:text-yellow-400 transition-colors duration-200"
+                  class="text-3xl link-wave"
                 >
                   {{ sublink.title }}
                 </a>
@@ -41,7 +43,7 @@
 
     {%- comment -%} BLOC DROITE (STORE + LOGIN) {%- endcomment -%}
     <div class="w-1/2 flex justify-end">
-      <div class="flex flex-row items-center gap-4 pr-6">
+      <div class="flex flex-row items-center gap-4">
         
         {%- comment -%} BLOC BOUTON STORE {%- endcomment -%}
         <div class="flex">

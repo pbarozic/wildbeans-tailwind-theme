@@ -1,25 +1,28 @@
-<section class="w-full flex flex-col justify-start overflow-x-hidden snap-start">
+{%- comment -%} SECTION 1 : GROS LOGO {%- endcomment -%}
+<section class="w-full min-h-screen flex flex-col justify-end overflow-x-hidden snap-start reveal reveal-scale js-hero-section">
 
   <!-- LOGO -->
-  <div class="lg:h-screen sm:h-1/2 flex flex-col justify-end">
-
-        <img 
-        src="{{ '251015_LOGO-WILDBEANS_BLK_crope.png' | file_url }}" 
-        alt="WILD BEANS"
-        class="w-full object-contain" 
-      />
-
+  <div class="w-full flex flex-col justify-end js-hero-logo">
+    <img 
+      src="{{ '251015_LOGO-WILDBEANS_BLK_crope.png' | file_url }}" 
+      alt="WILD BEANS"
+      class="w-full object-contain" 
+    />
   </div>
 
-  <!-- VIDEO -->
-<div class="h-screen w-full">
+</section>
+
+{%- comment -%} SECTION 2 : VIDÉO PLEIN ÉCRAN {%- endcomment -%}
+<section class="w-full h-screen overflow-x-hidden snap-start reveal reveal-scale js-hero-video">
+
+  <div class="w-full h-full">
     <video
       autoplay
       muted
       loop
       playsinline
       preload="auto"
-    class="w-full h-full object-cover"
+      class="w-full h-full object-cover"
     >
       <source src="{{ 'V01.mp4' | file_url }}" type="video/mp4" />
       Votre navigateur ne supporte pas la lecture de vidéo.
