@@ -22,11 +22,11 @@ class="hidden md:!block fixed bottom-0 left-0 right-0 z-40 bg-transparent wb-foo
       {% if section.settings.button_label != blank %}
        <a
   href="{{ section.settings.button_link | default: '/pages/contact' }}"
-  class="btn-wave inline-flex items-center justify-center px-6 py-2 border border-black rounded-md text-3xl tracking-[0.08em] uppercase font-semibold bg-black text-white transition-colors duration-300"
+  class="btn-wave inline-flex items-center justify-center px-6 py-2 border border-black rounded-md text-xl tracking-[0.08em] uppercase font-semibold bg-black text-white transition-colors duration-300"
 >
   <span class="btn-wave-content inline-flex items-center gap-2">
     <span>{{ section.settings.button_label }}</span>
-    <span class="inline-block text-3xl">↗</span>
+    <span class="inline-block text-xl">↗</span>
   </span>
 </a>
       {% endif %}

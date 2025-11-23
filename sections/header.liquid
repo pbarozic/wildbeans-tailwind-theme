@@ -67,14 +67,14 @@
           <div class="flex items-center justify-between">
             <a 
               href="{{ link.url }}" 
-              class="text-3xl font-medium link-wave"
+              class="text-xl font-medium link-wave"
             >
               {{ link.title }}
             </a>
 
             {% if link.links.size > 0 %}
               <button 
-                class="toggle-submenu text-3xl font-bold px-2 focus:outline-none"
+                class="toggle-submenu text-xl font-bold px-2 focus:outline-none"
                 aria-label="Afficher le sous-menu"
               >
                 ▾
@@ -87,7 +87,7 @@
               {% for sublink in link.links %}
                 <a 
                   href="{{ sublink.url }}" 
-                  class="text-3xl link-wave"
+                  class="text-xl link-wave"
                 >
                   {{ sublink.title }}
                 </a>
@@ -106,7 +106,7 @@
         <div class="flex">
           <a
             href="{{ routes.cart_url }}"
-            class="btn-wave inline-flex items-center justify-center h-16 px-6 rounded-md text-3xl tracking-[0.08em] uppercase font-semibold bg-black text-white"
+            class="btn-wave inline-flex items-center justify-center h-16 px-6 rounded-md text-xl tracking-[0.08em] uppercase font-semibold bg-black text-white"
           >
             <span class="btn-wave-content inline-flex items-center gap-3">
               <span class="inline-flex items-center justify-center">
@@ -193,14 +193,14 @@
           <div class="flex items-center justify-between">
             <a 
               href="{{ link.url }}" 
-              class="text-3xl font-medium link-wave"
+              class="text-xl font-medium link-wave"
             >
               {{ link.title }}
             </a>
 
             {% if link.links.size > 0 %}
               <button 
-                class="toggle-submenu text-3xl font-bold px-2 focus:outline-none"
+                class="toggle-submenu text-xl font-bold px-2 focus:outline-none"
                 aria-label="Afficher le sous-menu"
               >
                 ▾
