@@ -3672,7 +3672,7 @@ details-disclosure>details {
 /* Base : animation reveal */
 .reveal {
   opacity: 0;
-  transition: opacity 1.5s ease, transform 1.5s ease;
+  transition: opacity 2s ease, transform 2s ease;
   will-change: opacity, transform;
 }
 
@@ -3693,7 +3693,7 @@ details-disclosure>details {
 
 /* Variante : zoom */
 .reveal-scale {
-  transform: scale(0.7);
+  transform: scale(0.6);
 }
 
 /* État visible (commun à tout le monde) */
@@ -3768,4 +3768,18 @@ details-disclosure>details {
 .collection .slider--desktop .slider__slide {
   flex: 0 0 auto;
   scroll-snap-align: start;
+}
+
+/* Bandeau cookies Shopify : delay d'apparition sans JS */
+#shopify-pc__banner {
+  opacity: 0;
+  animation: wb-cookie-fade-in 0.4s ease forwards;
+  animation-delay: 3.5s; /* ⏱ ajuste ici : 3.5s, 4s, 5s… */
+}
+
+/* L'animation fait juste passer l'opacité à 1 */
+@keyframes wb-cookie-fade-in {
+  to {
+    opacity: 1;
+  }
 }
