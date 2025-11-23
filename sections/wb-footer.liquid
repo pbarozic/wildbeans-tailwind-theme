@@ -1,18 +1,21 @@
 <div 
 id="site-footer"
-class="fixed bottom-0 left-0 right-0 z-40 bg-transparent wb-footer">
+class="hidden md:!block fixed bottom-0 left-0 right-0 z-40 bg-transparent wb-footer">
   <div class="flex flex-row justify-between">
 
     {%- comment -%} LOGO GAUCHE {%- endcomment -%}
     <div class="w-1/3 flex items-center">
-      {% if section.settings.image != blank %}
-        <img
-          src="{{ section.settings.image | image_url: width: 800 }}"
-          alt="{{ section.settings.image_alt | escape }}"
-          class="w-full object-contain"
-        >
-      {% endif %}
-    </div>
+  {% if section.settings.image != blank %}
+    <a href="/" class="block w-full">
+      <img
+        src="{{ section.settings.image | image_url: width: 800 }}"
+        alt="{{ section.settings.image_alt | escape }}"
+        class="w-full object-contain"
+      >
+    </a>
+  {% endif %}
+</div>
+
 
     {%- comment -%} BOUTON DROITE {%- endcomment -%}
     <div id="footer-cta" class="w-2/3 flex items-end justify-end pr-6 mb-6 footer-cta">
