@@ -1,19 +1,19 @@
 {% comment %} Wild Beans Story & Team – Tailwind, animations, hover effects {% endcomment %}
 <section
   id="wild-beans-story-team"
-  class="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8 py-16 space-y-16"
+  class="uppercase max-w-7xl px-4 sm:py-72 py-16 space-y-16"
 >
   <!-- Story -->
   <div
     class="space-y-6 opacity-0 translate-y-6 transition-all duration-700 ease-out"
     data-scroll-fade
   >
-    <h2 class="text-3xl sm:text-4xl font-bold tracking-tight">
-      Our Story
+    <h2 class="text-3xl sm:text-6xl font-bold tracking-tight">
+      OUR STORY
     </h2>
     <p class="text-sm sm:text-base leading-relaxed">
       Wild Beans was first created by Vincent Rousseau, driven by a simple observation on
-      film sets: long days, tight schedules, and rarely a truly good cup of coffee.
+      add production sets: long days, tight schedules, and rarely a truly good cup of coffee.
       With his deep experience in production logistics, Vincent set out to build a
       service that could finally match the high standards of the crews he worked with.
     </p>
@@ -44,105 +44,84 @@
     </h2>
 
     <div class="grid gap-10 md:grid-cols-3">
-      <!-- Vincent -->
-      <article
-        class="group flex flex-col items-center text-center rounded-2xl border border-neutral-200/60 bg-white/70 backdrop-blur-sm p-6 shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300 ease-out opacity-0 translate-y-6"
-        data-scroll-fade
-        style="transition-delay: 100ms;"
-      >
-        <div class="mb-4">
-          <img
-            src="{{ section.settings.vincent_image | img_url: '400x400' }}"
-            alt="Portrait of Vincent Rousseau"
-            class="mx-auto h-32 w-32 sm:h-40 sm:w-40 object-cover rounded-2xl shadow-md ring-2 ring-neutral-100 group-hover:ring-neutral-200 transition-all duration-300"
-          />
-        </div>
-        <h3 class="text-lg sm:text-xl font-semibold">
-          Vincent Rousseau
-        </h3>
-        <p class="text-xs sm:text-sm uppercase tracking-wide text-neutral-500 mb-3">
-          Founder &amp; Production Lead
-        </p>
-
-        <!-- Shorter mobile bio -->
-        <p class="text-sm text-neutral-700 md:hidden">
-          Vincent leads operations, logistics, and on-set coordination so great coffee
-          fits seamlessly into every shoot.
-        </p>
-        <!-- Fuller desktop bio -->
-        <p class="hidden md:block text-sm text-neutral-700 leading-relaxed">
-          Vincent brings years of experience in commercial production. He leads operations —
-          planning, logistics, on-set coordination, and the overall experience delivered to
-          production teams, making exceptional coffee an effortless part of every shoot.
-        </p>
-      </article>
-
-      <!-- Tom -->
-      <article
-        class="group flex flex-col items-center text-center rounded-2xl border border-neutral-200/60 bg-white/70 backdrop-blur-sm p-6 shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300 ease-out opacity-0 translate-y-6"
-        data-scroll-fade
-        style="transition-delay: 200ms;"
-      >
-        <div class="mb-4">
-          <img
-            src="{{ section.settings.tom_image | img_url: '400x400' }}"
-            alt="Portrait of Tom Darval"
-            class="mx-auto h-32 w-32 sm:h-40 sm:w-40 object-cover rounded-2xl shadow-md ring-2 ring-neutral-100 group-hover:ring-neutral-200 transition-all duration-300"
-          />
-        </div>
-        <h3 class="text-lg sm:text-xl font-semibold">
-          Tom Darval
-        </h3>
-        <p class="text-xs sm:text-sm uppercase tracking-wide text-neutral-500 mb-3">
-          Head of Coffee &amp; Experience
-        </p>
-
-        <!-- Shorter mobile bio -->
-        <p class="text-sm text-neutral-700 md:hidden">
-          Tom shapes the coffee direction — beans, recipes, and equipment — to bring
-          specialty café quality straight to set.
-        </p>
-        <!-- Fuller desktop bio -->
-        <p class="hidden md:block text-sm text-neutral-700 leading-relaxed">
-          With more than 13 years in specialty coffee, Tom leads the entire coffee
-          experience: bean selection, recipe development, barista training, equipment
-          standards, and drink creation, ensuring every cup matches top-level café quality.
-        </p>
-      </article>
-
-      <!-- Pierre-Baptiste -->
-      <article
-        class="group flex flex-col items-center text-center rounded-2xl border border-neutral-200/60 bg-white/70 backdrop-blur-sm p-6 shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300 ease-out opacity-0 translate-y-6"
-        data-scroll-fade
-        style="transition-delay: 300ms;"
-      >
-        <div class="mb-4">
-          <img
-            src="{{ section.settings.pb_image | img_url: '400x400' }}"
-            alt="Portrait of Pierre-Baptiste Rozic"
-            class="mx-auto h-32 w-32 sm:h-40 sm:w-40 object-cover rounded-2xl shadow-md ring-2 ring-neutral-100 group-hover:ring-neutral-200 transition-all duration-300"
-          />
-        </div>
-        <h3 class="text-lg sm:text-xl font-semibold">
-          Pierre-Baptiste Rozic
-        </h3>
-        <p class="text-xs sm:text-sm uppercase tracking-wide text-neutral-500 mb-3">
-          Barista &amp; Logistics Support
-        </p>
-
-        <!-- Shorter mobile bio -->
-        <p class="text-sm text-neutral-700 md:hidden">
-          Pierre-Baptiste supports bar service and logistics, making sure everything is
-          ready the moment the cameras roll.
-        </p>
-        <!-- Fuller desktop bio -->
-        <p class="hidden md:block text-sm text-neutral-700 leading-relaxed">
-          As the newest member of the team, Pierre-Baptiste brings fresh energy while
-          developing his barista skills. He supports logistics, setup, and day-to-day
-          operations on set, keeping the bar running smoothly from first call to wrap.
-        </p>
-      </article>
+  <!-- Vincent -->
+  <article
+    class="group flex flex-col items-center text-center rounded-2xl border border-neutral-200/60 bg-white/70 backdrop-blur-sm p-6 shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300 ease-out opacity-0 translate-y-6"
+    data-scroll-fade
+    style="transition-delay: 100ms;"
+  >
+    <div class="mb-4">
+      <img
+        src="{{ section.settings.vincent_image | img_url: '400x400' }}"
+        alt="Portrait of Vincent Rousseau"
+        class="mx-auto h-32 w-32 sm:h-40 sm:w-40 object-cover rounded-2xl shadow-md ring-2 ring-neutral-100 group-hover:ring-neutral-200 transition-all duration-300"
+      />
     </div>
+    <h3 class="text-lg sm:text-xl font-semibold">
+      Vincent Rousseau
+    </h3>
+    <p class="text-xs sm:text-sm uppercase tracking-wide text-neutral-500 mb-3">
+      Founder &amp; Production Lead
+    </p>
+    <p class="text-sm text-neutral-700 leading-relaxed">
+      Vincent brings years of experience in commercial production. He leads operations — planning,
+      logistics, and on-set coordination — to make sure specialty coffee fits seamlessly into every
+      shoot and supports the rhythm of the crew instead of slowing it down.
+    </p>
+  </article>
+
+  <!-- Tom -->
+  <article
+    class="group flex flex-col items-center text-center rounded-2xl border border-neutral-200/60 bg-white/70 backdrop-blur-sm p-6 shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300 ease-out opacity-0 translate-y-6"
+    data-scroll-fade
+    style="transition-delay: 200ms;"
+  >
+    <div class="mb-4">
+      <img
+        src="{{ section.settings.tom_image | img_url: '400x400' }}"
+        alt="Portrait of Tom Darval"
+        class="mx-auto h-32 w-32 sm:h-40 sm:w-40 object-cover rounded-2xl shadow-md ring-2 ring-neutral-100 group-hover:ring-neutral-200 transition-all duration-300"
+      />
+    </div>
+    <h3 class="text-lg sm:text-xl font-semibold">
+      Tom Darval
+    </h3>
+    <p class="text-xs sm:text-sm uppercase tracking-wide text-neutral-500 mb-3">
+      Head of Coffee &amp; Experience
+    </p>
+    <p class="text-sm text-neutral-700 leading-relaxed">
+      With more than 13 years in specialty coffee, Tom defines the entire coffee direction at
+      Wild Beans: from bean selection and recipe development to barista training and equipment
+      standards, making sure every cup on set tastes like it came from a top specialty café.
+    </p>
+  </article>
+
+  <!-- Pierre-Baptiste -->
+  <article
+    class="group flex flex-col items-center text-center rounded-2xl border border-neutral-200/60 bg-white/70 backdrop-blur-sm p-6 shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300 ease-out opacity-0 translate-y-6"
+    data-scroll-fade
+    style="transition-delay: 300ms;"
+  >
+    <div class="mb-4">
+      <img
+        src="{{ section.settings.pb_image | img_url: '400x400' }}"
+        alt="Portrait of Pierre-Baptiste Rozic"
+        class="mx-auto h-32 w-32 sm:h-40 sm:w-40 object-cover rounded-2xl shadow-md ring-2 ring-neutral-100 group-hover:ring-neutral-200 transition-all duration-300"
+      />
+    </div>
+    <h3 class="text-lg sm:text-xl font-semibold">
+      Pierre-Baptiste Rozic
+    </h3>
+    <p class="text-xs sm:text-sm uppercase tracking-wide text-neutral-500 mb-3">
+      Barista &amp; Logistics Support
+    </p>
+    <p class="text-sm text-neutral-700 leading-relaxed">
+      As the newest member of the team, Pierre-Baptiste brings fresh energy to the bar. He supports
+      bar service, logistics, and on-set setup, making sure the coffee station runs smoothly from
+      first call to wrap.
+    </p>
+  </article>
+</div>
   </div>
 </section>
 

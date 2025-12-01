@@ -1,6 +1,6 @@
 <header 
   id="site-header"
-  class="fixed top-0 inset-x-0 z-50 bg-transparent text-black py-6 transition-opacity duration-500 header-hidden"
+  class="fixed top-0 inset-x-0 z-50 bg-transparent text-black py-6 transition-opacity duration-500 sm:header-hidden"
 >
   {%- comment -%} --- BARRE MOBILE (XS / SM) --- {%- endcomment -%}
   
@@ -8,7 +8,7 @@
     {%- comment -%} Bouton tiroir gauche {%- endcomment -%}
     <button
       id="mobile-menu-toggle"
-      class="inline-flex items-center justify-center w-12 h-12 border border-black rounded-full"
+      class="inline-flex items-center justify-center w-12 h-12"
       aria-label="Ouvrir le menu"
       aria-expanded="false"
     >
@@ -26,7 +26,7 @@
         {% if customer %}
           <a
             href="{{ routes.account_url }}"
-            class="inline-flex items-center justify-center w-12 h-12 rounded-full border border-black bg-white text-black"
+            class="inline-flex items-center justify-center w-12 h-12 text-black"
             aria-label="Mon compte"
           >
             <svg
@@ -41,7 +41,7 @@
         {% else %}
           <a
             href="{{ routes.account_login_url }}"
-            class="inline-flex items-center justify-center w-12 h-12 rounded-full border border-black bg-white text-black"
+            class="inline-flex items-center justify-center w-12 h-12 text-black"
             aria-label="Se connecter"
           >
             <svg

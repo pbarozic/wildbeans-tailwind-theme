@@ -1,8 +1,8 @@
 {%- comment -%} SECTION 1 : GROS LOGO {%- endcomment -%}
-<section class="w-full min-h-screen flex flex-col justify-end overflow-x-hidden snap-start reveal reveal-scale js-hero-section">
+<section class="w-full collapse sm:visible sm:min-h-screen flex-col sm:flex-col-reverse justify-end overflow-x-hidden snap-start reveal reveal-scale js-hero-section">
 
   <!-- LOGO -->
-  <div class="w-full flex flex-col justify-end js-hero-logo">
+  <div class="w-full sm:h-screen flex flex-col justify-end js-hero-logo">
     <img 
       src="{{ '251015_LOGO-WILDBEANS_BLK_crope.png' | file_url }}" 
       alt="WILD BEANS"
@@ -13,7 +13,7 @@
 </section>
 
 {%- comment -%} SECTION 2 : VIDÉO PLEIN ÉCRAN {%- endcomment -%}
-<section class="w-full h-screen overflow-x-hidden snap-start reveal reveal-scale js-hero-video">
+<section class="w-full sm-h-screen overflow-x-hidden snap-start reveal reveal-scale js-hero-video">
 
   <div class="w-full h-full barista-button">
     <video
