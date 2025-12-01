@@ -7,7 +7,6 @@
  * made to this file may be overwritten.
  * ------------------------------------------------------------
  */
-
 {
   "name": "t:sections.header.name",
   "type": "header",
@@ -16,6 +15,7 @@
       "type": "custom-liquid",
       "name": "Logo-header",
       "settings": {
+        "custom_liquid": "",
         "color_scheme": "",
         "padding_top": 0,
         "padding_bottom": 0
