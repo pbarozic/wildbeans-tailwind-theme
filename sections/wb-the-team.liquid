@@ -2,7 +2,7 @@
 WILD BEANS — STORY + TEAM (Editorial Left-Aligned, Limited Width)
 {% endcomment %}
 
-<section id="wild-beans-story-team" class="space-y-32 py-16 sm:py-32">
+<section id="wild-beans-story-team" class="w-screen space-y-32 py-16 sm:py-32">
 
   <!-- =============================== -->
   <!-- CHAPTER 1 : THE INTUITION -->
@@ -192,7 +192,7 @@ WILD BEANS — STORY + TEAM (Editorial Left-Aligned, Limited Width)
   <!-- =============================== -->
   <!-- TEAM SECTION -->
   <!-- =============================== -->
-  <div class="max-w-6xl pl-4 sm:pl-10 space-y-12">
+  <div class="w-2/3 pl-4 sm:pl-10 space-y-12 content-center">
 
     <h2
       class="text-3xl sm:text-4xl font-bold uppercase tracking-tight
@@ -203,7 +203,7 @@ WILD BEANS — STORY + TEAM (Editorial Left-Aligned, Limited Width)
       THE WILD BEANS TEAM
     </h2>
 
-    <div class="grid gap-10 md:grid-cols-3">
+    <div class="w-full flex flex-col justify-center md:grid gap-10 md:grid-cols-3">
 
       <!-- VINCENT -->
       <article
@@ -217,7 +217,7 @@ WILD BEANS — STORY + TEAM (Editorial Left-Aligned, Limited Width)
         <img
           src="{{ section.settings.vincent_image | img_url: '600x' }}"
           alt="Portrait of Vincent Rousseau"
-          class="h-56 w-56 object-cover rounded-2xl shadow-md ring-2 ring-neutral-100 mb-6"
+          class="h-96 w-96 object-cover rounded-2xl shadow-md ring-2 ring-neutral-100 mb-6"
         />
 
         <h3 class="text-xl sm:text-2xl font-semibold uppercase">VINCENT ROUSSEAU</h3>
@@ -241,7 +241,7 @@ WILD BEANS — STORY + TEAM (Editorial Left-Aligned, Limited Width)
         <img
           src="{{ section.settings.tom_image | img_url: '600x' }}"
           alt="Portrait of Tom Darval"
-          class="h-56 w-56 object-cover rounded-2xl shadow-md ring-2 ring-neutral-100 mb-6"
+          class="h-96 w-96 object-cover rounded-2xl shadow-md ring-2 ring-neutral-100 mb-6"
         />
 
         <h3 class="text-xl sm:text-2xl font-semibold uppercase">TOM DARVAL</h3>
@@ -255,17 +255,17 @@ WILD BEANS — STORY + TEAM (Editorial Left-Aligned, Limited Width)
 
       <!-- PB -->
       <article
-        class="group flex flex-col items-start text-left
-               rounded-2xl border border-neutral-200/60 bg-white/70 backdrop-blur-sm
-               p-8 sm:p-10 shadow-sm hover:shadow-xl hover:-translate-y-2
-               transition-all duration-300 ease-out opacity-0 translate-y-6"
-        data-scroll-fade
-        style="transition-delay:450ms;"
-      >
+  class="group flex flex-col items-center text-left 
+                rounded-2xl border border-neutral-200/60 bg-white/70 backdrop-blur-sm
+                p-8 sm:p-10 shadow-sm hover:shadow-xl hover:-translate-y-2
+                transition-all duration-300 ease-out opacity-0 translate-y-6"
+  data-scroll-fade
+  style="transition-delay:250ms;"
+>
         <img
           src="{{ section.settings.pb_image | img_url: '600x' }}"
           alt="Portrait of Pierre-Baptiste Rozic"
-          class="h-56 w-56 object-cover rounded-2xl shadow-md ring-2 ring-neutral-100 mb-6"
+          class="h-96 w-96 object-cover rounded-2xl shadow-md ring-2 ring-neutral-100 mb-6"
         />
 
         <h3 class="text-xl sm:text-2xl font-semibold uppercase">PIERRE-BAPTISTE ROZIC</h3>
