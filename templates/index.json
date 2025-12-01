@@ -15,6 +15,7 @@
     },
     "wb_feature_NFQtWr": {
       "type": "wb-feature",
+      "disabled": true,
       "name": "COFFEE EXPERIENCE",
       "settings": {
         "image": "shopify://shop_images/Capture_d_ecran_2025-10-20_125527.png",
@@ -24,6 +25,7 @@
     },
     "wb_feature_pfjMGF": {
       "type": "wb-feature",
+      "disabled": true,
       "name": "NON COFFEE",
       "settings": {
         "image": "shopify://shop_images/iced-matcha-design-l-ch-et-minimaliste-haut-de-gamme-couleurs-sombres.png",
@@ -33,6 +35,7 @@
     },
     "wb_feature_79M9gw": {
       "type": "wb-feature",
+      "disabled": true,
       "name": "WILD BEANS TOUCH",
       "settings": {
         "image": "shopify://shop_images/PLATES_POUR_C1.jpg",
@@ -71,6 +74,7 @@
     },
     "wb_prodlist_VVRAcH": {
       "type": "wb-prodlist",
+      "disabled": true,
       "name": "WB - Featured products",
       "settings": {
         "title": "OUR COFFEE SELECTION",
