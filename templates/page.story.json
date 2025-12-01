@@ -12,6 +12,8 @@
     "main": {
       "type": "wb-the-team",
       "settings": {
+        "story_img_1": "shopify://shop_images/unsplash-image-aS4Duj2j7r4.webp",
+        "story_img_2": "shopify://shop_images/461205240_486728104514253_8618373015200284500_n.jpg",
         "vincent_image": "shopify://shop_images/satisfied-businessman-pointing-fingers-camera-praising-you-approve-like-something-white_1258-26382.avif",
         "tom_image": "shopify://shop_images/554936219_18488996944072672_5434918174020059058_n.jpg",
         "pb_image": "shopify://shop_images/thumbnail_IMG_0556.jpg"
