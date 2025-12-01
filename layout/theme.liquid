@@ -517,5 +517,238 @@
     });
   });
 </script>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const fadeItems = document.querySelectorAll('[data-scroll-fade]');
+
+    if (!('IntersectionObserver' in window) || fadeItems.length === 0) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('in-view');
+            // Si tu ne veux pas que ça se rejoue en remontant :
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      {
+        threshold: 0.35,        // l’élément doit être bien dans le viewport
+        rootMargin: '0px 0px -10% 0px' // déclenche un peu avant le centre
+      }
+    );
+
+    fadeItems.forEach((el) => observer.observe(el));
+  });
+</script>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const header = document.getElementById('site-header');
+    const footer = document.getElementById('site-footer');
+    const safeZones = document.querySelectorAll('.js-safe-layout');
+
+    if (!safeZones.length) return;
+
+    function applySafePadding() {
+      const headerHeight = header ? header.getBoundingClientRect().height : 0;
+      const footerHeight = footer ? footer.getBoundingClientRect().height : 0;
+
+      const extraTop = 16;    // marge de confort en px
+      const extraBottom = 16;
+
+      safeZones.forEach(function (el) {
+        el.style.paddingTop = (headerHeight + extraTop) + 'px';
+        el.style.paddingBottom = (footerHeight + extraBottom) + 'px';
+
+        // bonus : utile si tu as des ancres (#id) qui scrollent vers cette section
+        el.style.scrollMarginTop = (headerHeight + extraTop) + 'px';
+      });
+    }
+
+    // 1. au chargement
+    applySafePadding();
+
+    // 2. quand on resize (changement de breakpoint, etc.)
+    window.addEventListener('resize', applySafePadding);
+
+    // 3. si le header ou le footer change de taille (sous-menu ouvert, etc.)
+    if ('ResizeObserver' in window) {
+      if (header) {
+        const headerObserver = new ResizeObserver(applySafePadding);
+        headerObserver.observe(header);
+      }
+      if (footer) {
+        const footerObserver = new ResizeObserver(applySafePadding);
+        footerObserver.observe(footer);
+      }
+    }
+  });
+</script>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const container = document.getElementById('wild-beans-story-team');
+    if (!container) return;
+
+    // On considère chaque <section> direct à l'intérieur comme une slide
+    const slides = Array.from(container.querySelectorAll(':scope > section'));
+    if (!slides.length) return;
+
+    let currentIndex = 0;
+    let isAnimating = false;
+
+    const ANIMATION_DURATION = 1600;   // durée de l’animation en ms (plus haut = plus lent)
+    const DESKTOP_BREAKPOINT = 768;    // en dessous = mobile, on laisse le scroll natif
+    const WHEEL_THRESHOLD = 40;        // sensibilité de la molette (delta minimal)
+    const SWIPE_THRESHOLD = 50;        // distance minimale de swipe en px
+
+    // Position de la slide i par rapport au conteneur scrollable
+    function getSlideTop(index) {
+      const slide = slides[index];
+      // offsetTop est relatif au parent offset; ici container fonctionne bien
+      return slide.offsetTop - container.offsetTop;
+    }
+
+    // Animation custom de scroll vers une slide donnée
+    function goToSlide(index) {
+      if (index < 0 || index >= slides.length) return;
+
+      isAnimating = true;
+
+      const start = container.scrollTop;
+      const end = getSlideTop(index);
+      const distance = end - start;
+
+      const duration = ANIMATION_DURATION;
+      const startTime = performance.now();
+
+      function animateScroll(now) {
+        const elapsed = now - startTime;
+        const progress = Math.min(elapsed / duration, 1);
+
+        // easing cubic ease-out : doux, premium
+        const eased = 1 - Math.pow(1 - progress, 3);
+
+        container.scrollTop = start + distance * eased;
+
+        if (progress < 1) {
+          requestAnimationFrame(animateScroll);
+        } else {
+          isAnimating = false;
+          currentIndex = index;
+        }
+      }
+
+      requestAnimationFrame(animateScroll);
+    }
+
+    // Synchronise currentIndex avec la position réelle de scroll
+    function syncCurrentIndex() {
+      const scrollTop = container.scrollTop;
+      let closestIndex = 0;
+      let smallestDelta = Infinity;
+
+      slides.forEach(function (slide, i) {
+        const delta = Math.abs(scrollTop - getSlideTop(i));
+        if (delta < smallestDelta) {
+          smallestDelta = delta;
+          closestIndex = i;
+        }
+      });
+
+      currentIndex = closestIndex;
+    }
+
+    // Quand le conteneur scroll (par exemple via tactile, ou fin d’animation)
+    container.addEventListener('scroll', function () {
+      if (!isAnimating) {
+        syncCurrentIndex();
+      }
+    });
+
+    // Gestion molette / trackpad (desktop uniquement)
+    container.addEventListener('wheel', function (e) {
+      if (window.innerWidth < DESKTOP_BREAKPOINT) {
+        // Sur mobile/tablette, on laisse le comportement natif
+        return;
+      }
+
+      if (isAnimating) {
+        e.preventDefault();
+        return;
+      }
+
+      // Filtrer les scrolls très légers (sensibilité trackpad)
+      if (Math.abs(e.deltaY) < WHEEL_THRESHOLD) {
+        return;
+      }
+
+      e.preventDefault();
+
+      if (e.deltaY > 0) {
+        // on descend
+        goToSlide(currentIndex + 1);
+      } else {
+        // on remonte
+        goToSlide(currentIndex - 1);
+      }
+    }, { passive: false });
+
+    // Gestion du swipe tactile (haut/bas)
+    let touchStartY = null;
+
+    container.addEventListener('touchstart', function (e) {
+      if (e.touches.length !== 1) return;
+      touchStartY = e.touches[0].clientY;
+    }, { passive: true });
+
+    container.addEventListener('touchend', function (e) {
+      if (touchStartY === null || e.changedTouches.length !== 1) return;
+
+      const touchEndY = e.changedTouches[0].clientY;
+      const deltaY = touchStartY - touchEndY;
+      touchStartY = null;
+
+      if (Math.abs(deltaY) < SWIPE_THRESHOLD) return;
+      if (isAnimating) return;
+
+      if (deltaY > 0) {
+        // swipe vers le haut → aller à la slide suivante
+        goToSlide(currentIndex + 1);
+      } else {
+        // swipe vers le bas → slide précédente
+        goToSlide(currentIndex - 1);
+      }
+    }, { passive: true });
+
+    // Navigation clavier (quand le conteneur a le focus)
+    container.setAttribute('tabindex', '0');
+
+    container.addEventListener('keydown', function (e) {
+      if (isAnimating) return;
+
+      if (e.key === 'ArrowDown' || e.key === 'PageDown' || e.key === ' ') {
+        e.preventDefault();
+        goToSlide(currentIndex + 1);
+      }
+
+      if (e.key === 'ArrowUp' || e.key === 'PageUp') {
+        e.preventDefault();
+        goToSlide(currentIndex - 1);
+      }
+    });
+
+    // On recale proprement sur la slide courante après un resize
+    window.addEventListener('resize', function () {
+      if (isAnimating) return;
+      goToSlide(currentIndex);
+    });
+
+    // Optionnel : on commence bien aligné sur la première slide
+    goToSlide(0);
+  });
+</script>
+
+
   </body>
 </html>

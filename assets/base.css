@@ -7,13 +7,6 @@ html {
 }
 
 
-html, body {
-  height: 100vh;
-  scroll-snap-type: y mandatory;
-  scroll-behavior: smooth;
-  overflow-y: scroll;
-}
-
 :root {
   --alpha-button-background: 1;
   --alpha-button-border: 1;
@@ -3783,3 +3776,27 @@ details-disclosure>details {
     opacity: 1;
   }
 }
+
+
+.typewriter-heading {
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 1px solid currentColor;
+  animation:
+    typing 2.8s steps(18, end) 0.2s forwards,
+    caret 0.9s step-end infinite;
+}
+
+
+/* Tous les éléments marqués data-scroll-fade sont cachés au départ */
+[data-scroll-fade] {
+  opacity: 0;
+  transform: translateY(18px);
+}
+
+/* Quand le JS ajoute .in-view, les transitions Tailwind se déclenchent */
+[data-scroll-fade].in-view {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+}
+
