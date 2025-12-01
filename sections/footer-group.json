@@ -13,7 +13,6 @@
   "sections": {
     "wb_footer_XbyTcQ": {
       "type": "wb-footer",
-      "disabled": true,
       "name": "WB - Footer Logo + CTA",
       "settings": {
         "image": "shopify://shop_images/251015_LOGO-WILDBEANS_BLK_redimensionne_footer.png",
