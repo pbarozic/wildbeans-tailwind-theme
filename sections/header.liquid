@@ -4,7 +4,7 @@
 >
   {%- comment -%} --- BARRE MOBILE (XS / SM) --- {%- endcomment -%}
   
-  <div class="md:hidden flex items-center justify-between px-4">
+  <div class="md:hidden grid grid-cols-3 items-center px-4">
     {%- comment -%} Bouton tiroir gauche {%- endcomment -%}
     <button
       id="mobile-menu-toggle"
@@ -20,8 +20,19 @@
       </span>
     </button>
 
+    {%- comment -%} LOGO CENTRÉ {%- endcomment -%}
+    <div class="flex justify-center">
+      <a href="{{ routes.root_url }}" class="block mx-auto">
+        <img 
+          src="{{ 'logo.png' | asset_url }}" 
+          alt="Logo"
+          class="h-10 w-auto mx-auto"
+        >
+      </a>
+    </div>
+
     {%- comment -%} Icône compte droite {%- endcomment -%}
-    <div class="flex items-center">
+    <div class="flex items-center justify-end">
       {% if shop.customer_accounts_enabled %}
         {% if customer %}
           <a

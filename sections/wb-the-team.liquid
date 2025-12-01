@@ -1,142 +1,304 @@
-{% comment %} Wild Beans Story & Team – Tailwind, animations, hover effects {% endcomment %}
-<section
-  id="wild-beans-story-team"
-  class="uppercase max-w-7xl px-4 sm:py-72 py-16 space-y-16"
->
-  <!-- Story -->
-  <div
-    class="space-y-6 opacity-0 translate-y-6 transition-all duration-700 ease-out"
-    data-scroll-fade
-  >
-    <h2 class="text-3xl sm:text-6xl font-bold tracking-tight">
+{% comment %}
+WILD BEANS — STORY + TEAM (Editorial Left-Aligned, Limited Width)
+{% endcomment %}
+
+<section id="wild-beans-story-team" class="space-y-32 py-16 sm:py-32">
+
+  <!-- =============================== -->
+  <!-- CHAPTER 1 : THE INTUITION -->
+  <!-- =============================== -->
+  <div class="max-w-6xl pl-4 sm:pl-10">
+
+    <h2
+      class="pt-32 text-3xl sm:text-4xl font-bold uppercase tracking-tight mb-10
+             opacity-0 translate-y-6 transition-all duration-[1200ms] ease-out"
+      data-scroll-fade
+      style="transition-delay:150ms;"
+    >
       OUR STORY
     </h2>
-    <p class="text-sm sm:text-base leading-relaxed">
-      Wild Beans was first created by Vincent Rousseau, driven by a simple observation on
-      add production sets: long days, tight schedules, and rarely a truly good cup of coffee.
-      With his deep experience in production logistics, Vincent set out to build a
-      service that could finally match the high standards of the crews he worked with.
+
+    <p
+      class="text-lg sm:text-xl leading-relaxed uppercase tracking-wide
+             opacity-0 translate-y-6 transition-all duration-[1200ms] ease-out"
+      data-scroll-fade
+      style="transition-delay:300ms;"
+    >
+      Wild Beans was born from a simple observation made by Vincent Rousseau on ad production sets:
+      long days, tight schedules, and rarely a truly good cup of coffee. Before launching Wild Beans,
+      Vincent had already founded 
+      <a href="https://www.betterbewild.fr/paris" target="_blank" class="underline">
+        Better Be Wild
+      </a>,
+      a Paris-based production company known for its ambitious creative direction and seamless on-set
+      organization.
     </p>
-    <p class="text-sm sm:text-base leading-relaxed">
-      The project reached a new level when Vincent met Tom Darval, a barista with more
-      than 13 years of experience in leading specialty cafés and strong expertise in
-      sourcing, roasting profiles, extraction techniques, and coffee culture. Tom’s
-      arrival brought a technical precision and quality-driven approach that aligned
-      perfectly with Vincent’s vision.
-    </p>
-    <p class="text-sm sm:text-base leading-relaxed">
-      With their complementary strengths — Vincent’s understanding of on-set realities
-      and Tom’s expertise in specialty coffee — Wild Beans evolved into a premium coffee
-      experience crafted specifically for shoots, sets, and production events. From bean
-      selection to equipment setup, everything is designed so each espresso, cappuccino,
-      or flat white offers a real moment of pleasure, without ever slowing down the pace
-      of the crew.
-    </p>
+
   </div>
 
-  <!-- Team -->
-  <div
-    class="space-y-10 opacity-0 translate-y-6 transition-all duration-700 ease-out"
-    data-scroll-fade
-  >
-    <h2 class="text-3xl sm:text-4xl font-bold tracking-tight">
-      The Wild Beans Team
+  <!-- CH1 IMAGES -->
+  <div class="max-w-6xl pl-4 sm:pl-10 grid grid-cols-1 sm:grid-cols-2 gap-6">
+
+    <img
+      src="{{ section.settings.story_img_1 | img_url: '1600x' }}"
+      alt="Better Be Wild – Production"
+      class="rounded-2xl object-cover h-80 w-full shadow-lg
+             opacity-0 translate-y-6 transition-all duration-[1200ms] ease-out"
+      data-scroll-fade
+      style="transition-delay:450ms;"
+    />
+
+    <img
+      src="{{ section.settings.story_img_2 | img_url: '1600x' }}"
+      alt="Behind the scenes – Vincent Rousseau"
+      class="rounded-2xl object-cover h-80 w-full shadow-lg
+             opacity-0 translate-y-6 transition-all duration-[1200ms] ease-out"
+      data-scroll-fade
+      style="transition-delay:600ms;"
+    />
+
+  </div>
+
+
+  <!-- =============================== -->
+  <!-- CHAPTER 2 : THE MEETING -->
+  <!-- =============================== -->
+  <div class="max-w-6xl pl-4 sm:pl-10">
+
+    <p
+      class="text-lg sm:text-xl leading-relaxed uppercase tracking-wide
+             opacity-0 translate-y-6 transition-all duration-[1200ms] ease-out"
+      data-scroll-fade
+      style="transition-delay:150ms;"
+    >
+      The project reached a new level when Vincent met Tom Darval, a barista with over thirteen years
+      in specialty coffee. Known for his mastery of sourcing, roasting profiles, extraction techniques,
+      and coffee culture, Tom brought the technical depth Wild Beans needed. Beyond his work with
+      Wild Beans, he is currently filming a documentary series with Arte.
+    </p>
+
+  </div>
+
+  <!-- CH2 IMAGE -->
+  <div class="max-w-6xl pl-4 sm:pl-10 space-y-4">
+
+    <img
+      src="{{ section.settings.tom_doc_img | img_url: '1600x' }}"
+      alt="Tom Darval filming Arte documentary"
+      class="rounded-2xl object-cover h-96 w-full shadow-lg
+             opacity-0 translate-y-6 transition-all duration-[1200ms] ease-out"
+      data-scroll-fade
+      style="transition-delay:300ms;"
+    />
+
+    <p
+      class="text-xs sm:text-sm text-neutral-500 italic
+             opacity-0 translate-y-6 transition-all duration-[1200ms] ease-out"
+      data-scroll-fade
+      style="transition-delay:450ms;"
+    >
+      Tom filming his documentary series with Arte, capturing stories from the world of coffee.
+    </p>
+
+  </div>
+
+
+  <!-- =============================== -->
+  <!-- CHAPTER 3 : ON-SET EXPERTISE -->
+  <!-- =============================== -->
+  <div class="max-w-6xl pl-4 sm:pl-10">
+
+    <p
+      class="text-lg sm:text-xl leading-relaxed uppercase tracking-wide
+             opacity-0 translate-y-6 transition-all duration-[1200ms] ease-out"
+      data-scroll-fade
+      style="transition-delay:150ms;"
+    >
+      With their complementary strengths — Vincent’s understanding of on-set realities and Tom’s
+      specialty coffee expertise — Wild Beans evolved into a premium coffee service created specifically
+      for shoots and production events.
+    </p>
+
+  </div>
+
+
+  <!-- =============================== -->
+  <!-- CHAPTER 4 : THE FUTURE -->
+  <!-- =============================== -->
+  <div class="max-w-6xl pl-4 sm:pl-10">
+
+    <p
+      class="text-lg sm:text-xl leading-relaxed uppercase tracking-wide
+             opacity-0 translate-y-6 transition-all duration-[1200ms] ease-out"
+      data-scroll-fade
+      style="transition-delay:150ms;"
+    >
+      Looking ahead, Wild Beans is expanding through two major projects: our own coffee line, and BEANS —
+      a media project and YouTube channel exploring global coffee culture.
+    </p>
+
+  </div>
+
+  <!-- FUTURE LINKS -->
+  <div class="max-w-6xl pl-4 sm:pl-10 grid grid-cols-1 sm:grid-cols-2 gap-8">
+
+    <a href="/collections/all" class="group block">
+
+      <img
+        src="{{ section.settings.brand_img | img_url: '1600x' }}"
+        alt="Wild Beans Coffee – Our Products"
+        class="rounded-2xl object-cover h-72 w-full shadow-lg
+               opacity-0 translate-y-6 transition-all duration-[1200ms] ease-out group-hover:opacity-90"
+        data-scroll-fade
+        style="transition-delay:300ms;"
+      />
+
+      <p
+        class="text-sm uppercase tracking-wide mt-2
+               opacity-0 translate-y-6 transition-all duration-[1200ms] ease-out"
+        data-scroll-fade
+        style="transition-delay:350ms;"
+      >
+        Discover Wild Beans Coffee →
+      </p>
+
+    </a>
+
+    <a href="https://www.youtube.com/@BEANS_TOMDARVAL" target="_blank" class="group block">
+
+      <img
+        src="{{ section.settings.youtube_img | img_url: '1600x' }}"
+        alt="Beans – YouTube Channel"
+        class="rounded-2xl object-cover h-72 w-full shadow-lg
+               opacity-0 translate-y-6 transition-all duration-[1200ms] ease-out group-hover:opacity-90"
+        data-scroll-fade
+        style="transition-delay:400ms;"
+      />
+
+      <p
+        class="text-sm uppercase tracking-wide mt-2
+               opacity-0 translate-y-6 transition-all duration-[1200ms] ease-out"
+        data-scroll-fade
+        style="transition-delay:450ms;"
+      >
+        Explore Beans on YouTube →
+      </p>
+
+    </a>
+
+  </div>
+
+
+  <!-- =============================== -->
+  <!-- TEAM SECTION -->
+  <!-- =============================== -->
+  <div class="max-w-6xl pl-4 sm:pl-10 space-y-12">
+
+    <h2
+      class="text-3xl sm:text-4xl font-bold uppercase tracking-tight
+             opacity-0 translate-y-6 transition-all duration-[1200ms] ease-out"
+      data-scroll-fade
+      style="transition-delay:150ms;"
+    >
+      THE WILD BEANS TEAM
     </h2>
 
     <div class="grid gap-10 md:grid-cols-3">
-  <!-- Vincent -->
-  <article
-    class="group flex flex-col items-center text-center rounded-2xl border border-neutral-200/60 bg-white/70 backdrop-blur-sm p-6 shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300 ease-out opacity-0 translate-y-6"
-    data-scroll-fade
-    style="transition-delay: 100ms;"
-  >
-    <div class="mb-4">
-      <img
-        src="{{ section.settings.vincent_image | img_url: '400x400' }}"
-        alt="Portrait of Vincent Rousseau"
-        class="mx-auto h-32 w-32 sm:h-40 sm:w-40 object-cover rounded-2xl shadow-md ring-2 ring-neutral-100 group-hover:ring-neutral-200 transition-all duration-300"
-      />
-    </div>
-    <h3 class="text-lg sm:text-xl font-semibold">
-      Vincent Rousseau
-    </h3>
-    <p class="text-xs sm:text-sm uppercase tracking-wide text-neutral-500 mb-3">
-      Founder &amp; Production Lead
-    </p>
-    <p class="text-sm text-neutral-700 leading-relaxed">
-      Vincent brings years of experience in commercial production. He leads operations — planning,
-      logistics, and on-set coordination — to make sure specialty coffee fits seamlessly into every
-      shoot and supports the rhythm of the crew instead of slowing it down.
-    </p>
-  </article>
 
-  <!-- Tom -->
-  <article
-    class="group flex flex-col items-center text-center rounded-2xl border border-neutral-200/60 bg-white/70 backdrop-blur-sm p-6 shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300 ease-out opacity-0 translate-y-6"
-    data-scroll-fade
-    style="transition-delay: 200ms;"
-  >
-    <div class="mb-4">
-      <img
-        src="{{ section.settings.tom_image | img_url: '400x400' }}"
-        alt="Portrait of Tom Darval"
-        class="mx-auto h-32 w-32 sm:h-40 sm:w-40 object-cover rounded-2xl shadow-md ring-2 ring-neutral-100 group-hover:ring-neutral-200 transition-all duration-300"
-      />
-    </div>
-    <h3 class="text-lg sm:text-xl font-semibold">
-      Tom Darval
-    </h3>
-    <p class="text-xs sm:text-sm uppercase tracking-wide text-neutral-500 mb-3">
-      Head of Coffee &amp; Experience
-    </p>
-    <p class="text-sm text-neutral-700 leading-relaxed">
-      With more than 13 years in specialty coffee, Tom defines the entire coffee direction at
-      Wild Beans: from bean selection and recipe development to barista training and equipment
-      standards, making sure every cup on set tastes like it came from a top specialty café.
-    </p>
-  </article>
+      <!-- VINCENT -->
+      <article
+        class="group flex flex-col items-start text-left
+               rounded-2xl border border-neutral-200/60 bg-white/70 backdrop-blur-sm
+               p-8 sm:p-10 shadow-sm hover:shadow-xl hover:-translate-y-2
+               transition-all duration-300 ease-out opacity-0 translate-y-6"
+        data-scroll-fade
+        style="transition-delay:250ms;"
+      >
+        <img
+          src="{{ section.settings.vincent_image | img_url: '600x' }}"
+          alt="Portrait of Vincent Rousseau"
+          class="h-56 w-56 object-cover rounded-2xl shadow-md ring-2 ring-neutral-100 mb-6"
+        />
 
-  <!-- Pierre-Baptiste -->
-  <article
-    class="group flex flex-col items-center text-center rounded-2xl border border-neutral-200/60 bg-white/70 backdrop-blur-sm p-6 shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300 ease-out opacity-0 translate-y-6"
-    data-scroll-fade
-    style="transition-delay: 300ms;"
-  >
-    <div class="mb-4">
-      <img
-        src="{{ section.settings.pb_image | img_url: '400x400' }}"
-        alt="Portrait of Pierre-Baptiste Rozic"
-        class="mx-auto h-32 w-32 sm:h-40 sm:w-40 object-cover rounded-2xl shadow-md ring-2 ring-neutral-100 group-hover:ring-neutral-200 transition-all duration-300"
-      />
+        <h3 class="text-xl sm:text-2xl font-semibold uppercase">VINCENT ROUSSEAU</h3>
+        <p class="text-xs sm:text-sm uppercase tracking-wide text-neutral-500 mb-4">
+          FOUNDER & PRODUCTION LEAD
+        </p>
+        <p class="text-sm sm:text-base uppercase leading-relaxed text-neutral-700">
+          Vincent leads operations, planning, logistics, and on-set coordination.
+        </p>
+      </article>
+
+      <!-- TOM -->
+      <article
+        class="group flex flex-col items-start text-left
+               rounded-2xl border border-neutral-200/60 bg-white/70 backdrop-blur-sm
+               p-8 sm:p-10 shadow-sm hover:shadow-xl hover:-translate-y-2
+               transition-all duration-300 ease-out opacity-0 translate-y-6"
+        data-scroll-fade
+        style="transition-delay:350ms;"
+      >
+        <img
+          src="{{ section.settings.tom_image | img_url: '600x' }}"
+          alt="Portrait of Tom Darval"
+          class="h-56 w-56 object-cover rounded-2xl shadow-md ring-2 ring-neutral-100 mb-6"
+        />
+
+        <h3 class="text-xl sm:text-2xl font-semibold uppercase">TOM DARVAL</h3>
+        <p class="text-xs sm:text-sm uppercase tracking-wide text-neutral-500 mb-4">
+          HEAD OF COFFEE & EXPERIENCE
+        </p>
+        <p class="text-sm sm:text-base uppercase leading-relaxed text-neutral-700">
+          Tom defines the coffee direction, bean selection, training, and standards.
+        </p>
+      </article>
+
+      <!-- PB -->
+      <article
+        class="group flex flex-col items-start text-left
+               rounded-2xl border border-neutral-200/60 bg-white/70 backdrop-blur-sm
+               p-8 sm:p-10 shadow-sm hover:shadow-xl hover:-translate-y-2
+               transition-all duration-300 ease-out opacity-0 translate-y-6"
+        data-scroll-fade
+        style="transition-delay:450ms;"
+      >
+        <img
+          src="{{ section.settings.pb_image | img_url: '600x' }}"
+          alt="Portrait of Pierre-Baptiste Rozic"
+          class="h-56 w-56 object-cover rounded-2xl shadow-md ring-2 ring-neutral-100 mb-6"
+        />
+
+        <h3 class="text-xl sm:text-2xl font-semibold uppercase">PIERRE-BAPTISTE ROZIC</h3>
+        <p class="text-xs sm:text-sm uppercase tracking-wide text-neutral-500 mb-4">
+          BARISTA & LOGISTICS SUPPORT
+        </p>
+        <p class="text-sm sm:text-base uppercase leading-relaxed text-neutral-700">
+          Supports bar service, logistics, and setup throughout production days.
+        </p>
+      </article>
+
     </div>
-    <h3 class="text-lg sm:text-xl font-semibold">
-      Pierre-Baptiste Rozic
-    </h3>
-    <p class="text-xs sm:text-sm uppercase tracking-wide text-neutral-500 mb-3">
-      Barista &amp; Logistics Support
-    </p>
-    <p class="text-sm text-neutral-700 leading-relaxed">
-      As the newest member of the team, Pierre-Baptiste brings fresh energy to the bar. He supports
-      bar service, logistics, and on-set setup, making sure the coffee station runs smoothly from
-      first call to wrap.
-    </p>
-  </article>
-</div>
+
   </div>
+
 </section>
+
 
 {% schema %}
 {
   "name": "Wild Beans – Story",
   "settings": [
-    { "type": "image_picker", "id": "vincent_image", "label": "Vincent's photo" },
-    { "type": "image_picker", "id": "tom_image", "label": "Tom's photo" },
-    { "type": "image_picker", "id": "pb_image", "label": "Pierre-Baptiste's photo" }
+    { "type": "image_picker", "id": "story_img_1", "label": "Story image 1" },
+    { "type": "image_picker", "id": "story_img_2", "label": "Story image 2" },
+    { "type": "image_picker", "id": "tom_doc_img", "label": "Tom documentary image" },
+    { "type": "image_picker", "id": "brand_img", "label": "Brand image" },
+    { "type": "image_picker", "id": "youtube_img", "label": "YouTube image" },
+    { "type": "image_picker", "id": "vincent_image", "label": "Vincent image" },
+    { "type": "image_picker", "id": "tom_image", "label": "Tom image" },
+    { "type": "image_picker", "id": "pb_image", "label": "PB image" }
   ],
   "presets": [
-    {
-      "name": "Wild Beans – Story & Team (Tailwind Animated)"
-    }
+    { "name": "Wild Beans – Story + Team (Editorial Left, Limited Width)" }
   ]
 }
 {% endschema %}
