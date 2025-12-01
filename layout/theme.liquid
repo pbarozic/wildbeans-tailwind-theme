@@ -7,6 +7,15 @@
     <meta name='theme-color' content=''>
     <link rel='canonical' href='{{ canonical_url }}'>
 
+    {% if template == 'index' %}
+  <style>
+    html, body {
+      height: 100vh;
+      scroll-snap-type: y mandatory;
+      overflow-y: scroll;
+    }
+  </style>
+  {% endif %}
     {%- if settings.favicon != blank -%}
       <link rel='icon' type='image/png' href='{{ settings.favicon | image_url: width: 32, height: 32 }}'>
     {%- endif -%}
@@ -404,51 +413,66 @@
     const footer = document.getElementById("site-footer");
     const heroSection = document.querySelector(".js-hero-section");
 
-    // HEADER : apparaît après le gros logo
-    if (header && heroLogo && "IntersectionObserver" in window) {
-      const headerObserver = new IntersectionObserver(
-        (entries) => {
-          entries.forEach(entry => {
-            if (entry.isIntersecting) {
-              // Le gros logo est visible → header caché
-              header.classList.add("header-hidden");
-              header.classList.remove("header-visible");
-            } else {
-              // On a passé le gros logo → header visible
-              header.classList.remove("header-hidden");
-              header.classList.add("header-visible");
-            }
-          });
-        },
-        { threshold: 0.3 }
-      );
+    // === HEADER ===
+    if (header && "IntersectionObserver" in window) {
+      if (heroLogo) {
+        // Cas page d'accueil : comportement spécial avec le gros logo
+        const headerObserver = new IntersectionObserver(
+          (entries) => {
+            entries.forEach(entry => {
+              if (entry.isIntersecting) {
+                // Le gros logo est visible → header caché
+                header.classList.add("header-hidden");
+                header.classList.remove("header-visible");
+              } else {
+                // On a passé le gros logo → header visible
+                header.classList.remove("header-hidden");
+                header.classList.add("header-visible");
+              }
+            });
+          },
+          { threshold: 0.3 }
+        );
 
-      headerObserver.observe(heroLogo);
+        headerObserver.observe(heroLogo);
+      } else {
+        // Cas toutes les autres pages : header TOUJOURS visible
+        header.classList.remove("header-hidden");
+        header.classList.add("header-visible");
+      }
     }
 
-    // FOOTER : apparaît seulement quand on est sous TOUTE la section logo+vidéo
-    if (footer && heroSection && "IntersectionObserver" in window) {
-      const footerObserver = new IntersectionObserver(
-        (entries) => {
-          entries.forEach(entry => {
-            if (entry.isIntersecting) {
-              // La section hero (logo + vidéo) est encore à l'écran → footer caché
-              footer.classList.add("footer-hidden");
-              footer.classList.remove("footer-visible");
-            } else {
-              // On a scrollé sous toute la section hero → footer visible
-              footer.classList.remove("footer-hidden");
-              footer.classList.add("footer-visible");
-            }
-          });
-        },
-        { threshold: 0.1 }
-      );
+    // === FOOTER ===
+    if (footer && "IntersectionObserver" in window) {
+      if (heroSection) {
+        // Page d'accueil : footer seulement après toute la section hero
+        const footerObserver = new IntersectionObserver(
+          (entries) => {
+            entries.forEach(entry => {
+              if (entry.isIntersecting) {
+                // La section hero est encore à l'écran → footer caché
+                footer.classList.add("footer-hidden");
+                footer.classList.remove("footer-visible");
+              } else {
+                // On a scrollé sous toute la section hero → footer visible
+                footer.classList.remove("footer-hidden");
+                footer.classList.add("footer-visible");
+              }
+            });
+          },
+          { threshold: 0.1 }
+        );
 
-      footerObserver.observe(heroSection);
+        footerObserver.observe(heroSection);
+      } else {
+        // Autres pages : footer visible normalement
+        footer.classList.remove("footer-hidden");
+        footer.classList.add("footer-visible");
+      }
     }
   });
 </script>
+
 
   </body>
 </html>
