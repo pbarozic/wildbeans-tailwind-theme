@@ -1,6 +1,6 @@
 {% comment %}
   WB - Events
-  Page events avec plusieurs slides qui reprennent la structure de wb-features
+  Page events avec animations Story + slider Story
 {% endcomment %}
 
 <section
@@ -10,78 +10,66 @@
   {% for block in section.blocks %}
     <section
       id="event-{{ block.id }}"
-      class="w-full sm:pt-80 min-h-screen flex flex-col-reverse flex-start items-start sm:flex-row reveal reveal-scale snap-start js-safe-layout barista-button"
+      class="sm:w-2/3 min-h-screen flex items-center js-safe-layout barista-button"
     >
-      <!-- IMAGE -->
-      <div class="sm:w-1/3 w-full flex justify-center sm:justify-start items-center">
-        {% if block.settings.image != blank %}
-          <div class="w-full sm:max-w-3xl sm:aspect-[4/5]">
-            <img
-              src="{{ block.settings.image | image_url: width: 2000 }}"
-              alt="{{ block.settings.image_alt | escape }}"
-              class="w-full object-contain"
-            >
-          </div>
-        {% endif %}
-      </div>
 
-      <!-- TEXTE -->
-      <div class="w-full sm:w-2/3 flex justify-start items-start ml-6">
-        <div class="max-w-4xl">
+      <div class="w-full max-w-[1400px] px-4 grid grid-cols-1 sm:grid-cols-2 gap-10">
+
+        <!-- IMAGE -->
+        <div
+          class="opacity-0 translate-y-6 will-change-transform
+                 transition-all duration-[1900ms] ease-[cubic-bezier(0.19,1,0.22,1)]"
+          data-scroll-fade
+          style="transition-delay:500ms;"
+        >
+          {% if block.settings.image != blank %}
+            <div class="w-full h-[420px] overflow-hidden rounded-2xl shadow-lg">
+              <img
+                src="{{ block.settings.image | image_url: width: 2000 }}"
+                alt="{{ block.settings.image_alt }}"
+                class="w-full h-full object-cover"
+              >
+            </div>
+          {% endif %}
+        </div>
+
+        <!-- TEXTE -->
+        <div
+          class="opacity-0 translate-y-6 will-change-transform
+                 transition-all duration-[2000ms] ease-[cubic-bezier(0.19,1,0.22,1)]"
+          data-scroll-fade
+          style="transition-delay:200ms;"
+        >
           <div class="rte">
             {{ block.settings.text_html }}
           </div>
         </div>
+
       </div>
+
     </section>
   {% endfor %}
 </section>
 
+
 {% schema %}
 {
   "name": "WB - Events",
-  "settings": [
-    {
-      "type": "text",
-      "id": "section_title",
-      "label": "Titre interne (optionnel)",
-      "default": "Nos events"
-    }
-  ],
+  "settings": [],
   "blocks": [
     {
       "type": "feature",
-      "name": "Event / Feature",
+      "name": "Event",
       "settings": [
-        {
-          "type": "image_picker",
-          "id": "image",
-          "label": "Image"
-        },
-        {
-          "type": "text",
-          "id": "image_alt",
-          "label": "Description image (accessibilité + SEO)"
-        },
-        {
-          "type": "textarea",
-          "id": "text_html",
-          "label": "HTML personnalis\u00e9",
-          "default": "<h2>Titre de l'event</h2>\\n<p>Texte ici…</p>"
-        }
+        { "type": "image_picker", "id": "image", "label": "Image" },
+        { "type": "text", "id": "image_alt", "label": "Description image" },
+        { "type": "textarea", "id": "text_html", "label": "Texte" }
       ]
     }
   ],
-  "max_blocks": 10,
   "presets": [
-    {
-      "name": "WB - Events",
-      "blocks": [
-        {
-          "type": "feature"
-        }
-      ]
-    }
+    { "name": "WB - Events" }
   ]
 }
+
 {% endschema %}

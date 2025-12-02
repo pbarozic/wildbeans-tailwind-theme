@@ -49,7 +49,7 @@ class="hidden md:!block fixed bottom-0 left-0 right-0 z-40 bg-transparent wb-foo
   }
 </style>
 
-{% if template.name == 'index' %}
+{% if template.name == 'index' or request.path contains '/pages/events' %}
   <script>
     document.addEventListener('DOMContentLoaded', function () {
       const footerCta = document.getElementById('footer-cta');
