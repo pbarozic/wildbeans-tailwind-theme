@@ -11,24 +11,21 @@
   "sections": {
     "main": {
       "type": "wb-events",
-      "blocks": {
-        "event-1": {
-          "type": "feature",
-          "settings": {
-            "image_alt": "",
-            "text_html": "<h2>Premier event</h2>\n<p>Décris ici le principe général ou un premier format.</p>"
-          }
-        }
-      },
-      "block_order": [
-        "event-1"
-      ],
       "settings": {
         "section_title": "Nos events"
+      }
+    },
+    "wb_features_kXmetg": {
+      "type": "wb-features",
+      "name": "WB - Feature",
+      "settings": {
+        "image_alt": "",
+        "text_html": "<h2>Titre</h2>\n<p>Texte ici…</p>"
       }
     }
   },
   "order": [
-    "main"
+    "main",
+    "wb_features_kXmetg"
   ]
 }

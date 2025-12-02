@@ -11,23 +11,12 @@
   "name": "t:sections.header.name",
   "type": "header",
   "sections": {
-    "custom_liquid_Pn6NGi": {
-      "type": "custom-liquid",
-      "name": "Logo-header",
-      "settings": {
-        "custom_liquid": "",
-        "color_scheme": "",
-        "padding_top": 0,
-        "padding_bottom": 0
-      }
-    },
     "header": {
       "type": "header",
       "settings": {}
     }
   },
   "order": [
-    "custom_liquid_Pn6NGi",
     "header"
   ]
 }
