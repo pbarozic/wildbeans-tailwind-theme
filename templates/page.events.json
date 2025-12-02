@@ -32,10 +32,11 @@
         },
         "feature_wFHAYd": {
           "type": "feature",
+          "name": "TW WB TOUCH",
           "settings": {
-            "image": "shopify://shop_images/thumbnail_IMG_0746.jpg",
+            "image": "shopify://shop_images/BBW_BARISTOSS_12452_1.jpg",
             "image_alt": "",
-            "text_html": "<h2>Titre de l'event</h2>\\n<p>Texte ici…</p>"
+            "text_html": "<h2 class=\"text-3xl font-bold mb-4\">\n          <strong>WILD BEANS TOUCH</strong>\n        </h2>\n\n        <h4 class=\"text-xl font-bold mb-2\">\n          <strong>OUR BARISTA EXPERTS</strong>\n        </h4>\n\n        <p class=\"text-xl mb-6 leading-relaxed\">\n          WE WORK WITH A TEAM OF EXPERIENCED AND RENOWNED BARISTAS THROUGHOUT FRANCE. YOU MAY THINK IT IS ALL ABOUT LATTE ART BUT IT GOES WAY BEYOND — IT IS ALSO ABOUT COFFEE KNOWLEDGE, STORYTELLING, AND MACHINE EXPERTISE. MOST OF ALL, THE LOVE FOR COFFEE, THE ABILITY TO SHARE UNIQUE MOMENTS & SPREAD THE GOOD VIBE.\n        </p>\n\n        <h4 class=\"text-xl font-bold mb-2\">\n          <strong>SIGNATURE COFFEE STATIONS</strong>\n        </h4>\n\n        <p class=\"text-xl leading-relaxed\">\n          WE DESIGNED BEAUTIFUL AND UNIQUE COFFEE STATIONS MADE OF STAINLESS STEEL TO IMPROVE THE BARISTA SERVICE ON ANY LOCATION. OUR SOLUTION IS “PLUG & PLAY”: WE ONLY NEED A POWER SOURCE — WE BRING THE REST (AND YES, WE HAVE POWER SOLUTIONS FOR OUTDOOR EVENTS).\n        </p>"
           }
         }
       },
