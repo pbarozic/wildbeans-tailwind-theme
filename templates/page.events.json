@@ -1,0 +1,34 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "wb-events",
+      "blocks": {
+        "event-1": {
+          "type": "feature",
+          "settings": {
+            "image_alt": "",
+            "text_html": "<h2>Premier event</h2>\n<p>Décris ici le principe général ou un premier format.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "event-1"
+      ],
+      "settings": {
+        "section_title": "Nos events"
+      }
+    }
+  },
+  "order": [
+    "main"
+  ]
+}

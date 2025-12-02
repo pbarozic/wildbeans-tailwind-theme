@@ -24,10 +24,10 @@
     endif
   -%}
   {%- paginate collections by paginate_by -%}
-    <ul
-      class="collection-list grid grid--{{ section.settings.columns_desktop }}-col-desktop grid--{{ section.settings.columns_mobile }}-col-tablet-down"
-      role="list"
-    >
+   <ul
+  class="collection-list flex flex-wrap gap-x-8 gap-y-10"
+  role="list"
+>
       {%- for collection in collections -%}
         <li
           class="collection-list__item grid__item{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
