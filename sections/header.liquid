@@ -79,14 +79,14 @@
           <div class="flex items-center justify-start">
             <a 
               href="{{ link.url }}" 
-              class="text-xl font-medium link-wave"
+              class="text-2xl font-medium link-wave"
             >
               {{ link.title }}
             </a>
 
             {% if link.links.size > 0 %}
               <button 
-                class="toggle-submenu text-xl font-bold px-2 focus:outline-none"
+                class="toggle-submenu text-2xl font-bold px-2 focus:outline-none"
                 aria-label="Afficher le sous-menu"
               >
                 ▾
@@ -99,7 +99,7 @@
               {% for sublink in link.links %}
                 <a 
                   href="{{ sublink.url }}" 
-                  class="text-xl link-wave"
+                  class="text-2xl link-wave"
                 >
                   {{ sublink.title }}
                 </a>
