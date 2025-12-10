@@ -6,6 +6,19 @@ html {
   scroll-behavior: smooth;
 }
 
+#wild-beans-hero, 
+#wild-beans-hero > section {
+  overflow-x: hidden !important;
+  scrollbar-width: none; 
+}
+html, body {
+  overflow-x: hidden !important;
+}
+
+#wild-beans-hero::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}
 
 :root {
   --alpha-button-background: 1;
@@ -3665,38 +3678,79 @@ details-disclosure>details {
 /* Base : animation reveal */
 .reveal {
   opacity: 0;
-  transition: opacity 2s ease, transform 2s ease;
-  will-change: opacity, transform;
+  transform: translateY(16px);
+  transition: opacity 2s ease-out,
+              transform 2s ease-out;
 }
 
-/* Variante par défaut : du bas vers le haut */
-.reveal {
-  transform: translateY(24px);
-}
 
 /* Variante : depuis la gauche */
 .reveal-left {
-  transform: translateX(-32px);
+  transform: translateX(-128px);
 }
 
 /* Variante : depuis la droite */
 .reveal-right {
-  transform: translateX(32px);
+  transform: translateX(64px);
 }
 
 /* Variante : zoom */
 .reveal-scale {
-  transform: scale(0.6);
+  transform: scale(0.5);
 }
 
 /* État visible (commun à tout le monde) */
 .reveal--visible {
   opacity: 1;
-  transform: translateX(0) translateY(0) scale(1);
+  transform: translateY(0);
 }
 
 #site-header {
   transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+/* Animation d'entrée du header desktop */
+@media screen and (min-width: 768px) {
+  /* État par défaut : les blocs sont prêts à être animés */
+  #site-header .header-desktop-left,
+  #site-header .header-desktop-right {
+    opacity: 0;
+    transform: translateX(0);
+    transition:
+      transform 4000ms ease-out,
+      opacity 4000ms ease-out;
+  }
+
+  /* Quand le header est caché (page d'accueil pendant le gros logo) :
+     on les met légèrement off-screen dans la bonne direction */
+  #site-header.header-hidden .header-desktop-left {
+    transform: translateX(-128px);
+  }
+  #site-header.header-hidden .header-desktop-right {
+    transform: translateX(128px);
+  }
+
+  /* Quand le header devient visible : fade-in + slide vers l'intérieur */
+  #site-header.header-visible .header-desktop-left,
+  #site-header.header-visible .header-desktop-right {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+
+/* Le logo grossit au début (déjà géré par .reveal / .reveal-scale / .reveal--visible) */
+/* Ici on ajoute le comportement "shrink" quand on scrolle vers la vidéo */
+
+.js-hero-section.reveal--visible {
+  /* On rappelle l'état normal, au cas où */
+  transform: translateY(0) scale(1);
+}
+
+/* Quand la vidéo est visible, on rétrécit la section logo */
+.js-hero-section.reveal--visible.is-scrolled {
+  transform: translateY(-16px) scale(0.8);
+  /* tu peux jouer sur scale(0.7 / 0.6) et translateY */
 }
 
 .header-hidden {
@@ -3778,14 +3832,7 @@ details-disclosure>details {
 }
 
 
-.typewriter-heading {
-  white-space: nowrap;
-  overflow: hidden;
-  border-right: 1px solid currentColor;
-  animation:
-    typing 2.8s steps(18, end) 0.2s forwards,
-    caret 0.9s step-end infinite;
-}
+
 
 
 /* Tous les éléments marqués data-scroll-fade sont cachés au départ */

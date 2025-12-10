@@ -72,7 +72,8 @@
   {%- comment -%} --- HEADER DESKTOP --- {%- endcomment -%}
   <div class="hidden md:!flex flex-row justify-between items-start px-4">    
     {%- comment -%} NAV GAUCHE {%- endcomment -%}
-    <nav class="flex w-1/2 flex-col items-start space-y-2">
+   <nav class="header-desktop-left flex w-1/2 flex-col items-start space-y-2">
+
       {% for link in linklists.main-menu.links %}
         <div class="w-full">
           <div class="flex items-center justify-start">
@@ -110,7 +111,7 @@
     </nav>
 
     {%- comment -%} BLOC DROITE (STORE + LOGIN) {%- endcomment -%}
-    <div class="w-1/2 flex justify-end">
+   <div class="header-desktop-right w-1/2 flex justify-end pr-2">
       <div class="flex flex-row items-center gap-4">
         
         {%- comment -%} BLOC BOUTON STORE {%- endcomment -%}

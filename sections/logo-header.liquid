@@ -1,52 +1,32 @@
-{%- comment -%} SECTION 1 : GROS LOGO {%- endcomment -%}
-<section class="w-full collapse sm:visible sm:min-h-screen flex-col sm:flex-col-reverse justify-end overflow-x-hidden snap-start reveal reveal-scale js-hero-section">
+<div
+  id="wild-beans-hero"
+  class="h-screen overflow-y-scroll overflow-x-hidden"
+>
+  {%- comment -%} SECTION 1 : GROS LOGO {%- endcomment -%}
+  <section class="w-full sm:min-h-screen flex-col sm:flex-col-reverse justify-end overflow-x-hidden snap-start reveal reveal-scale js-hero-section">
+    <div class="w-full sm:h-screen flex flex-col justify-end js-hero-logo">
+      <img 
+        src="{{ '251015_LOGO-WILDBEANS_BLK_crope.png' | file_url }}" 
+        alt="WILD BEANS"
+        class="w-full object-contain js-hero-logo-img will-change-transform" 
+      />
+    </div>
+  </section>
 
-  <!-- LOGO -->
-  <div class="w-full sm:h-screen flex flex-col justify-end js-hero-logo">
-    <img 
-      src="{{ '251015_LOGO-WILDBEANS_BLK_crope.png' | file_url }}" 
-      alt="WILD BEANS"
-      class="w-full object-contain" 
-    />
-  </div>
-
-</section>
-
-{%- comment -%} SECTION 2 : VIDÉO PLEIN ÉCRAN {%- endcomment -%}
-<section class="w-full sm-h-screen overflow-x-hidden snap-start reveal reveal-scale js-hero-video">
-
-  <div class="w-full h-full barista-button">
-    <video
-      autoplay
-      muted
-      loop
-      playsinline
-      preload="auto"
-      class="w-full h-full object-cover"
-    >
-      <source src="{{ 'V01.mp4' | file_url }}" type="video/mp4" />
-      Votre navigateur ne supporte pas la lecture de vidéo.
-    </video>
-  </div>
-
-</section>
-
-<style>
-@keyframes scrollPulse {
-  0%, 100% { opacity: 0.6; }
-  50% { opacity: 1; }
-}
-</style>
-
-{% schema %}
-{
-  "name": "Logo header",
-  "tag": "section",
-  "settings": [],
-  "presets": [
-    {
-      "name": "Logo header"
-    }
-  ]
-}
-{% endschema %}
+  {%- comment -%} SECTION 2 : VIDÉO PLEIN ÉCRAN {%- endcomment -%}
+  <section class="w-full sm:min-h-screen overflow-x-hidden snap-start reveal reveal-scale js-hero-video">
+    <div class="w-full h-full barista-button">
+      <video
+        autoplay
+        muted
+        loop
+        playsinline
+        preload="auto"
+        class="w-full h-full object-cover"
+      >
+        <source src="{{ 'V01.mp4' | file_url }}" type="video/mp4" />
+        Votre navigateur ne supporte pas la lecture de vidéo.
+      </video>
+    </div>
+  </section>
+</div>

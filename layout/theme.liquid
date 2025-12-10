@@ -7,7 +7,7 @@
     <meta name='theme-color' content=''>
     <link rel='canonical' href='{{ canonical_url }}'>
 
-    {% if template == 'index' %}
+{% if template == 'index' %}
   <style>
     html, body {
       height: 100vh;
@@ -15,7 +15,7 @@
       overflow-y: scroll;
     }
   </style>
-  {% endif %}
+{% endif %}
     {%- if settings.favicon != blank -%}
       <link rel='icon' type='image/png' href='{{ settings.favicon | image_url: width: 32, height: 32 }}'>
     {%- endif -%}
@@ -747,10 +747,42 @@
     initWildBeansSlider('wild-beans-story-team');
     // EVENTS : même slider vertical
     initWildBeansSlider('wild-beans-events');
+    // HERO : slider vertical entre logo et vidéo
+    initWildBeansSlider('wild-beans-hero');
   });
+  
 </script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+
+  const heroContainer = document.getElementById('wild-beans-hero');
+  const heroLogoImg = document.querySelector('.js-hero-logo-img');
+
+  if (!heroContainer || !heroLogoImg) return;
+
+  function updateLogoShrink() {
+    const MIN_SCALE = 0.55;
+    const scrollY = heroContainer.scrollTop;
+
+    const firstSection = heroContainer.querySelector('section');
+    const sectionHeight = firstSection ? firstSection.offsetHeight : window.innerHeight;
+
+    let progress = scrollY / sectionHeight;
+    progress = Math.min(Math.max(progress, 0), 1);
+
+    const scale = 1 - (1 - MIN_SCALE) * progress;
 
 
+    heroLogoImg.style.transform = `scale(${scale})`;
+  }
+    const opacity = 1 - progress;
+heroLogoImg.style.opacity = opacity;
+
+  heroContainer.addEventListener('scroll', updateLogoShrink);
+  updateLogoShrink();
+
+});
+</script>
 
 
   </body>

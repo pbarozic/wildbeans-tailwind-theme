@@ -4,7 +4,7 @@ class="hidden md:!block fixed bottom-0 left-0 right-0 z-40 bg-transparent wb-foo
   <div class="flex flex-row justify-between">
 
     {%- comment -%} LOGO GAUCHE {%- endcomment -%}
-    <div class="w-1/3 flex items-center">
+    <div class="w-1/3 flex items-center reveal reveal-left">
   {% if section.settings.image != blank %}
     <a href="/" class="block w-full">
       <img
@@ -35,18 +35,29 @@ class="hidden md:!block fixed bottom-0 left-0 right-0 z-40 bg-transparent wb-foo
   </div>
 </div>
 <style>
-  /* bouton caché par défaut */
-  .footer-cta {
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 300ms ease;
-  }
+.footer-cta {
+  opacity: 0;
+  transform: translateX(40px);
+  pointer-events: none;
+}
 
-  /* visible quand on ajoute la classe */
-  .footer-cta--visible {
-    opacity: 1;
-    pointer-events: auto;
+/* Animation quand visible */
+.footer-cta--visible {
+  animation: footerCtaIn 1.5s ease forwards;
+  animation-delay: 1.5s;
+  pointer-events: auto;
+}
+
+@keyframes footerCtaIn {
+  from {
+    opacity: 0;
+    transform: translateX(128px);
   }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
 </style>
 
 {% if template.name == 'index' or request.path contains '/pages/events' %}
