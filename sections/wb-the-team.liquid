@@ -7,11 +7,61 @@ WILD BEANS — STORY + TEAM (Docu, Chapitré, Slides plein écran + Scroll Snap)
   class="w-screen h-screen overflow-y-scroll"
 >
 
+<section class="w-full sm:h-screen overflow-x-hidden snap-start relative js-events-video">
+  <div class="w-full h-full barista-button">
+    <video
+      autoplay
+      muted
+      loop
+      playsinline
+      preload="auto"
+      class="w-full h-full object-cover"
+    >
+      <source src="{{ 'V02.MOV' | file_url }}" type="video/mp4" />
+      Votre navigateur ne supporte pas la lecture de vidéo.
+    </video>
+  </div>
+
+  <!-- OVERLAY TEXTE ANIMÉ -->
+  <div
+    class="pointer-events-none absolute inset-0 flex flex-col items-center justify-center
+           -translate-y-[8vh] px-4 text-center"
+  >
+    <h1
+      id="hero-title"
+      class="text-white font-bold
+             text-[12vw] sm:text-[9vw] md:text-[7vw]
+             leading-none tracking-tight
+             drop-shadow-[0_0_25px_rgba(255,199,120,0.25)]
+drop-shadow-[0_20px_55px_rgba(0,0,0,1)]
+"
+    ></h1>
+
+    <p
+      id="hero-subtitle"
+      class="mt-4 text-white/80 text-4xl 
+  tracking-[0.25em] uppercase
+  drop-shadow-[0_0_25px_rgba(255,199,120,0.25)]
+drop-shadow-[0_20px_55px_rgba(0,0,0,1)]"
+"
+    ></p>
+  </div>
+  <!-- CTA CHAPTER 1 -->
+<button
+  type="button"
+  class="wb-chapter-btn"
+  aria-label="Scroll to Chapter 1"
+  data-scroll-to="#chapter-1"
+>
+  CHAPTER 1
+</button>
+</section>
+
   <!-- =============================== -->
   <!-- SLIDE 1 : OUR STORY + CHAPTER 01 -->
   <!-- =============================== -->
 
-  <section class="sm:w-1/2 min-h-screen flex items-center js-safe-layout">
+  <section  id="chapter-1" class="sm:w-1/2 min-h-screen flex items-center js-safe-layout">
     <div class=" px-4 space-y-6 md:space-y-8">
 
       <h2
@@ -387,7 +437,124 @@ WILD BEANS — STORY + TEAM (Docu, Chapitré, Slides plein écran + Scroll Snap)
   </section>
 
 </section>
+<style>
+  .wb-letter {
+    opacity: 0;
+    transform: translateY(14px);
+    display: inline-block;
+    animation: wbFadeUp 0.9s forwards ease-out;
+  }
 
+  @keyframes wbFadeUp {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .wb-chapter-btn{
+  position: absolute;
+  left: 50%;
+  bottom: 28px;
+  transform: translateX(-50%);
+  z-index: 50;
+
+  pointer-events: auto;
+  color: white;
+  font-size: 18px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+
+  animation: wbBlink 1.2s infinite ease-in-out;
+}
+
+@keyframes wbBlink{
+  0%, 100% { opacity: 0.25; transform: translateX(-50%) translateY(0); }
+  50%      { opacity: 1;    transform: translateX(-50%) translateY(-4px); }
+}
+
+.wb-chapter-btn:hover{
+  animation: none;
+  opacity: 1;
+}
+
+</style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const titleText = "DISCOVER OUR STORY";
+    const subtitleText = "A journey shaped by coffee, moments and people";
+
+    const titleEl = document.getElementById("hero-title");
+    const subtitleEl = document.getElementById("hero-subtitle");
+
+    function animateText(el, text, baseDelay) {
+      if (!el) return;
+      el.innerHTML = "";
+      Array.from(text).forEach((char, index) => {
+        const span = document.createElement("span");
+        span.className = "wb-letter";
+        span.textContent = char === " " ? "\u00A0" : char;
+        span.style.animationDelay = (baseDelay + index * 0.08) + "s";
+        el.appendChild(span);
+      });
+    }
+
+    animateText(titleEl, titleText, 0.08);
+    animateText(subtitleEl, subtitleText, 0.8);
+
+    // === ANIMATIONS D'APPARITION AU SCROLL ===
+    const fadeEls = document.querySelectorAll("[data-scroll-fade]");
+
+    if (!("IntersectionObserver" in window)) {
+      // Fallback vieux navigateurs : on montre tout
+      fadeEls.forEach(el => {
+        el.classList.remove("opacity-0", "translate-y-6");
+      });
+      return;
+    }
+
+    const fadeObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.remove("opacity-0", "translate-y-6");
+            // Optionnel : s'assurer de l'état final
+            entry.target.classList.add("opacity-100", "translate-y-0");
+            // On peut arrêter d'observer une fois l'anim jouée
+            fadeObserver.unobserve(entry.target);
+          }
+        });
+      },
+      {
+        threshold: 0.2 // l’élément commence à s’animer quand ~20% est visible
+      }
+    );
+
+    fadeEls.forEach(el => fadeObserver.observe(el));
+  });
+   const btn = document.querySelector("[data-scroll-to]");
+
+if (btn) {
+  btn.addEventListener("click", (e) => {
+    e.preventDefault();
+
+    const slider = document.getElementById("wild-beans-story-team");
+    if (!slider || !slider._goToSlide) return;
+
+    // Slide 0 = vidéo
+    // Slide 1 = Chapter 01
+    slider._goToSlide(1);
+
+    // option : fade du bouton
+    btn.classList.add("opacity-0", "pointer-events-none");
+  });
+}
+
+</script>
 
 {% schema %}
 {

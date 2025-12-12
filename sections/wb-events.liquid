@@ -128,31 +128,6 @@ drop-shadow-[0_20px_55px_rgba(0,0,0,1)]"
 
     animateText(titleEl, titleText, 0.08);
     animateText(subtitleEl, subtitleText, 0.8);
-  });
-</script>
-
-<script>
-  document.addEventListener("DOMContentLoaded", function () {
-    const titleText = "ELEVATE YOUR EVENTS";
-    const subtitleText = "Where Premium Coffee Meets Flawless Service";
-
-    const titleEl = document.getElementById("hero-title");
-    const subtitleEl = document.getElementById("hero-subtitle");
-
-    function animateText(el, text, baseDelay) {
-      if (!el) return;
-      el.innerHTML = "";
-      Array.from(text).forEach((char, index) => {
-        const span = document.createElement("span");
-        span.className = "wb-letter";
-        span.textContent = char === " " ? "\u00A0" : char;
-        span.style.animationDelay = (baseDelay + index * 0.08) + "s";
-        el.appendChild(span);
-      });
-    }
-
-    animateText(titleEl, titleText, 0.08);
-    animateText(subtitleEl, subtitleText, 0.8);
 
     // === ANIMATIONS D'APPARITION AU SCROLL ===
     const fadeEls = document.querySelectorAll("[data-scroll-fade]");
