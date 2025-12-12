@@ -49,7 +49,7 @@ drop-shadow-[0_20px_55px_rgba(0,0,0,1)]"
   <!-- CTA CHAPTER 1 -->
 <button
   type="button"
-  class="wb-chapter-btn"
+  class="wb-chapter-btn wb-chapter-btn--hero"
   aria-label="Scroll to Chapter 1"
   data-scroll-to="#chapter-1"
 >
@@ -61,30 +61,20 @@ drop-shadow-[0_20px_55px_rgba(0,0,0,1)]"
   <!-- SLIDE 1 : OUR STORY + CHAPTER 01 -->
   <!-- =============================== -->
 
-  <section  id="chapter-1" class="sm:w-1/2 min-h-screen flex items-center js-safe-layout">
+  <section  id="chapter-1" class="sm:w-1/2 min-h-screen flex items-center js-safe-layout relative">
     <div class=" px-4 space-y-6 md:space-y-8">
-
-      <h2
-        class="typewriter-heading text-3xl sm:text-4xl md:text-5xl font-bold uppercase tracking-tight
-               opacity-0 translate-y-6 will-change-transform
-               transition-all duration-[2200ms] ease-[cubic-bezier(0.19,1,0.22,1)]"
-        data-scroll-fade
-        style="transition-delay:0ms;"
-      >
-        Our Story
-      </h2>
 
       <!-- CHAPTER 01 HEADER -->
       <div
         class="space-y-1 opacity-0 translate-y-6 will-change-transform
-               transition-all duration-[1800ms] ease-[cubic-bezier(0.19,1,0.22,1)]"
+               transition-all duration-[3000ms] ease-[cubic-bezier(0.19,1,0.22,1)]"
         data-scroll-fade
-        style="transition-delay:400ms;"
+        style="transition-delay:800ms;"
       >
-        <p class="text-[11px] sm:text-xs font-medium tracking-[0.25em] text-neutral-500">
+        <p class="sm:text-2xl font-medium tracking-[0.25em] text-neutral-500">
           CHAPTER 01
         </p>
-        <h3 class="text-2xl sm:text-3xl font-semibold uppercase tracking-tight">
+        <h3 class="sm:text-4xl font-semibold uppercase tracking-tight">
           The Intuition
         </h3>
       </div>
@@ -92,9 +82,9 @@ drop-shadow-[0_20px_55px_rgba(0,0,0,1)]"
       <p
         class="text-base sm:text-lg md:text-xl leading-relaxed uppercase tracking-wide 
                opacity-0 translate-y-6 will-change-transform
-               transition-all duration-[1900ms] ease-[cubic-bezier(0.19,1,0.22,1)]"
+               transition-all duration-[2500ms] ease-[cubic-bezier(0.19,1,0.22,1)]"
         data-scroll-fade
-        style="transition-delay:700ms;"
+        style="transition-delay:1300ms;"
       >
         Wild Beans was born from a simple observation made by Vincent Rousseau on ad production sets:
         long days, tight schedules, and yet rarely a truly good cup of coffee. Before launching Wild Beans,
@@ -112,23 +102,32 @@ drop-shadow-[0_20px_55px_rgba(0,0,0,1)]"
           src="{{ section.settings.story_img_1 | img_url: '1600x' }}"
           alt="Better Be Wild – Production"
           class="rounded-2xl object-cover h-80 sm:h-96 w-full shadow-lg opacity-0 translate-y-6
-                 will-change-transform transition-all duration-[1900ms] ease-[cubic-bezier(0.19,1,0.22,1)]"
+                 will-change-transform transition-all duration-[2100ms] ease-[cubic-bezier(0.19,1,0.22,1)]"
           data-scroll-fade
-          style="transition-delay:950ms;"
+          style="transition-delay:1500ms;"
         />
 
         <img
           src="{{ section.settings.story_img_2 | img_url: '1600x' }}"
           alt="Behind the scenes – Vincent Rousseau"
           class="rounded-2xl object-cover h-80 sm:h-96 w-full shadow-lg opacity-0 translate-y-6
-                 will-change-transform transition-all duration-[1900ms] ease-[cubic-bezier(0.19,1,0.22,1)]"
+                 will-change-transform transition-all duration-[2100ms] ease-[cubic-bezier(0.19,1,0.22,1)]"
           data-scroll-fade
-          style="transition-delay:1150ms;"
+          style="transition-delay:1700ms;"
         />
 
       </div>
 
     </div>
+  <button
+  type="button"
+  class="wb-chapter-btn wb-chapter-btn--dark"
+  data-scroll-to="#chapter-2"
+  aria-label="Scroll to Chapter 2"
+>
+  CHAPTER 2
+</button>
+
   </section>
 
 
@@ -136,206 +135,234 @@ drop-shadow-[0_20px_55px_rgba(0,0,0,1)]"
   <!-- SLIDE 2 : CHAPTER 02 -->
   <!-- =============================== -->
 
-  <section class="sm:w-1/2 min-h-screen flex items-center">
-    <div class="w-full max-w-[1400px] px-4 space-y-4 md:space-y-6">
+  <section id="chapter-2" class="sm:w-1/2 min-h-screen flex items-center">
+  <div class="px-4 space-y-6 md:space-y-8">
 
-      <div
-        class="space-y-1 opacity-0 translate-y-6 will-change-transform
-               transition-all duration-[1900ms] ease-[cubic-bezier(0.19,1,0.22,1)]"
+    <!-- CHAPTER 02 HEADER -->
+    <div
+      class="space-y-1 opacity-0 translate-y-6 will-change-transform
+             transition-all duration-[3000ms] ease-[cubic-bezier(0.19,1,0.22,1)]"
+      data-scroll-fade
+      style="transition-delay:800ms;"
+    >
+      <p class="sm:text-2xl font-medium tracking-[0.25em] text-neutral-500">
+        CHAPTER 02
+      </p>
+      <h3 class="sm:text-4xl font-semibold uppercase tracking-tight">
+        The Meeting
+      </h3>
+    </div>
+
+    <p
+      class="text-base sm:text-lg md:text-xl leading-relaxed uppercase tracking-wide
+             opacity-0 translate-y-6 will-change-transform
+             transition-all duration-[2500ms] ease-[cubic-bezier(0.19,1,0.22,1)]"
+      data-scroll-fade
+      style="transition-delay:1300ms;"
+    >
+      The project reached a new level when Vincent met Tom Darval, a barista with over 13 years in
+      specialty coffee. Known for his mastery of sourcing, roasting profiles, extraction techniques,
+      and coffee culture, Tom brought the technical depth Wild Beans needed. Beyond his work with
+      Wild Beans, he is currently filming a documentary series with Arte.
+    </p>
+
+    <div class="max-w-[1400px] grid grid-cols-1 sm:grid-cols-2 gap-6 md:gap-8">
+
+      <img
+        src="{{ section.settings.tom_doc_img | img_url: '1600x' }}"
+        alt="Tom Darval filming Arte documentary"
+        class="rounded-2xl object-cover h-80 sm:h-96 w-full shadow-lg opacity-0 translate-y-6
+               will-change-transform transition-all duration-[2100ms] ease-[cubic-bezier(0.19,1,0.22,1)]"
         data-scroll-fade
-        style="transition-delay:200ms;"
-      >
-        <p class="text-[11px] sm:text-xs font-medium tracking-[0.25em] text-neutral-500">
-          CHAPTER 02
-        </p>
-        <h3 class="text-2xl sm:text-3xl font-semibold uppercase tracking-tight">
-          The Meeting
-        </h3>
-      </div>
+        style="transition-delay:1500ms;"
+      />
+
+      <img
+        src="{{ section.settings.tom_doc_img2 | img_url: '1600x' }}"
+        alt="On-set coffee service – Wild Beans"
+        class="rounded-2xl object-cover h-80 sm:h-96 w-full shadow-lg opacity-0 translate-y-6
+               will-change-transform transition-all duration-[2100ms] ease-[cubic-bezier(0.19,1,0.22,1)]"
+        data-scroll-fade
+        style="transition-delay:1700ms;"
+      />
 
       <p
-        class="text-base sm:text-lg md:text-xl leading-relaxed uppercase tracking-wide opacity-0 translate-y-6
-               will-change-transform transition-all duration-[1900ms] ease-[cubic-bezier(0.19,1,0.22,1)]"
+        class="text-xs sm:text-sm text-neutral-500 italic opacity-0 translate-y-6
+               will-change-transform transition-all duration-[2100ms] ease-[cubic-bezier(0.19,1,0.22,1)] sm:col-span-2"
         data-scroll-fade
-        style="transition-delay:500ms;"
+        style="transition-delay:1900ms;"
       >
-        The project reached a new level when Vincent met Tom Darval, a barista with over 13 years in
-        specialty coffee. Known for his mastery of sourcing, roasting profiles, extraction techniques,
-        and coffee culture, Tom brought the technical depth Wild Beans needed. Beyond his work with
-        Wild Beans, he is currently filming a documentary series with Arte.
+        Tom filming his documentary series with Arte, capturing stories from the world of coffee.
       </p>
 
-      <div class="max-w-[1400px] grid grid-cols-1 sm:grid-cols-2 gap-6 md:gap-8">
-
-        <img
-          src="{{ section.settings.tom_doc_img | img_url: '1600x' }}"
-          alt="Tom Darval filming Arte documentary"
-          class="rounded-2xl object-cover h-80 sm:h-96 w-full shadow-lg opacity-0 translate-y-6
-                 will-change-transform transition-all duration-[1900ms] ease-[cubic-bezier(0.19,1,0.22,1)]"
-          data-scroll-fade
-          style="transition-delay:800ms;"
-        />
-         <img
-          src="{{ section.settings.tom_doc_img2 | img_url: '1600x' }}"
-          alt="On-set coffee service – Wild Beans"
-          class="rounded-2xl object-cover h-80 sm:h-96 w-full shadow-lg opacity-0 translate-y-6
-                 will-change-transform transition-all duration-[1900ms] ease-[cubic-bezier(0.19,1,0.22,1)]"
-          data-scroll-fade
-          style="transition-delay:800ms;"
-        />
-
-        <p
-          class="text-xs sm:text-sm text-neutral-500 italic opacity-0 translate-y-6
-                 will-change-transform transition-all duration-[1800ms] ease-[cubic-bezier(0.19,1,0.22,1)]"
-          data-scroll-fade
-          style="transition-delay:1050ms;"
-        >
-          Tom filming his documentary series with Arte, capturing stories from the world of coffee.
-        </p>
-
-      </div>
-
     </div>
-  </section>
+
+  </div>
+
+    <button
+  type="button"
+  class="wb-chapter-btn wb-chapter-btn--dark"
+  data-scroll-to="#chapter-3"
+  aria-label="Scroll to Chapter 3"
+>
+  CHAPTER 3
+</button>
+</section>
+
 
 
   <!-- =============================== -->
   <!-- SLIDE 3 : CHAPTER 03 -->
   <!-- =============================== -->
 
-  <section class="sm:w-1/2 min-h-screen flex items-center">
-    <div class="w-full max-w-[1400px] px-4 space-y-4 md:space-y-6">
+  <section id="chapter-3" class="sm:w-1/2 min-h-screen flex items-center">
+  <div class="px-4 space-y-6 md:space-y-8">
 
-      <div
-        class="space-y-1 opacity-0 translate-y-6 will-change-transform
-               transition-all duration-[1900ms] ease-[cubic-bezier(0.19,1,0.22,1)]"
-        data-scroll-fade
-        style="transition-delay:200ms;"
-      >
-        <p class="text-[11px] sm:text-xs font-medium tracking-[0.25em] text-neutral-500">
-          CHAPTER 03
-        </p>
-        <h3 class="text-2xl sm:text-3xl font-semibold uppercase tracking-tight">
-          On-Set Expertise
-        </h3>
-      </div>
-
-      <p
-        class="text-base sm:text-lg md:text-xl leading-relaxed uppercase tracking-wide opacity-0 translate-y-6
-               will-change-transform transition-all duration-[1900ms] ease-[cubic-bezier(0.19,1,0.22,1)]"
-        data-scroll-fade
-        style="transition-delay:500ms;"
-      >
-        With their complementary strengths : Vincent’s understanding of on-set realities and Tom’s specialty
-        coffee expertise—Wild Beans evolved into a premium coffee service created specifically for shoots
-        and production events.
+    <!-- CHAPTER 03 HEADER -->
+    <div
+      class="space-y-1 opacity-0 translate-y-6 will-change-transform
+             transition-all duration-[3000ms] ease-[cubic-bezier(0.19,1,0.22,1)]"
+      data-scroll-fade
+      style="transition-delay:800ms;"
+    >
+      <p class="sm:text-2xl font-medium tracking-[0.25em] text-neutral-500">
+        CHAPTER 03
       </p>
+      <h3 class="sm:text-4xl font-semibold uppercase tracking-tight">
+        On-Set Expertise
+      </h3>
+    </div>
 
-      <div class="max-w-[1400px] grid grid-cols-1 sm:grid-cols-2 gap-6 md:gap-8">
+    <p
+      class="text-base sm:text-lg md:text-xl leading-relaxed uppercase tracking-wide
+             opacity-0 translate-y-6 will-change-transform
+             transition-all duration-[2500ms] ease-[cubic-bezier(0.19,1,0.22,1)]"
+      data-scroll-fade
+      style="transition-delay:1300ms;"
+    >
+      With their complementary strengths : Vincent’s understanding of on-set realities and Tom’s specialty
+      coffee expertise—Wild Beans evolved into a premium coffee service created specifically for shoots
+      and production events.
+    </p>
 
-        <img
-          src="{{ section.settings.chapter3_img_1 | img_url: '1600x' }}"
-          alt="On-set coffee service – Wild Beans"
-          class="rounded-2xl object-cover h-80 sm:h-96 w-full shadow-lg opacity-0 translate-y-6
-                 will-change-transform transition-all duration-[1900ms] ease-[cubic-bezier(0.19,1,0.22,1)]"
-          data-scroll-fade
-          style="transition-delay:800ms;"
-        />
+    <div class="max-w-[1400px] grid grid-cols-1 sm:grid-cols-2 gap-6 md:gap-8">
 
-        <img
-          src="{{ section.settings.chapter3_img_2 | img_url: '1600x' }}"
-          alt="Barista station – Wild Beans"
-          class="rounded-2xl object-cover h-80 sm:h-96 w-full shadow-lg opacity-0 translate-y-6
-                 will-change-transform transition-all duration-[1900ms] ease-[cubic-bezier(0.19,1,0.22,1)]"
-          data-scroll-fade
-          style="transition-delay:1050ms;"
-        />
+      <img
+        src="{{ section.settings.chapter3_img_1 | img_url: '1600x' }}"
+        alt="On-set coffee service – Wild Beans"
+        class="rounded-2xl object-cover h-80 sm:h-96 w-full shadow-lg opacity-0 translate-y-6
+               will-change-transform transition-all duration-[2100ms] ease-[cubic-bezier(0.19,1,0.22,1)]"
+        data-scroll-fade
+        style="transition-delay:1500ms;"
+      />
 
-      </div>
+      <img
+        src="{{ section.settings.chapter3_img_2 | img_url: '1600x' }}"
+        alt="Barista station – Wild Beans"
+        class="rounded-2xl object-cover h-80 sm:h-96 w-full shadow-lg opacity-0 translate-y-6
+               will-change-transform transition-all duration-[2100ms] ease-[cubic-bezier(0.19,1,0.22,1)]"
+        data-scroll-fade
+        style="transition-delay:1700ms;"
+      />
 
     </div>
-  </section>
+
+  </div>
+
+   <button
+  type="button"
+  class="wb-chapter-btn wb-chapter-btn--dark"
+  data-scroll-to="#chapter-4"
+  aria-label="Scroll to Chapter 4"
+>
+  CHAPTER 4
+</button>
+</section>
+
+</section>
+
 
 
   <!-- =============================== -->
   <!-- SLIDE 4 : CHAPTER 04 + LINKS -->
   <!-- =============================== -->
 
-  <section class="sm:w-1/2 min-h-screen flex items-center">
-    <div class="w-full max-w-[1400px] px-4 space-y-6 md:space-y-8">
+  <section  id="chapter-4" class="sm:w-1/2 min-h-screen flex items-center">
+  <div class="px-4 space-y-6 md:space-y-8">
 
-      <div
-        class="space-y-1 opacity-0 translate-y-6 will-change-transform
-               transition-all duration-[1900ms] ease-[cubic-bezier(0.19,1,0.22,1)]"
-        data-scroll-fade
-        style="transition-delay:200ms;"
-      >
-        <p class="text-[11px] sm:text-xs font-medium tracking-[0.25em] text-neutral-500">
-          CHAPTER 04
-        </p>
-        <h3 class="text-2xl sm:text-3xl font-semibold uppercase tracking-tight">
-          The Future
-        </h3>
-      </div>
-
-      <p
-        class="text-base sm:text-lg md:text-xl leading-relaxed uppercase tracking-wide opacity-0 translate-y-6
-               will-change-transform transition-all duration-[1900ms] ease-[cubic-bezier(0.19,1,0.22,1)]"
-        data-scroll-fade
-        style="transition-delay:500ms;"
-      >
-        Looking ahead, Wild Beans is expanding through two major projects: our own coffee line, and BEANS,
-        a media project and YouTube channel exploring global coffee culture.
+    <!-- CHAPTER 04 HEADER -->
+    <div
+      class="space-y-1 opacity-0 translate-y-6 will-change-transform
+             transition-all duration-[3000ms] ease-[cubic-bezier(0.19,1,0.22,1)]"
+      data-scroll-fade
+      style="transition-delay:800ms;"
+    >
+      <p class="sm:text-2xl font-medium tracking-[0.25em] text-neutral-500">
+        CHAPTER 04
       </p>
+      <h3 class="sm:text-4xl font-semibold uppercase tracking-tight">
+        The Future
+      </h3>
+    </div>
 
-      <div class="max-w-[1400px] grid grid-cols-1 sm:grid-cols-2 gap-6 md:gap-8">
+    <p
+      class="text-base sm:text-lg md:text-xl leading-relaxed uppercase tracking-wide
+             opacity-0 translate-y-6 will-change-transform
+             transition-all duration-[2500ms] ease-[cubic-bezier(0.19,1,0.22,1)]"
+      data-scroll-fade
+      style="transition-delay:1300ms;"
+    >
+      Looking ahead, Wild Beans is expanding through two major projects: our own coffee line, and BEANS,
+      a media project and YouTube channel exploring global coffee culture.
+    </p>
 
-        <a href="/products" class="group block space-y-2">
-          <img
-            src="{{ section.settings.brand_img | img_url: '1600x' }}"
-            alt="Wild Beans Coffee – Our Products"
-            class="rounded-2xl object-cover h-80 sm:h-96 w-full shadow-lg opacity-0 translate-y-6
-                   will-change-transform transition-all duration-[1900ms] ease-[cubic-bezier(0.19,1,0.22,1)]
-                   group-hover:opacity-90"
-            data-scroll-fade
-            style="transition-delay:800ms;"
-          />
-          <p
-            class="text-sm uppercase tracking-wide opacity-0 translate-y-6
-                   will-change-transform transition-all duration-[1700ms] ease-[cubic-bezier(0.19,1,0.22,1)]"
-            data-scroll-fade
-            style="transition-delay:1050ms;"
-          >
-            Discover Wild Beans Coffee →
-          </p>
-        </a>
+    <div class="max-w-[1400px] grid grid-cols-1 sm:grid-cols-2 gap-6 md:gap-8">
 
-        <a href="https://www.youtube.com/@wildbeans" target="_blank" class="group block space-y-2">
+      <a href="/products" class="group block space-y-2">
+        <img
+          src="{{ section.settings.brand_img | img_url: '1600x' }}"
+          alt="Wild Beans Coffee – Our Products"
+          class="rounded-2xl object-cover h-80 sm:h-96 w-full shadow-lg opacity-0 translate-y-6
+                 will-change-transform transition-all duration-[2100ms] ease-[cubic-bezier(0.19,1,0.22,1)]
+                 group-hover:opacity-90"
+          data-scroll-fade
+          style="transition-delay:1500ms;"
+        />
+        <p
+          class="text-sm uppercase tracking-wide opacity-0 translate-y-6
+                 will-change-transform transition-all duration-[2100ms] ease-[cubic-bezier(0.19,1,0.22,1)]"
+          data-scroll-fade
+          style="transition-delay:1700ms;"
+        >
+          Discover Wild Beans Coffee →
+        </p>
+      </a>
 
-          <img
-            src="{{ section.settings.youtube_img | img_url: '1600x' }}"
-            alt="Beans – YouTube Channel"
-            class="rounded-2xl object-cover h-80 sm:h-96  w-full shadow-lg opacity-0 translate-y-6
-                   will-change-transform transition-all duration-[1900ms] ease-[cubic-bezier(0.19,1,0.22,1)]
-                   group-hover:opacity-90"
-            data-scroll-fade
-            style="transition-delay:850ms;"
-          />
-
-          <p
-            class="text-sm uppercase tracking-wide opacity-0 translate-y-6
-                   will-change-transform transition-all duration-[1700ms] ease-[cubic-bezier(0.19,1,0.22,1)]"
-            data-scroll-fade
-            style="transition-delay:1100ms;"
-          >
-            Explore Beans on YouTube →
-          </p>
-        </a>
-
-      </div>
+      <a href="https://www.youtube.com/@wildbeans" target="_blank" class="group block space-y-2">
+        <img
+          src="{{ section.settings.youtube_img | img_url: '1600x' }}"
+          alt="Beans – YouTube Channel"
+          class="rounded-2xl object-cover h-80 sm:h-96 w-full shadow-lg opacity-0 translate-y-6
+                 will-change-transform transition-all duration-[2100ms] ease-[cubic-bezier(0.19,1,0.22,1)]
+                 group-hover:opacity-90"
+          data-scroll-fade
+          style="transition-delay:1600ms;"
+        />
+        <p
+          class="text-sm uppercase tracking-wide opacity-0 translate-y-6
+                 will-change-transform transition-all duration-[2100ms] ease-[cubic-bezier(0.19,1,0.22,1)]"
+          data-scroll-fade
+          style="transition-delay:1800ms;"
+        >
+          Explore Beans on YouTube →
+        </p>
+      </a>
 
     </div>
-  </section>
+
+  </div>
+</section>
+
 
 
   <!-- =============================== -->
@@ -452,23 +479,54 @@ drop-shadow-[0_20px_55px_rgba(0,0,0,1)]"
     }
   }
 
-  .wb-chapter-btn{
+/* BASE */
+/* BASE (PAS d'animation ici) */
+.wb-chapter-btn{
+  z-index: 999;
+  pointer-events: auto;
+  font-size: 14px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+}
+
+/* HERO (vidéo) */
+.wb-chapter-btn--hero{
   position: absolute;
   left: 50%;
   bottom: 28px;
   transform: translateX(-50%);
-  z-index: 50;
-
-  pointer-events: auto;
   color: white;
-  font-size: 18px;
-  letter-spacing: 0.28em;
-  text-transform: uppercase;
 
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+  /* blink uniquement ici */
+  animation: wbBlink 1.4s infinite ease-in-out;
+}
 
-  animation: wbBlink 1.2s infinite ease-in-out;
+/* DARK (chapters) : caché par défaut */
+.wb-chapter-btn--dark{
+  position: fixed;
+  left: 50%;
+  bottom: 28px;
+  transform: translateX(-50%);
+
+  color: #111;
+
+  padding: 10px 14px;
+  border-radius: 999px;
+
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 500ms cubic-bezier(0.19,1,0.22,1);
+
+  /* surtout : pas d'animation tant que pas actif */
+  animation: none;
+}
+
+/* quand actif : visible + blink */
+.wb-chapter-btn--dark.is-active{
+  opacity: 1;
+  pointer-events: auto;
+
+  animation: wbBlink 1.4s infinite ease-in-out;
 }
 
 @keyframes wbBlink{
@@ -476,85 +534,129 @@ drop-shadow-[0_20px_55px_rgba(0,0,0,1)]"
   50%      { opacity: 1;    transform: translateX(-50%) translateY(-4px); }
 }
 
-.wb-chapter-btn:hover{
-  animation: none;
-  opacity: 1;
-}
 
 </style>
 
 <script>
-  document.addEventListener("DOMContentLoaded", function () {
-    const titleText = "DISCOVER OUR STORY";
-    const subtitleText = "A journey shaped by coffee, moments and people";
+document.addEventListener("DOMContentLoaded", function () {
+  // =========================
+  // HERO texte (vidéo)
+  // =========================
+  var titleText = "DISCOVER OUR STORY";
+  var subtitleText = "A journey shaped by coffee, moments and people";
+  var titleEl = document.getElementById("hero-title");
+  var subtitleEl = document.getElementById("hero-subtitle");
 
-    const titleEl = document.getElementById("hero-title");
-    const subtitleEl = document.getElementById("hero-subtitle");
+  function animateText(el, text, baseDelay) {
+    if (!el) return;
+    el.innerHTML = "";
+    Array.from(text).forEach(function (char, index) {
+      var span = document.createElement("span");
+      span.className = "wb-letter";
+      span.textContent = char === " " ? "\u00A0" : char;
+      span.style.animationDelay = (baseDelay + index * 0.08) + "s";
+      el.appendChild(span);
+    });
+  }
 
-    function animateText(el, text, baseDelay) {
-      if (!el) return;
-      el.innerHTML = "";
-      Array.from(text).forEach((char, index) => {
-        const span = document.createElement("span");
-        span.className = "wb-letter";
-        span.textContent = char === " " ? "\u00A0" : char;
-        span.style.animationDelay = (baseDelay + index * 0.08) + "s";
-        el.appendChild(span);
-      });
-    }
+  animateText(titleEl, titleText, 0.08);
+  animateText(subtitleEl, subtitleText, 0.8);
 
-    animateText(titleEl, titleText, 0.08);
-    animateText(subtitleEl, subtitleText, 0.8);
+  // =========================
+  // Container scrollable
+  // =========================
+  var slider = document.getElementById("wild-beans-story-team");
+  if (!slider) return;
 
-    // === ANIMATIONS D'APPARITION AU SCROLL ===
-    const fadeEls = document.querySelectorAll("[data-scroll-fade]");
+  // =========================
+  // Fade-in on scroll (ton observer)
+  // =========================
+  var fadeEls = document.querySelectorAll("[data-scroll-fade]");
 
-    if (!("IntersectionObserver" in window)) {
-      // Fallback vieux navigateurs : on montre tout
-      fadeEls.forEach(el => {
-        el.classList.remove("opacity-0", "translate-y-6");
-      });
-      return;
-    }
+  if (!("IntersectionObserver" in window)) {
+    fadeEls.forEach(function (el) {
+      el.classList.remove("opacity-0", "translate-y-6");
+    });
+    return;
+  }
 
-    const fadeObserver = new IntersectionObserver(
-      (entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.remove("opacity-0", "translate-y-6");
-            // Optionnel : s'assurer de l'état final
-            entry.target.classList.add("opacity-100", "translate-y-0");
-            // On peut arrêter d'observer une fois l'anim jouée
-            fadeObserver.unobserve(entry.target);
-          }
-        });
-      },
-      {
-        threshold: 0.2 // l’élément commence à s’animer quand ~20% est visible
-      }
-    );
-
-    fadeEls.forEach(el => fadeObserver.observe(el));
+  var fadeObserver = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (!entry.isIntersecting) return;
+      entry.target.classList.remove("opacity-0", "translate-y-6");
+      entry.target.classList.add("opacity-100", "translate-y-0");
+      fadeObserver.unobserve(entry.target);
+    });
+  }, {
+    root: slider,
+    threshold: 0.2
   });
-   const btn = document.querySelector("[data-scroll-to]");
 
-if (btn) {
-  btn.addEventListener("click", (e) => {
-    e.preventDefault();
-
-    const slider = document.getElementById("wild-beans-story-team");
-    if (!slider || !slider._goToSlide) return;
-
-    // Slide 0 = vidéo
-    // Slide 1 = Chapter 01
-    slider._goToSlide(1);
-
-    // option : fade du bouton
-    btn.classList.add("opacity-0", "pointer-events-none");
+  fadeEls.forEach(function (el) {
+    fadeObserver.observe(el);
   });
-}
 
+  // =========================
+  // CHAPTER buttons
+  // =========================
+  var map = {
+    "#chapter-1": 1,
+    "#chapter-2": 2,
+    "#chapter-3": 3,
+    "#chapter-4": 4,
+    "#team": 5
+  };
+
+  // click handler (tous les boutons)
+  document.querySelectorAll("[data-scroll-to]").forEach(function (btn) {
+    btn.addEventListener("click", function (e) {
+      e.preventDefault();
+      if (typeof slider._goToSlide !== "function") return;
+
+      var target = btn.getAttribute("data-scroll-to");
+      if (map[target] !== undefined) slider._goToSlide(map[target]);
+    });
+  });
+
+  // n'afficher qu'un seul bouton dark selon le chapitre visible
+  var darkButtons = Array.from(document.querySelectorAll(".wb-chapter-btn--dark"));
+
+  function setActiveDarkButton(btn) {
+    darkButtons.forEach(function (b) {
+      b.classList.remove("is-active");
+    });
+    if (btn) btn.classList.add("is-active");
+  }
+
+  // cache tout au départ
+  setActiveDarkButton(null);
+
+  var chapterSelectors = ["#chapter-1", "#chapter-2", "#chapter-3", "#chapter-4"];
+  var chapterEls = chapterSelectors
+    .map(function (sel) { return document.querySelector(sel); })
+    .filter(Boolean);
+
+  var chapterObserver = new IntersectionObserver(function (entries) {
+    var visibleEntries = entries
+      .filter(function (e) { return e.isIntersecting; })
+      .sort(function (a, b) { return b.intersectionRatio - a.intersectionRatio; });
+
+    var visible = visibleEntries[0];
+    if (!visible) return;
+
+    var btn = visible.target.querySelector(".wb-chapter-btn--dark");
+    setActiveDarkButton(btn);
+  }, {
+    root: slider,
+    threshold: [0.35, 0.5, 0.65]
+  });
+
+  chapterEls.forEach(function (el) {
+    chapterObserver.observe(el);
+  });
+});
 </script>
+
 
 {% schema %}
 {
