@@ -6,6 +6,28 @@ WILD BEANS — STORY + TEAM (Docu, Chapitré, Slides plein écran + Scroll Snap)
   id="wild-beans-story-team"
   class="w-screen h-screen overflow-y-scroll"
 >
+<nav class="wb-chapter-menu" aria-label="Chapters">
+  <button class="wb-menu-item" data-scroll-to="#chapter-1" data-chapter="1">
+    <span class="wb-menu-kicker">CHAPTER 01</span>
+    <span class="wb-menu-title">The Intuition</span>
+  </button>
+
+  <button class="wb-menu-item" data-scroll-to="#chapter-2" data-chapter="2">
+    <span class="wb-menu-kicker">CHAPTER 02</span>
+    <span class="wb-menu-title">The Meeting</span>
+  </button>
+
+  <button class="wb-menu-item" data-scroll-to="#chapter-3" data-chapter="3">
+    <span class="wb-menu-kicker">CHAPTER 03</span>
+    <span class="wb-menu-title">On-Set Expertise</span>
+  </button>
+
+  <button class="wb-menu-item" data-scroll-to="#chapter-4" data-chapter="4">
+    <span class="wb-menu-kicker">CHAPTER 04</span>
+    <span class="wb-menu-title">The Future</span>
+  </button>
+</nav>
+
 
 <section class="w-full sm:h-screen overflow-x-hidden snap-start relative js-events-video">
   <div class="w-full h-full barista-button">
@@ -61,7 +83,7 @@ drop-shadow-[0_20px_55px_rgba(0,0,0,1)]"
   <!-- SLIDE 1 : OUR STORY + CHAPTER 01 -->
   <!-- =============================== -->
 
-  <section  id="chapter-1" class="sm:w-1/2 min-h-screen flex items-center js-safe-layout relative">
+  <section  id="chapter-1" class="sm:w-1/2 h-screen flex items-center js-safe-layout relative">
     <div class=" px-4 space-y-6 md:space-y-8">
 
       <!-- CHAPTER 01 HEADER -->
@@ -279,7 +301,6 @@ drop-shadow-[0_20px_55px_rgba(0,0,0,1)]"
 </button>
 </section>
 
-</section>
 
 
 
@@ -534,14 +555,74 @@ drop-shadow-[0_20px_55px_rgba(0,0,0,1)]"
   50%      { opacity: 1;    transform: translateX(-50%) translateY(-4px); }
 }
 
+/* =========================
+   RIGHT CHAPTER MENU
+========================= */
+.wb-chapter-menu{
+  position: fixed;
+  right: 18px;
+  top: 30%;
+  z-index: 1200;
+
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  pointer-events: auto;
+}
+
+/* bouton du menu */
+.wb-menu-item{
+  text-align: left;
+  background: transparent;
+  padding: 6px 10px;
+  cursor: pointer;
+
+  opacity: 0;
+  transform: translateX(0);
+  transition: opacity 500ms cubic-bezier(0.19,1,0.22,1),
+              transform 700ms cubic-bezier(0.19,1,0.22,1);
+}
+
+/* petit "CHAPTER 01" */
+.wb-menu-kicker{
+  display:block;
+  font-size: 10px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: rgba(17,17,17,0.55);
+}
+
+/* titre */
+.wb-menu-title{
+  display:block;
+  font-size: 13px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(17,17,17,0.8);
+}
+
+/* actif = plus visible + un peu indent */
+.wb-menu-item.is-active{
+  opacity: 1}
+
+/* "découvert" = indentation progressive */
+.wb-menu-item.is-seen{
+  opacity: 0.7;
+}
+
+/* option mobile: tu peux masquer si tu veux */
+@media (max-width: 640px){
+  .wb-chapter-menu{ display:none; }
+}
 
 </style>
 
 <script>
 document.addEventListener("DOMContentLoaded", function () {
-  // =========================
-  // HERO texte (vidéo)
-  // =========================
+
+  /* ======================================================
+     HERO — animation du texte
+  ====================================================== */
   var titleText = "DISCOVER OUR STORY";
   var subtitleText = "A journey shaped by coffee, moments and people";
   var titleEl = document.getElementById("hero-title");
@@ -562,15 +643,15 @@ document.addEventListener("DOMContentLoaded", function () {
   animateText(titleEl, titleText, 0.08);
   animateText(subtitleEl, subtitleText, 0.8);
 
-  // =========================
-  // Container scrollable
-  // =========================
+  /* ======================================================
+     CONTAINER SCROLL
+  ====================================================== */
   var slider = document.getElementById("wild-beans-story-team");
   if (!slider) return;
 
-  // =========================
-  // Fade-in on scroll (ton observer)
-  // =========================
+  /* ======================================================
+     FADE-IN AU SCROLL
+  ====================================================== */
   var fadeEls = document.querySelectorAll("[data-scroll-fade]");
 
   if (!("IntersectionObserver" in window)) {
@@ -596,9 +677,9 @@ document.addEventListener("DOMContentLoaded", function () {
     fadeObserver.observe(el);
   });
 
-  // =========================
-  // CHAPTER buttons
-  // =========================
+  /* ======================================================
+     NAVIGATION (boutons + menu) via data-scroll-to
+  ====================================================== */
   var map = {
     "#chapter-1": 1,
     "#chapter-2": 2,
@@ -607,7 +688,6 @@ document.addEventListener("DOMContentLoaded", function () {
     "#team": 5
   };
 
-  // click handler (tous les boutons)
   document.querySelectorAll("[data-scroll-to]").forEach(function (btn) {
     btn.addEventListener("click", function (e) {
       e.preventDefault();
@@ -618,19 +698,70 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
-  // n'afficher qu'un seul bouton dark selon le chapitre visible
+  /* ======================================================
+     CHAPTER "NEXT" dark buttons : 1 seul visible + delay
+  ====================================================== */
   var darkButtons = Array.from(document.querySelectorAll(".wb-chapter-btn--dark"));
+  var buttonDelay = 800; // ms
+  var buttonTimeout = null;
 
   function setActiveDarkButton(btn) {
     darkButtons.forEach(function (b) {
       b.classList.remove("is-active");
     });
-    if (btn) btn.classList.add("is-active");
+
+    if (buttonTimeout) {
+      clearTimeout(buttonTimeout);
+      buttonTimeout = null;
+    }
+
+    if (!btn) return;
+
+    buttonTimeout = setTimeout(function () {
+      btn.classList.add("is-active");
+    }, buttonDelay);
   }
 
-  // cache tout au départ
   setActiveDarkButton(null);
 
+  /* ======================================================
+     RIGHT MENU: active + indentation progressive ("discover")
+  ====================================================== */
+  var menuItems = Array.from(document.querySelectorAll(".wb-menu-item"));
+  var seenMax = 0; // 0..4
+
+  function setActiveMenu(chapterIndex) {
+    menuItems.forEach(function (item) {
+      item.classList.remove("is-active");
+    });
+
+    var active = menuItems[chapterIndex - 1];
+    if (active) active.classList.add("is-active");
+  }
+
+  function setSeenUpTo(chapterIndex) {
+    if (chapterIndex <= seenMax) return;
+    seenMax = chapterIndex;
+
+    menuItems.forEach(function (item, idx) {
+      var i = idx + 1;
+
+      // on marque "seen"
+      if (i <= seenMax) item.classList.add("is-seen");
+
+      // indentation progressive (plus tu avances, plus ça “pousse”)
+      // tu peux ajuster 6 -> 8 si tu veux plus marqué
+      var indent = Math.max(0, i - 1) * 6; 
+      item.style.transform = "translateX(" + (-indent) + "px)";
+    });
+
+    // l'actif aura encore un petit "extra" via .is-active (CSS)
+    setActiveMenu(chapterIndex);
+  }
+
+  /* ======================================================
+     OBSERVER DES CHAPITRES (pour bouton dark + menu)
+  ====================================================== */
   var chapterSelectors = ["#chapter-1", "#chapter-2", "#chapter-3", "#chapter-4"];
   var chapterEls = chapterSelectors
     .map(function (sel) { return document.querySelector(sel); })
@@ -644,8 +775,17 @@ document.addEventListener("DOMContentLoaded", function () {
     var visible = visibleEntries[0];
     if (!visible) return;
 
+    // déterminer l'index chapitre (1..4)
+    var id = "#" + visible.target.id;
+    var chapterIndex = chapterSelectors.indexOf(id) + 1;
+
+    // bouton dark dans la section visible
     var btn = visible.target.querySelector(".wb-chapter-btn--dark");
     setActiveDarkButton(btn);
+
+    // menu: actif + "discover"
+    if (chapterIndex > 0) setSeenUpTo(chapterIndex);
+
   }, {
     root: slider,
     threshold: [0.35, 0.5, 0.65]
@@ -654,8 +794,11 @@ document.addEventListener("DOMContentLoaded", function () {
   chapterEls.forEach(function (el) {
     chapterObserver.observe(el);
   });
+
 });
 </script>
+
+
 
 
 {% schema %}

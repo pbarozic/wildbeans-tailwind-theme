@@ -628,12 +628,12 @@ video {
   pointer-events: none;
 }
 
-.visible {
-  visibility: visible;
-}
-
 .\!visible {
   visibility: visible !important;
+}
+
+.visible {
+  visibility: visible;
 }
 
 .static {
@@ -1028,12 +1028,6 @@ video {
   margin-bottom: calc(0.5rem * var(--tw-space-y-reverse));
 }
 
-.space-y-4 > :not([hidden]) ~ :not([hidden]) {
-  --tw-space-y-reverse: 0;
-  margin-top: calc(1rem * calc(1 - var(--tw-space-y-reverse)));
-  margin-bottom: calc(1rem * var(--tw-space-y-reverse));
-}
-
 .space-y-6 > :not([hidden]) ~ :not([hidden]) {
   --tw-space-y-reverse: 0;
   margin-top: calc(1.5rem * calc(1 - var(--tw-space-y-reverse)));
@@ -1250,10 +1244,6 @@ video {
   font-weight: 600;
 }
 
-.font-black {
-  font-weight: 900;
-}
-
 .uppercase {
   text-transform: uppercase;
 }
@@ -1406,10 +1396,6 @@ video {
   backdrop-filter: var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);
 }
 
-.backdrop-filter {
-  backdrop-filter: var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);
-}
-
 .transition {
   transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
@@ -1448,14 +1434,6 @@ video {
   transition-duration: 500ms;
 }
 
-.duration-\[1700ms\] {
-  transition-duration: 1700ms;
-}
-
-.duration-\[1800ms\] {
-  transition-duration: 1800ms;
-}
-
 .duration-\[1900ms\] {
   transition-duration: 1900ms;
 }
@@ -1464,20 +1442,16 @@ video {
   transition-duration: 2000ms;
 }
 
-.duration-\[2200ms\] {
-  transition-duration: 2200ms;
-}
-
 .duration-\[2100ms\] {
   transition-duration: 2100ms;
 }
 
-.duration-\[3000ms\] {
-  transition-duration: 3000ms;
-}
-
 .duration-\[2500ms\] {
   transition-duration: 2500ms;
+}
+
+.duration-\[3000ms\] {
+  transition-duration: 3000ms;
 }
 
 .ease-\[cubic-bezier\(0\.19\2c 1\2c 0\.22\2c 1\)\] {
@@ -1568,11 +1542,6 @@ video {
     line-height: 2rem;
   }
 
-  .sm\:text-3xl {
-    font-size: 1.875rem;
-    line-height: 2.25rem;
-  }
-
   .sm\:text-4xl {
     font-size: 2.25rem;
     line-height: 2.5rem;
@@ -1640,12 +1609,6 @@ video {
     --tw-space-y-reverse: 0;
     margin-top: calc(2.5rem * calc(1 - var(--tw-space-y-reverse)));
     margin-bottom: calc(2.5rem * var(--tw-space-y-reverse));
-  }
-
-  .md\:space-y-6 > :not([hidden]) ~ :not([hidden]) {
-    --tw-space-y-reverse: 0;
-    margin-top: calc(1.5rem * calc(1 - var(--tw-space-y-reverse)));
-    margin-bottom: calc(1.5rem * var(--tw-space-y-reverse));
   }
 
   .md\:space-y-8 > :not([hidden]) ~ :not([hidden]) {
