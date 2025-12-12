@@ -315,7 +315,10 @@
 
     {% sections 'header-group' %}
 
-    <main id='MainContent' class='content-for-layout focus-none overflow-visible {% if template contains 'collection' or template contains 'product' %} pt-0 h-screen js-safe-layout{% endif %}}' role='main' tabindex='-1'>
+    {%- comment -%}
+      ✅ FIX: retiré la "}" en trop à la fin du class
+    {%- endcomment -%}
+    <main id='MainContent' class='content-for-layout focus-none overflow-visible {% if template contains 'collection' or template contains 'product' %} pt-0 h-screen js-safe-layout{% endif %}' role='main' tabindex='-1'>
       {{ content_for_layout }}
     </main>
 
@@ -405,6 +408,7 @@
     reveals.forEach(el => observer.observe(el));
   });
 </script>
+
 <script>
   document.addEventListener("DOMContentLoaded", function () {
     const header = document.getElementById("site-header");
@@ -647,6 +651,11 @@
         requestAnimationFrame(animateScroll);
       }
 
+      {%- comment -%}
+        ✅ FIX: si tu veux exposer goToSlide, il faut le faire ici (sinon "container is not defined")
+      {%- endcomment -%}
+      container._goToSlide = goToSlide;
+
       // Synchronise currentIndex avec la position réelle de scroll
       function syncCurrentIndex() {
         const scrollTop = container.scrollTop;
@@ -761,8 +770,6 @@
       goToSlide(0);
     }
 
-    container._goToSlide = goToSlide;
-
     // STORY : slider vertical
     initWildBeansSlider('wild-beans-story-team');
     // EVENTS : même slider vertical
@@ -793,11 +800,14 @@ document.addEventListener('DOMContentLoaded', function () {
 
     const scale = 1 - (1 - MIN_SCALE) * progress;
 
-
     heroLogoImg.style.transform = `scale(${scale})`;
-  }
+
+    {%- comment -%}
+      ✅ FIX: opacity doit être calculée DANS la fonction (sinon "progress is not defined")
+    {%- endcomment -%}
     const opacity = 1 - progress;
-heroLogoImg.style.opacity = opacity;
+    heroLogoImg.style.opacity = opacity;
+  }
 
   heroContainer.addEventListener('scroll', updateLogoShrink);
   updateLogoShrink();
