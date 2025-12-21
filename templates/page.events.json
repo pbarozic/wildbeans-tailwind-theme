@@ -11,43 +11,7 @@
   "sections": {
     "main": {
       "type": "wb-events",
-      "blocks": {
-        "feature_P6RgAa": {
-          "type": "feature",
-          "name": "DESIGN EXPERIENCE",
-          "settings": {
-            "image": "shopify://shop_images/BBW_BARISTOSS_12396_1.jpg",
-            "image_alt": "station barista",
-            "text_html": "<h2 class=\"text-3xl font-bold mb-4\">\n          <strong>A DESIGNED COFFEE EXPERIENCE</strong>\n        </h2>\n\n        <p class=\"text-xl mb-6\">\n          TOGETHER WE ELEVATE YOUR EVENT WITH A BESPOKE COFFEE EXPERIENCE.\n        </p>\n\n        <p class=\"text-xl mb-6 leading-relaxed\">\n          WILD BEANS IS A <strong>NOMAD BARISTA SERVICE</strong> WITH A HIGH-END BARISTA STATION, \n          A UNIQUE DESIGN CRAFTED TO IMPROVE THE COFFEE SERVICE. FROM SMALL GATHERINGS, \n          COMMITTEE OR CORPORATE MEETINGS TO LARGE-SCALE CONVENTIONS, SHOOTINGS OR FASHION SHOWS. \n          WE <strong>ADAPT OUR SERVICE</strong> TO ALL KINDS OF EVENTS.\n        </p>\n\n        <p class=\"text-xl mb-4 font-semibold\">\n          OUR PRODUCTS & COFFEE MENU.\n        </p>\n\n        <p class=\"text-xl leading-relaxed\">\n          WE ARE SELECTING OUR OWN COFFEE, WORKING WITH AMONGST \n          <strong>THE BEST ROASTERS</strong> IN PARIS, FRANCE & EUROPE TO SOURCE BEANS THAT \n          REFLECT THE ESSENCE OF WILD BEANS. WE PARTNER WITH THE FINEST SHOPS TO SOURCE OUR \n          PRODUCTS, SELECTING THE TASTIEST INGREDIENTS.\n        </p>"
-          }
-        },
-        "feature_JzeP4z": {
-          "type": "feature",
-          "name": "BEYOND COFFEE",
-          "settings": {
-            "image": "shopify://shop_images/WILD_BEANS_021882.jpg",
-            "image_alt": "Matcha ube golden chai",
-            "text_html": "<h2 class=\"text-3xl font-bold mb-4\">\n          <strong>BEYOND COFFEE</strong>\n        </h2>\n\n        <p class=\"text-xl mb-6 leading-relaxed\">\n          WE ALSO PROVIDE A <strong>VARIETY OF COFFEE-FREE DRINKS</strong>, CRAFTED WITH CARE AND CREATIVITY:\n          MATCHA, HOJICHA, CHAI, HOT CHOCOLATE, SESAME, UBE, OR OUR \n          <strong>SEASONAL LATTES</strong> (PUMPKIN, TIRAMISU, AND MORE!).\n        </p>\n\n        <p class=\"text-xl mb-6 leading-relaxed\">\n          ALL DRINKS CAN BE SERVED <strong>HOT OR ICED</strong>, WITH YOUR CHOICE OF MILK OR PLANT-BASED ALTERNATIVES:\n          <strong>OAT, COCONUT, ALMOND, SOY.</strong>\n        </p>\n\n        <p class=\"text-xl mb-6 leading-relaxed\">\n          LOOKING FOR A PERSONAL TOUCH? WE CAN CREATE CUSTOM LATTE ART USING OUR SPECIAL PRINTER,\n          ALLOWING YOU TO ADD YOUR OWN BRANDING OR UNIQUE DESIGNS TO YOUR DRINKS.\n        </p>\n\n        <p class=\"text-xl leading-relaxed font-semibold\">\n          DON’T SEE YOUR FAVORITE DRINK ON THE MENU? <strong>TELL US, AND WE’LL MAKE IT JUST FOR YOU!</strong>\n        </p>"
-          }
-        },
-        "feature_wFHAYd": {
-          "type": "feature",
-          "name": "TW WB TOUCH",
-          "settings": {
-            "image": "shopify://shop_images/BBW_BARISTOSS_12452_1.jpg",
-            "image_alt": "",
-            "text_html": "<h2 class=\"text-3xl font-bold mb-4\">\n          <strong>WILD BEANS TOUCH</strong>\n        </h2>\n\n        <h4 class=\"text-xl font-bold mb-2\">\n          <strong>OUR BARISTA EXPERTS</strong>\n        </h4>\n\n        <p class=\"text-xl mb-6 leading-relaxed\">\n          WE WORK WITH A TEAM OF EXPERIENCED AND RENOWNED BARISTAS THROUGHOUT FRANCE. YOU MAY THINK IT IS ALL ABOUT LATTE ART BUT IT GOES WAY BEYOND — IT IS ALSO ABOUT COFFEE KNOWLEDGE, STORYTELLING, AND MACHINE EXPERTISE. MOST OF ALL, THE LOVE FOR COFFEE, THE ABILITY TO SHARE UNIQUE MOMENTS & SPREAD THE GOOD VIBE.\n        </p>\n\n        <h4 class=\"text-xl font-bold mb-2\">\n          <strong>SIGNATURE COFFEE STATIONS</strong>\n        </h4>\n\n        <p class=\"text-xl leading-relaxed\">\n          WE DESIGNED BEAUTIFUL AND UNIQUE COFFEE STATIONS MADE OF STAINLESS STEEL TO IMPROVE THE BARISTA SERVICE ON ANY LOCATION. OUR SOLUTION IS “PLUG & PLAY”: WE ONLY NEED A POWER SOURCE — WE BRING THE REST (AND YES, WE HAVE POWER SOLUTIONS FOR OUTDOOR EVENTS).\n        </p>"
-          }
-        }
-      },
-      "block_order": [
-        "feature_P6RgAa",
-        "feature_JzeP4z",
-        "feature_wFHAYd"
-      ],
-      "settings": {
-        "section_title": "Nos events"
-      }
+      "settings": {}
     }
   },
   "order": [

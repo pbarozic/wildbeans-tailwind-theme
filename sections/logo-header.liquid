@@ -3,8 +3,8 @@
   class="h-screen overflow-y-scroll overflow-x-hidden"
 >
   {%- comment -%} SECTION 1 : GROS LOGO {%- endcomment -%}
-  <section class="w-full sm:h-screen flex flex-col justify-end overflow-x-hidden snap-start reveal reveal-scale js-hero-section">
-  <div class="w-full sm:h-screen flex flex-col items-center justify-end js-hero-logo gap-6">
+  <section class="w-full h-0 sm:h-screen flex flex-col justify-end overflow-x-hidden snap-start reveal reveal-scale js-hero-section">
+  <div class="w-full h-screen flex flex-col items-center justify-end js-hero-logo gap-6">
 
     <!-- BOUTON SCROLL -->
     <button
@@ -31,7 +31,7 @@
 </section>
 
   {%- comment -%} SECTION 2 : VIDÉO PLEIN ÉCRAN {%- endcomment -%}
-  <section id="hero-video" class="w-full sm:min-h-screen overflow-x-hidden snap-start reveal reveal-scale js-hero-video">
+  <section id="hero-video" class="w-full sm:h-screen overflow-x-hidden snap-start reveal reveal-scale js-hero-video pt-20 sm:pt-0">
     <div class="w-full h-full barista-button">
       <video
         autoplay
@@ -46,7 +46,14 @@
       </video>
     </div>
   </section>
+
+<div class="sm:hidden">
+  {% render 'wb-events-mobile' %}
 </div>
+
+</div>
+
+
 
 <style>
   /* Force l’état initial du bouton (si un CSS du thème écrase Tailwind) */
