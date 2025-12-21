@@ -3,18 +3,35 @@
   class="h-screen overflow-y-scroll overflow-x-hidden"
 >
   {%- comment -%} SECTION 1 : GROS LOGO {%- endcomment -%}
-  <section class="w-full sm:min-h-screen flex-col sm:flex-col-reverse justify-end overflow-x-hidden snap-start reveal reveal-scale js-hero-section">
-    <div class="w-full sm:h-screen flex flex-col justify-end js-hero-logo">
-      <img 
-        src="{{ '251015_LOGO-WILDBEANS_BLK_crope.png' | file_url }}" 
-        alt="WILD BEANS"
-        class="w-full object-contain js-hero-logo-img will-change-transform" 
-      />
-    </div>
-  </section>
+  <section class="w-full sm:h-screen flex flex-col justify-end overflow-x-hidden snap-start reveal reveal-scale js-hero-section">
+  <div class="w-full sm:h-screen flex flex-col items-center justify-end js-hero-logo gap-6">
+
+    <!-- BOUTON SCROLL -->
+    <button
+      id="scroll-down-btn"
+      class="
+        opacity-0 pointer-events-none
+        transition-opacity duration-700 ease-out
+        text-sm tracking-widest uppercase
+        flex flex-col items-center gap-2
+        js-scroll-down-btn
+      "
+    >
+      <span class="animate-bounce text-3xl" >SCROLL DOWN</span>
+    </button>
+
+    <!-- LOGO -->
+    <img 
+      src="{{ '251015_LOGO-WILDBEANS_BLK_crope.png' | file_url }}" 
+      alt="WILD BEANS"
+      class="w-full object-contain js-hero-logo-img will-change-transform"
+    />
+
+  </div>
+</section>
 
   {%- comment -%} SECTION 2 : VIDÉO PLEIN ÉCRAN {%- endcomment -%}
-  <section class="w-full sm:min-h-screen overflow-x-hidden snap-start reveal reveal-scale js-hero-video">
+  <section id="hero-video" class="w-full sm:min-h-screen overflow-x-hidden snap-start reveal reveal-scale js-hero-video">
     <div class="w-full h-full barista-button">
       <video
         autoplay
@@ -30,3 +47,19 @@
     </div>
   </section>
 </div>
+
+<style>
+  /* Force l’état initial du bouton (si un CSS du thème écrase Tailwind) */
+  #wild-beans-hero #scroll-down-btn {
+    opacity: 0 !important;
+    pointer-events: none !important;
+  }
+
+  /* Quand le reveal est visible → on affiche le bouton après un délai */
+  #wild-beans-hero .js-hero-section.reveal--visible #scroll-down-btn {
+    opacity: 1 !important;
+    pointer-events: auto !important;
+    transition: opacity 700ms ease-out;
+    transition-delay: 1.4s; /* ajuste */
+  }
+</style>

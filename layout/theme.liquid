@@ -785,6 +785,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
   const heroContainer = document.getElementById('wild-beans-hero');
   const heroLogoImg = document.querySelector('.js-hero-logo-img');
+  const scrollBtn = document.querySelector('.js-scroll-down-btn');
 
   if (!heroContainer || !heroLogoImg) return;
 
@@ -799,19 +800,61 @@ document.addEventListener('DOMContentLoaded', function () {
     progress = Math.min(Math.max(progress, 0), 1);
 
     const scale = 1 - (1 - MIN_SCALE) * progress;
-
     heroLogoImg.style.transform = `scale(${scale})`;
 
-    {%- comment -%}
-      ✅ FIX: opacity doit être calculée DANS la fonction (sinon "progress is not defined")
-    {%- endcomment -%}
     const opacity = 1 - progress;
     heroLogoImg.style.opacity = opacity;
+
+    // ✅ Bouton : visible seulement quand on est sur la slide/logo (progress proche de 0)
+    if (scrollBtn) {
+      const show = progress < 0.02; // ajuste (0.02 = très proche du haut)
+      scrollBtn.classList.toggle('opacity-0', !show);
+      scrollBtn.classList.toggle('opacity-100', show);
+      scrollBtn.classList.toggle('pointer-events-none', !show);
+    }
   }
 
   heroContainer.addEventListener('scroll', updateLogoShrink);
   updateLogoShrink();
 
+  // ✅ Click bouton = utilise TON smooth scroll (slider)
+  const videoIndex = 1;
+  if (scrollBtn) {
+    scrollBtn.addEventListener('click', function (e) {
+      e.preventDefault();
+      if (typeof heroContainer._goToSlide === 'function') {
+        heroContainer._goToSlide(videoIndex);
+      }
+    });
+  }
+
+});
+</script>
+
+ <script>
+document.addEventListener("DOMContentLoaded", () => {
+  const hero = document.getElementById("wild-beans-hero");
+  const btn = document.querySelector(".js-scroll-down-btn");
+  const logoTarget = document.querySelector(".js-hero-logo-img"); // ou ".js-hero-section" si besoin
+
+  if (!hero || !btn || !logoTarget) return;
+
+  let shown = false;
+  const show = () => {
+    if (shown) return;
+    shown = true;
+    btn.classList.remove("opacity-0", "pointer-events-none");
+    btn.classList.add("opacity-100");
+  };
+
+  logoTarget.addEventListener("animationend", show, { once: true });
+  logoTarget.addEventListener("transitionend", show, { once: true });
+  setTimeout(show, 2000);
+
+  btn.addEventListener("click", (e) => {
+    e.preventDefault();
+    if (typeof hero._goToSlide === "function") hero._goToSlide(1);
+  });
 });
 </script>
 

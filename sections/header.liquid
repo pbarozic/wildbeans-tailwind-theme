@@ -72,21 +72,21 @@
   {%- comment -%} --- HEADER DESKTOP --- {%- endcomment -%}
   <div class="hidden md:!flex flex-row justify-between items-start px-4">    
     {%- comment -%} NAV GAUCHE {%- endcomment -%}
-   <nav class="header-desktop-left flex w-1/2 flex-col items-start space-y-2">
+   <nav class="header-desktop-left flex w-1/2 flex-col items-start space-y-1">
 
       {% for link in linklists.main-menu.links %}
         <div class="w-full">
           <div class="flex items-center justify-start">
             <a 
               href="{{ link.url }}" 
-              class="text-2xl font-medium link-wave"
+              class="text-3xl font-medium leading-tight link-wave"
             >
               {{ link.title }}
             </a>
 
             {% if link.links.size > 0 %}
               <button 
-                class="toggle-submenu text-2xl font-bold px-2 focus:outline-none"
+                class="toggle-submenu text-3xl leading-tight font-bold px-2 focus:outline-none"
                 aria-label="Afficher le sous-menu"
               >
                 ▾
@@ -99,7 +99,7 @@
               {% for sublink in link.links %}
                 <a 
                   href="{{ sublink.url }}" 
-                  class="text-2xl link-wave"
+                  class="text-3xl link-wave"
                 >
                   {{ sublink.title }}
                 </a>
@@ -121,16 +121,6 @@
             class="btn-wave inline-flex items-center justify-center h-16 px-6 rounded-md text-xl tracking-[0.08em] uppercase font-semibold bg-black text-white"
           >
             <span class="btn-wave-content inline-flex items-center gap-3">
-              <span class="inline-flex items-center justify-center">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 24 24"
-                  class="w-[22px] h-[22px] fill-current"
-                  aria-hidden="true"
-                >
-                  <path d="M7 7V6a5 5 0 0110 0v1h2a1 1 0 01.99 1.141l-1.5 11A1 1 0 0116.5 20h-9a1 1 0 01-.99-.859l-1.5-11A1 1 0 016 7h1zm2 0h6V6a3 3 0 00-6 0v1z"/>
-                </svg>
-              </span>
               <span>STORE</span>
             </span>
           </a>

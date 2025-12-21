@@ -1,184 +1,442 @@
 {% comment %}
   WB - Events
   Page events avec animations Story + slider Story
+  (Hardcoded content — no Shopify blocks)
 {% endcomment %}
-<div id="wild-beans-events" class="wild-beans-vertical-slider w-screen h-screen overflow-y-scroll">
 
-<section class="w-full sm:min-h-screen overflow-x-hidden snap-start relative js-events-video">
-  <div class="w-full h-full barista-button">
-    <video
-      autoplay
-      muted
-      loop
-      playsinline
-      preload="auto"
-      class="w-full h-full object-cover"
-    >
-      <source src="{{ 'V03.MOV' | file_url }}" type="video/mp4" />
-      Votre navigateur ne supporte pas la lecture de vidéo.
-    </video>
-  </div>
+<div id="wild-beans-events" class="wild-beans-vertical-slider w-full h-screen overflow-y-scroll overflow-x-hidden">
 
-  <!-- OVERLAY TEXTE ANIMÉ -->
-  <div
-    class="pointer-events-none absolute inset-0 flex flex-col items-center justify-center
-           -translate-y-[8vh] px-4 text-center"
+  <!-- ===============================
+       HERO / INTRO
+  =============================== -->
+  <section
+    id="events-hero"
+    class="w-full h-screen overflow-x-hidden snap-start relative js-events-video"
   >
-    <h1
-      id="hero-title"
-      class="text-white font-bold
-             text-[12vw] sm:text-[9vw] md:text-[7vw]
-             leading-none tracking-tight
-             drop-shadow-[0_0_25px_rgba(255,199,120,0.25)]
-drop-shadow-[0_20px_55px_rgba(0,0,0,1)]
-"
-    ></h1>
+    <div class="w-full h-full barista-button">
+      <video
+        autoplay
+        muted
+        loop
+        playsinline
+        preload="auto"
+        class="w-full h-full object-cover"
+      >
+        <source src="{{ 'V03.MOV' | file_url }}" type="video/mp4" />
+        Votre navigateur ne supporte pas la lecture de vidéo.
+      </video>
+    </div>
 
-    <p
-      id="hero-subtitle"
-      class="mt-4 text-white/80 text-4xl 
-  tracking-[0.25em] uppercase
-  drop-shadow-[0_0_25px_rgba(255,199,120,0.25)]
-drop-shadow-[0_20px_55px_rgba(0,0,0,1)]"
-"
-    ></p>
-  </div>
-</section>
-
-  {% for block in section.blocks %}
-    <section
-      id="event-{{ block.id }}"
-      class="sm:w-2/3 h-screen flex items-center js-safe-layout barista-button snap-start"
+    <!-- OVERLAY TEXTE ANIMÉ -->
+    <div
+      class="pointer-events-none absolute inset-0 flex flex-col items-center justify-center
+             -translate-y-[8vh] px-4 text-center"
     >
+      <h1
+        id="events-hero-title"
+        class="text-white font-bold
+               text-[12vw] sm:text-[9vw] md:text-[7vw]
+               leading-none tracking-tight
+               drop-shadow-[0_0_25px_rgba(255,199,120,0.25)]
+               drop-shadow-[0_20px_55px_rgba(0,0,0,1)]"
+      ></h1>
 
-      <div class="w-full max-w-[1400px] px-4 grid grid-cols-1 sm:grid-cols-2 gap-10">
+      <p
+        id="events-hero-subtitle"
+        class="mt-4 text-white/80 text-4xl uppercase
+               drop-shadow-[0_0_25px_rgba(255,199,120,0.25)]
+               drop-shadow-[0_20px_55px_rgba(0,0,0,1)]"
+      ></p>
+    </div>
 
-        <!-- IMAGE -->
+    <!-- CTA HERO -->
+    <button
+      type="button"
+      class="wb-chapter-btn wb-chapter-btn--hero"
+      aria-label="Scroll to services"
+      data-go-slide="1"
+    >
+      DISCOVER OUR SERVICE
+    </button>
+  </section>
+
+  <!-- ===============================
+       EVENTS SECTIONS (HARDCODED)
+  =============================== -->
+
+  <!-- EVENT 1 -->
+  <section
+    id="event-1"
+    class="sm:h-screen flex items-center js-safe-layout barista-button snap-start"
+  >
+    <div class="w-full px-4 grid grid-cols-1 sm:grid-cols-2 gap-10">
+
+      <!-- TEXT COLUMN -->
+      <div class="rte text-lg leading-[1.25] [&_p]:mb-3 min-w-0">
+
+        <!-- STEP 1: TITLE -->
         <div
-          class="opacity-0 translate-y-6 will-change-transform
-                 transition-all duration-[2000ms] ease-[cubic-bezier(0.19,1,0.22,1)]"
+          class="wb-reveal wb-reveal-title"
           data-scroll-fade
-          style="transition-delay:1000ms;"
+          style="transition-delay:300ms;"
         >
-          {% if block.settings.image != blank %}
-            <div class="w-full h-[420px] overflow-hidden rounded-2xl shadow-lg">
-              <img
-                src="{{ block.settings.image | image_url: width: 2000 }}"
-                alt="{{ block.settings.image_alt }}"
-                class="w-full h-full object-cover"
-              >
-            </div>
-          {% endif %}
+          <h2 class="text-3xl font-bold mb-4">
+            <strong>A DESIGNED COFFEE EXPERIENCE</strong>
+          </h2>
         </div>
 
-        <!-- TEXTE -->
-        <div
-          class="opacity-0 translate-y-6 will-change-transform
-                 transition-all duration-[2000ms] ease-[cubic-bezier(0.19,1,0.22,1)]"
-          data-scroll-fade
-          style="transition-delay:700ms;"
-        >
-          <div class="rte">
-            {{ block.settings.text_html }}
-          </div>
+        <!-- STEP 2: PARAGRAPHS (STAGGER) -->
+        <div class="wb-reveal wb-reveal-text">
+          <p class="text-2xl mb-6" data-scroll-fade style="transition-delay:900ms;">
+            TOGETHER WE ELEVATE YOUR EVENT WITH A BESPOKE COFFEE EXPERIENCE.
+          </p>
+
+          <p class="text-2xl mb-6" data-scroll-fade style="transition-delay:1250ms;">
+            WILD BEANS IS A <strong>NOMAD BARISTA SERVICE</strong> WITH A HIGH-END BARISTA STATION,
+            A UNIQUE DESIGN CRAFTED TO IMPROVE THE COFFEE SERVICE. FROM SMALL GATHERINGS,
+            COMMITTEE OR CORPORATE MEETINGS TO LARGE-SCALE CONVENTIONS, SHOOTINGS OR FASHION SHOWS.
+            WE <strong>ADAPT OUR SERVICE</strong> TO ALL KINDS OF EVENTS.
+          </p>
+
+          <p class="text-2xl mb-4 font-semibold" data-scroll-fade style="transition-delay:1600ms;">
+            OUR PRODUCTS &amp; COFFEE MENU.
+          </p>
+
+          <p class="text-2xl" data-scroll-fade style="transition-delay:1950ms;">
+            WE ARE SELECTING OUR OWN COFFEE, WORKING WITH AMONGST
+            <strong>THE BEST ROASTERS</strong> IN PARIS, FRANCE &amp; EUROPE TO SOURCE BEANS THAT
+            REFLECT THE ESSENCE OF WILD BEANS. WE PARTNER WITH THE FINEST SHOPS TO SOURCE OUR
+            PRODUCTS, SELECTING THE TASTIEST INGREDIENTS.
+          </p>
         </div>
 
       </div>
 
-    </section>
-  {% endfor %}
+      <!-- STEP 3: IMAGE -->
+      <div
+        class="wb-reveal wb-reveal-media min-w-0"
+        data-scroll-fade
+        style="transition-delay:2300ms;"
+      >
+        <div class="sm:w-2/3 h-[350px] overflow-hidden shadow-lg">
+          <img
+            src="{{ 'BBW_BARISTOSS_12396_1.jpg' | file_url }}"
+            alt="A designed coffee experience"
+            class="w-full h-full object-cover"
+            loading="lazy"
+          >
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- EVENT 2 -->
+  <section
+    id="event-2"
+    class="sm:h-screen flex items-center js-safe-layout barista-button snap-start"
+  >
+    <div class="w-full px-4 grid grid-cols-1 sm:grid-cols-2 gap-10">
+
+      <!-- TEXT COLUMN -->
+      <div class="rte text-lg leading-[1] [&_p]:mb-3 min-w-0">
+
+        <!-- STEP 1: TITLE -->
+        <div
+          class="wb-reveal wb-reveal-title"
+          data-scroll-fade
+          style="transition-delay:300ms;"
+        >
+          <h2 class="text-3xl font-bold mb-4">
+            <strong>BEYOND COFFEE</strong>
+          </h2>
+        </div>
+
+        <!-- STEP 2: PARAGRAPHS (STAGGER) -->
+        <div class="wb-reveal wb-reveal-text">
+          <p class="text-2xl mb-6" data-scroll-fade style="transition-delay:900ms;">
+            WE ALSO PROVIDE A <strong>VARIETY OF COFFEE-FREE DRINKS</strong>, CRAFTED WITH CARE AND CREATIVITY:
+            MATCHA, HOJICHA, CHAI, HOT CHOCOLATE, SESAME, UBE, OR OUR
+            <strong>SEASONAL LATTES</strong> (PUMPKIN, TIRAMISU, AND MORE!).
+          </p>
+
+          <p class="text-2xl mb-6" data-scroll-fade style="transition-delay:1250ms;">
+            ALL DRINKS CAN BE SERVED <strong>HOT OR ICED</strong>, WITH YOUR CHOICE OF MILK OR PLANT-BASED ALTERNATIVES:
+            <strong>OAT, COCONUT, ALMOND, SOY.</strong>
+          </p>
+
+          <p class="text-2xl mb-6" data-scroll-fade style="transition-delay:1600ms;">
+            LOOKING FOR A PERSONAL TOUCH? WE CAN CREATE CUSTOM LATTE ART USING OUR SPECIAL PRINTER,
+            ALLOWING YOU TO ADD YOUR OWN BRANDING OR UNIQUE DESIGNS TO YOUR DRINKS.
+          </p>
+
+          <p class="text-2xl font-semibold" data-scroll-fade style="transition-delay:1950ms;">
+            DON’T SEE YOUR FAVORITE DRINK ON THE MENU? <strong>TELL US, AND WE’LL MAKE IT JUST FOR YOU!</strong>
+          </p>
+        </div>
+
+      </div>
+
+      <!-- STEP 3: IMAGE -->
+      <div
+        class="wb-reveal wb-reveal-media min-w-0"
+        data-scroll-fade
+        style="transition-delay:2300ms;"
+      >
+        <div class="sm:w-2/3 h-[350px] overflow-hidden shadow-lg">
+          <img
+            src="{{ 'WILD_BEANS_021882.jpg' | file_url }}"
+            alt="Beyond coffee"
+            class="w-full h-full object-cover"
+            loading="lazy"
+          >
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- EVENT 3 -->
+  <section
+    id="event-3"
+    class="h-screen flex items-center js-safe-layout barista-button snap-start"
+  >
+    <div class="w-full px-4 grid grid-cols-1 sm:grid-cols-2 gap-10">
+
+      <!-- TEXT COLUMN -->
+      <div class="rte text-lg leading-[1.25] [&_p]:mb-3 min-w-0">
+
+        <!-- STEP 1: TITLE -->
+        <div
+          class="wb-reveal wb-reveal-title"
+          data-scroll-fade
+          style="transition-delay:300ms;"
+        >
+          <h2 class="text-3xl font-bold mb-4">
+            <strong>WILD BEANS TOUCH</strong>
+          </h2>
+        </div>
+
+        <!-- STEP 2: CONTENT (STAGGER) -->
+        <div class="wb-reveal wb-reveal-text">
+
+          <h4 class="text-2xl font-bold mb-2" data-scroll-fade style="transition-delay:900ms;">
+            <strong>OUR BARISTA EXPERTS</strong>
+          </h4>
+
+          <p class="text-2xl mb-6" data-scroll-fade style="transition-delay:1250ms;">
+            WE WORK WITH A TEAM OF EXPERIENCED AND RENOWNED BARISTAS THROUGHOUT FRANCE. YOU MAY THINK IT IS ALL ABOUT LATTE ART BUT IT GOES WAY BEYOND — IT IS ALSO ABOUT COFFEE KNOWLEDGE, STORYTELLING, AND MACHINE EXPERTISE. MOST OF ALL, THE LOVE FOR COFFEE, THE ABILITY TO SHARE UNIQUE MOMENTS &amp; SPREAD THE GOOD VIBE.
+          </p>
+
+          <h4 class="text-2xl font-bold mb-2" data-scroll-fade style="transition-delay:1600ms;">
+            <strong>SIGNATURE COFFEE STATIONS</strong>
+          </h4>
+
+          <p class="text-2xl" data-scroll-fade style="transition-delay:1950ms;">
+            WE DESIGNED BEAUTIFUL AND UNIQUE COFFEE STATIONS MADE OF STAINLESS STEEL TO IMPROVE THE BARISTA SERVICE ON ANY LOCATION. OUR SOLUTION IS “PLUG &amp; PLAY”: WE ONLY NEED A POWER SOURCE — WE BRING THE REST (AND YES, WE HAVE POWER SOLUTIONS FOR OUTDOOR EVENTS).
+          </p>
+
+        </div>
+
+      </div>
+
+      <!-- STEP 3: IMAGE -->
+      <div
+        class="wb-reveal wb-reveal-media min-w-0"
+        data-scroll-fade
+        style="transition-delay:2300ms;"
+      >
+        <div class="sm:w-2/3 h-[350px] overflow-hidden shadow-lg">
+          <img
+            src="{{ 'BBW_BARISTOSS_12452_1.jpg' | file_url }}"
+            alt="Wild Beans touch"
+            class="w-full h-full object-cover"
+            loading="lazy"
+          >
+        </div>
+      </div>
+
+    </div>
+  </section>
 
 </div>
 
 <style>
-  .wb-letter {
+  /* Prevent accidental horizontal scroll (transforms/shadows) */
+  #wild-beans-events{ overflow-x:hidden; }
+  #wild-beans-events *{ max-width:100%; }
+
+  .wb-letter{
     opacity: 0;
     transform: translateY(14px);
     display: inline-block;
     animation: wbFadeUp 0.9s forwards ease-out;
   }
 
-  @keyframes wbFadeUp {
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
+  @keyframes wbFadeUp{
+    to{ opacity:1; transform:translateY(0); }
+  }
+
+  /* CTA HERO (même logique que Story) */
+  .wb-chapter-btn{
+    z-index: 999;
+    pointer-events: auto;
+    font-size: 14px;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+  }
+
+  .wb-chapter-btn--hero{
+    position: absolute;
+    left: 50%;
+    bottom: 28px;
+    transform: translateX(-50%);
+    color: white;
+
+    opacity: 0;
+    pointer-events: none;
+
+    transition: opacity 600ms cubic-bezier(0.19,1,0.22,1);
+  }
+
+  .wb-chapter-btn--hero.is-visible{
+    opacity: 1;
+    pointer-events: auto;
+    animation: wbBlink 1.4s infinite ease-in-out;
+  }
+
+  @keyframes wbBlink{
+    0%,100%{ opacity:.25; transform:translateX(-50%) translateY(0); }
+    50%{ opacity:1; transform:translateX(-50%) translateY(-4px); }
+  }
+
+  /* Force la typo du thème sur le hero animé */
+  #wild-beans-events #events-hero-title,
+  #wild-beans-events #events-hero-subtitle,
+  #wild-beans-events .wb-letter{
+    font-family: "Fragment Mono", monospace !important;
+  }
+
+  /* =========================================
+     EVENTS — Slower, stronger reveal sequence
+     Works with theme script toggling .is-visible
+  ========================================= */
+  #wild-beans-events [data-scroll-fade]{
+    opacity: 0;
+    transform: translateY(34px);
+    transition:
+      opacity 1400ms cubic-bezier(0.16,1,0.3,1),
+      transform 1900ms cubic-bezier(0.16,1,0.3,1),
+      filter 1900ms cubic-bezier(0.16,1,0.3,1);
+    will-change: opacity, transform, filter;
+  }
+
+  #wild-beans-events [data-scroll-fade].is-visible{
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+
+  /* Title: extra cinematic */
+  #wild-beans-events .wb-reveal-title{
+    transform: translateY(44px);
+    letter-spacing: 0.03em;
+  }
+  #wild-beans-events .wb-reveal-title.is-visible{
+    transform: translateY(0);
+  }
+
+  /* Media: slow zoom-out */
+  #wild-beans-events .wb-reveal-media{
+    transform: translateY(34px) scale(1.09);
+    filter: blur(14px);
+  }
+  #wild-beans-events .wb-reveal-media.is-visible{
+    transform: translateY(0) scale(1);
+    filter: blur(0);
   }
 </style>
 
 <script>
   document.addEventListener("DOMContentLoaded", function () {
+
+    /* =========================
+       HERO TEXT ANIMATION
+    ========================= */
     const titleText = "ELEVATE YOUR EVENTS";
     const subtitleText = "Where Premium Coffee Meets Flawless Service";
 
-    const titleEl = document.getElementById("hero-title");
-    const subtitleEl = document.getElementById("hero-subtitle");
+    const titleEl = document.getElementById("events-hero-title");
+    const subtitleEl = document.getElementById("events-hero-subtitle");
 
-    function animateText(el, text, baseDelay) {
+    function animateText(el, text, baseDelay, speed){
       if (!el) return;
       el.innerHTML = "";
       Array.from(text).forEach((char, index) => {
         const span = document.createElement("span");
         span.className = "wb-letter";
         span.textContent = char === " " ? "\u00A0" : char;
-        span.style.animationDelay = (baseDelay + index * 0.08) + "s";
+        span.style.animationDelay = (baseDelay + index * speed) + "s";
         el.appendChild(span);
       });
     }
 
-    animateText(titleEl, titleText, 0.08);
-    animateText(subtitleEl, subtitleText, 0.8);
+    animateText(titleEl, titleText, 0.08, 0.08);
+    animateText(subtitleEl, subtitleText, 0.8, 0.05);
 
-    // === ANIMATIONS D'APPARITION AU SCROLL ===
-    const fadeEls = document.querySelectorAll("[data-scroll-fade]");
+    /* =========================
+       SCROLL CTA (SAFE)
+    ========================= */
+    const slider = document.getElementById("wild-beans-events");
+    if (!slider) return;
 
-    if (!("IntersectionObserver" in window)) {
-      // Fallback vieux navigateurs : on montre tout
-      fadeEls.forEach(el => {
-        el.classList.remove("opacity-0", "translate-y-6");
-      });
-      return;
+    /* =========================
+       CTA HERO — appear after subtitle animation
+    ========================= */
+    const heroCTA = document.querySelector("#wild-beans-events .wb-chapter-btn--hero");
+
+    if (heroCTA && subtitleText && subtitleEl) {
+      const baseDelay = 0.8;     // même valeur que animateText
+      const speed = 0.05;        // même valeur que animateText
+      const lettersCount = subtitleText.length;
+
+      const totalDuration = (baseDelay + lettersCount * speed + 0.9) * 1000;
+
+      setTimeout(() => {
+        heroCTA.classList.add("is-visible");
+      }, totalDuration);
     }
 
-    const fadeObserver = new IntersectionObserver(
-      (entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.remove("opacity-0", "translate-y-6");
-            // Optionnel : s'assurer de l'état final
-            entry.target.classList.add("opacity-100", "translate-y-0");
-            // On peut arrêter d'observer une fois l'anim jouée
-            fadeObserver.unobserve(entry.target);
-          }
-        });
-      },
-      {
-        threshold: 0.2 // l’élément commence à s’animer quand ~20% est visible
-      }
-    );
+    /* =========================================
+       SCROLL TYPE "STORY" (GO TO SLIDE)
+    ========================================= */
+    document
+      .querySelectorAll("#wild-beans-events [data-go-slide]")
+      .forEach((btn) => {
+        btn.addEventListener("click", (e) => {
+          e.preventDefault();
+          if (typeof slider._goToSlide !== "function") return;
 
-    fadeEls.forEach(el => fadeObserver.observe(el));
+          const slideIndex = parseInt(btn.dataset.goSlide, 10);
+          if (isNaN(slideIndex)) return;
+
+          slider._goToSlide(slideIndex);
+        });
+      });
+
+    /* IMPORTANT:
+       No local IntersectionObserver here.
+       Your theme script already toggles .is-visible on [data-scroll-fade].
+    */
   });
 </script>
 
 {% schema %}
 {
-  "name": "WB - Events",
+  "name": "WB - Events (Hardcoded)",
   "settings": [],
-  "blocks": [
-    {
-      "type": "feature",
-      "name": "Event",
-      "settings": [
-        { "type": "image_picker", "id": "image", "label": "Image" },
-        { "type": "text", "id": "image_alt", "label": "Description image" },
-        { "type": "textarea", "id": "text_html", "label": "Texte" }
-      ]
-    }
-  ],
   "presets": [
-    { "name": "WB - Events" }
+    { "name": "WB - Events (Hardcoded)" }
   ]
 }
-
 {% endschema %}
